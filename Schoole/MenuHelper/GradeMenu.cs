@@ -1,20 +1,30 @@
 ﻿using Schoole.Models;
-using Schoole.Repositories;
-using Schoole.Repositories.Database;
-using Schoole.Services;
+using Schoole.Services.CourseService;
+using Schoole.Services.GradeService;
+using Schoole.Services.StudentsService;
 
 namespace Schoole.MenuHelper
 {
     public class GradeMenu
     {
-        private readonly MenuHelper _menuHelper;
+        private readonly IAddGradeService _addGradeService;
+        private readonly IGetAllStudentsService _getAllStudentsService;
+        private readonly IGetAllCoursesService _getAllCoursesService;
+        private readonly IShowReportCardService _showReportCardService;
 
-        public GradeMenu(MenuHelper menuHelper)
+        public GradeMenu(IAddGradeService addGradeService,
+            IGetAllStudentsService getAllStudentsService,
+            IGetAllCoursesService getAllCoursesService,
+            IShowReportCardService showReportCardService)
         {
-            _menuHelper = menuHelper;
+            _addGradeService = addGradeService;
+            _getAllStudentsService = getAllStudentsService;
+            _getAllCoursesService = getAllCoursesService;
+            _showReportCardService = showReportCardService;
+
         }
 
-        public void Grade(DbGradeRepository gradeRepo, GradeService gradeService, DbStudentRepository studentRepo, StudentService studentService, DbCourseRepository courseRepo, CourseService courseService)
+        public void GradeMenuMain()
         {
             while (true)
             {
@@ -40,7 +50,7 @@ namespace Schoole.MenuHelper
                 {
                     case "1":
 
-                        bool result = AddGrade(gradeRepo, gradeService, studentRepo, studentService, courseRepo, courseService);
+                        bool result = AddGrade();
                         if (result)
                         {
                             while (true)
@@ -53,7 +63,7 @@ namespace Schoole.MenuHelper
                                 int close = Convert.ToInt16(Console.ReadLine());
                                 if (close == 1)
                                 {
-                                    AddGrade(gradeRepo, gradeService, studentRepo, studentService, courseRepo, courseService);
+                                    AddGrade();
                                 }
                                 else if (close == 0)
                                 {
@@ -61,22 +71,22 @@ namespace Schoole.MenuHelper
                                 }
                             }
                         }
-                        
+
                         break;
                     case "2":
-                        ShowStudentReportCard(gradeRepo, gradeService, studentRepo, studentService, courseRepo, courseService);
+                        ShowStudentReportCard();
                         break;
                     case "0":
-                        _menuHelper.MainMenu();
+                        
                         return;
                     default:
-                        _menuHelper.ControlInput();
+                        ControlInput();
                         break;
                 }
             }
         }
 
-        public bool AddGrade(DbGradeRepository gradeRepo, GradeService gradeService, DbStudentRepository studentRepo, StudentService studentService, DbCourseRepository courseRepo, CourseService courseService)
+        public bool AddGrade()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -91,8 +101,8 @@ namespace Schoole.MenuHelper
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
-            List<Student> students = studentRepo.GetAllStudents();
-            List<Course> courses = courseRepo.GetAll();
+            List<Student> students = _getAllStudentsService.Execute();
+            List<Course> courses = _getAllCoursesService.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (students.Count == 0 || courses.Count == 0)
             {
@@ -103,7 +113,7 @@ namespace Schoole.MenuHelper
                 Console.WriteLine("Press Any Key To Go Back.");
                 Console.ReadKey();
                 return false;
-                
+
             }
             else
             {
@@ -142,7 +152,7 @@ namespace Schoole.MenuHelper
                 var cId = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Score: ");
                 var score = Convert.ToDouble(Console.ReadLine());
-                var result = gradeService.AddGrade(sId, cId, score);
+                var result = _addGradeService.Execute(sId, cId, score);
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("----------------------------");
                 Console.ResetColor();
@@ -164,7 +174,7 @@ namespace Schoole.MenuHelper
 
         }
 
-        public void ShowStudentReportCard(DbGradeRepository gradeRepo, GradeService gradeService, DbStudentRepository studentRepo, StudentService studentService, DbCourseRepository courseRepo, CourseService courseService)
+        public void ShowStudentReportCard()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -180,7 +190,7 @@ namespace Schoole.MenuHelper
             Console.WriteLine("----------------------------");
             Console.ResetColor();
 
-            List<Student> students = studentRepo.GetAllStudents();
+            List<Student> students = _getAllStudentsService.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (students.Count == 0)
             {
@@ -210,7 +220,7 @@ namespace Schoole.MenuHelper
                 Console.ResetColor();
                 Console.Write("Student ID: ");
                 var stId = int.Parse(Console.ReadLine());
-                var result1 = studentService.ShowReportCard(stId);
+                var result1 = _showReportCardService.Execute(stId);
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("----------------------------");
                 Console.ResetColor();
@@ -235,6 +245,14 @@ namespace Schoole.MenuHelper
 
             }
 
+        }
+        private void ControlInput()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Invalid selection. Please try again.");
+            Console.ResetColor();
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
         }
     }
 }

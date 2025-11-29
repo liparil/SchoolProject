@@ -1,49 +1,28 @@
-﻿using Schoole.Repositories;
-using Schoole.Repositories.Database;
-using Schoole.Services;
-
-namespace Schoole.MenuHelper
+﻿namespace Schoole.MenuHelper
 {
     public class MenuHelper
     {
 
-        private readonly DbStudentRepository _studentRepo;
-        private readonly StudentService _studentService;
-
-
-        private readonly DbTeacherRepository _teacherRepo;
-        private readonly TeacherService _teacherService;
-
-
-        private readonly DbCourseRepository _courseRepo;
-        private readonly CourseService _courseService;
-
-
-        private readonly DbClassroomRepository _classroomRepo;
-        private readonly ClassroomService _classroomService;
-
-
-        private readonly DbGradeRepository _gradeRepo;
-        private readonly GradeService _gradeService;
+        private readonly StudentMenu _studentMenu;
+        private readonly TeacherMenu _teacherMenu;
+        private readonly CourseMenu _courseMenu;
+        private readonly ClassroomMenu _classroomMenu;
+        private readonly GradeMenu _gradeMenu;
 
         public MenuHelper(
-        DbStudentRepository studentRepo, StudentService studentService,
-        DbTeacherRepository teacherRepo, TeacherService teacherService,
-        DbCourseRepository courseRepo, CourseService courseService,
-        DbClassroomRepository classroomRepo, ClassroomService classroomService,
-        DbGradeRepository gradeRepo, GradeService gradeService)
+        StudentMenu studentMenu,
+        TeacherMenu teacherMenu,
+        CourseMenu courseMenu,
+        ClassroomMenu classroomMenu,
+        GradeMenu gradeMenu
+            )
         {
-            _studentRepo = studentRepo;
-            _studentService = studentService;
-            _teacherRepo = teacherRepo;
-            _teacherService = teacherService;
-            _courseRepo = courseRepo;
-            _courseService = courseService;
-            _classroomRepo = classroomRepo;
-            _classroomService = classroomService;
-            _gradeRepo = gradeRepo;
-            _gradeService = gradeService;
-
+            _studentMenu = studentMenu;
+            _teacherMenu = teacherMenu;
+            _courseMenu = courseMenu;
+            _classroomMenu = classroomMenu;
+            _gradeMenu = gradeMenu;
+           
         }
 
         public void MainMenu()
@@ -76,19 +55,19 @@ namespace Schoole.MenuHelper
                 switch (choice)
                 {
                     case "1":
-                        ShowStudentMenu();
+                        _studentMenu.StudentMenuMain();
                         break;
                     case "2":
-                        ShowTeachertMenu();
+                        _teacherMenu.TeacherMenuMain();
                         break;
                     case "3":
-                        ShowCourseMenu();
+                        _courseMenu.CourseMenuMain();
                         break;
                     case "4":
-                        ShowClassroomMenu();
+                        _classroomMenu.ClassroomMenuMain();
                         break;
                     case "5":
-                        ShowGradeMenu();
+                        _gradeMenu.GradeMenuMain();
                         break;
                     case "0":
                         exitMethod();
@@ -99,40 +78,6 @@ namespace Schoole.MenuHelper
 
                 }
             }
-        }
-
-        void ShowStudentMenu()
-        {
-            var studentMenu = new StudentMenu(this);
-            studentMenu.Student(_studentRepo, _studentService);
-        }
-
-        void ShowTeachertMenu()
-        {
-            var teacherMenu = new TeacherMenu(this);
-            teacherMenu.Teacher(_teacherRepo, _teacherService);
-
-        }
-
-        void ShowCourseMenu()
-        {
-            var courseMenu = new CourseMenu(this);
-            courseMenu.Course(_teacherRepo, _teacherService, _courseRepo, _courseService);
-
-        }
-
-        void ShowClassroomMenu()
-        {
-            var classroomMenu = new ClassroomMenu(this);
-            classroomMenu.Classroom(_classroomRepo, _classroomService, _studentRepo, _studentService, _courseRepo, _courseService, _teacherRepo, _teacherService);
-
-        }
-
-        void ShowGradeMenu()
-        {
-            var gradeMenu = new GradeMenu(this);
-            gradeMenu.Grade(_gradeRepo, _gradeService, _studentRepo, _studentService, _courseRepo, _courseService);
-
         }
 
         public void ControlInput()

@@ -1,21 +1,36 @@
-﻿using Schoole.Interfaces;
-using Schoole.Models;
-using Schoole.Repositories;
-using Schoole.Repositories.Database;
-using Schoole.Services;
+﻿using Schoole.Models;
+using Schoole.Services.TeacherService;
 
 namespace Schoole.MenuHelper
 {
     public class TeacherMenu
     {
-        private readonly MenuHelper _menuHelper;
+        private readonly IAddTeacherService _addTeacherService;
+        private readonly IDeleteTeacherService _deleteTeacherService;
+        private readonly IGetTeacherByIdService _getTeacherByIdService;
+        private readonly IGetAllTeachersService _getAllTeachersService;
+        private readonly IUpdataTeacherService _updataTeacherService;
+        private readonly IShowTeacherService _showTeacherService;
+        private readonly ISearchTeacherByNationalCodeService _searchTeacherByNationalCodeService;
 
-        public TeacherMenu(MenuHelper menuHelper)
+        public TeacherMenu(IAddTeacherService addTeacherService,
+          IDeleteTeacherService deleteTeacherService,
+          IGetTeacherByIdService getTeacherByIdService,
+          IGetAllTeachersService getAllTeachersService,
+          IUpdataTeacherService updataTeacherService,
+          IShowTeacherService showTeacherService,
+          ISearchTeacherByNationalCodeService searchTeacherByNationalCodeService)
         {
-            _menuHelper = menuHelper;
+            _addTeacherService = addTeacherService;
+            _deleteTeacherService = deleteTeacherService;
+            _getTeacherByIdService = getTeacherByIdService;
+            _getAllTeachersService = getAllTeachersService;
+            _updataTeacherService = updataTeacherService;
+            _showTeacherService = showTeacherService;
+            _searchTeacherByNationalCodeService = searchTeacherByNationalCodeService;
         }
 
-        public void Teacher(DbTeacherRepository teacherRepo, TeacherService teacherService)
+        public void TeacherMenuMain()
         {
             while (true)
             {
@@ -43,7 +58,7 @@ namespace Schoole.MenuHelper
                 switch (choice)
                 {
                     case "1":
-                        AddTeachers(teacherRepo, teacherService);
+                        AddTeachers();
                         while (true)
                         {
                             Console.ForegroundColor = ConsoleColor.Blue;
@@ -54,7 +69,7 @@ namespace Schoole.MenuHelper
                             int close = Convert.ToInt16(Console.ReadLine());
                             if (close == 1)
                             {
-                                AddTeachers(teacherRepo, teacherService);
+                                AddTeachers();
                             }
                             else if (close == 0)
                             {
@@ -63,29 +78,28 @@ namespace Schoole.MenuHelper
                         }
                         break;
                     case "2":
-                        UpdateTeachers(teacherRepo, teacherService);
+                        UpdateTeachers();
 
                         break;
                     case "3":
-                        DeleteTeachers(teacherRepo, teacherService);
+                        DeleteTeachers();
                         break;
                     case "4":
-                        ShowAllTeachers(teacherRepo, teacherService);
+                        ShowAllTeachers();
                         break;
                     case "5":
-                        SearchByNationalCode(teacherRepo, teacherService);
+                        SearchByNationalCode();
                         break;
                     case "0":
-                        _menuHelper.MainMenu();
                         return;
                     default:
-                        _menuHelper.ControlInput();
+                        ControlInput();
                         break;
                 }
             }
         }
 
-        public void AddTeachers(DbTeacherRepository teacherRepo, TeacherService teacherService)
+        public void AddTeachers()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -140,7 +154,7 @@ namespace Schoole.MenuHelper
             Console.WriteLine("Expertise: ");
             var expertise = Console.ReadLine();
 
-            var result = teacherService.AddTeacher(tName, nCode, expertise);
+            var result = _addTeacherService.Execute(tName, nCode, expertise);
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
@@ -160,7 +174,7 @@ namespace Schoole.MenuHelper
 
         }
 
-        public void UpdateTeachers(DbTeacherRepository teacherRepo, TeacherService teacherService)
+        public void UpdateTeachers()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -175,7 +189,7 @@ namespace Schoole.MenuHelper
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
-            List<Teacher> teachers = teacherRepo.GetAllTeachers();
+            List<Teacher> teachers = _getAllTeachersService.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (teachers.Count == 0)
             {
@@ -204,7 +218,7 @@ namespace Schoole.MenuHelper
                 Console.ResetColor();
                 Console.WriteLine("Enter the teacher ID you want to edit: ");
                 var tchrId = Convert.ToInt32(Console.ReadLine());
-                var teacherResult = teacherRepo.GetTeacherById(tchrId);
+                var teacherResult = _getTeacherByIdService.Execute(tchrId);
                 if (teacherResult == null)
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
@@ -273,7 +287,7 @@ namespace Schoole.MenuHelper
                                 NCode = teacherResult.NCode,
                                 Expertise = teacherResult.Expertise
                             };
-                            teacherService.UpdataTeacher(updatedNameTeacher);
+                            _updataTeacherService.Execute(updatedNameTeacher);
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -333,7 +347,7 @@ namespace Schoole.MenuHelper
                                     NCode = onlyNCode,
                                     Expertise = teacherResult.Expertise
                                 };
-                                teacherService.UpdataTeacher(updatedNCodetTeacher);
+                                _updataTeacherService.Execute(updatedNCodetTeacher);
                                 Console.ForegroundColor = ConsoleColor.Blue;
                                 Console.WriteLine("----------------------------");
                                 Console.ForegroundColor = ConsoleColor.Green;
@@ -366,7 +380,7 @@ namespace Schoole.MenuHelper
                                 NCode = teacherResult.NCode,
                                 Expertise = onlyExpertise
                             };
-                            teacherService.UpdataTeacher(updatedExpertiseTeacher);
+                            _updataTeacherService.Execute(updatedExpertiseTeacher);
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -431,7 +445,7 @@ namespace Schoole.MenuHelper
                                 NCode = nTchrNCode,
                                 Expertise = nTchrExpertise,
                             };
-                            teacherService.UpdataTeacher(updatedTeacher);
+                            _updataTeacherService.Execute(updatedTeacher);
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -447,7 +461,7 @@ namespace Schoole.MenuHelper
             }
         }
 
-        public void DeleteTeachers(DbTeacherRepository teacherRepo, TeacherService teacherService)
+        public void DeleteTeachers()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -462,7 +476,7 @@ namespace Schoole.MenuHelper
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
-            List<Teacher> teachers = teacherRepo.GetAllTeachers();
+            List<Teacher> teachers = _getAllTeachersService.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (teachers.Count == 0)
             {
@@ -493,7 +507,7 @@ namespace Schoole.MenuHelper
                 Console.ResetColor();
                 Console.WriteLine("Enter the teacher ID you want to delete: ");
                 var teachDeleteId = Convert.ToInt32(Console.ReadLine());
-                var teachDeleteResult = teacherRepo.GetTeacherById(teachDeleteId);
+                var teachDeleteResult = _getTeacherByIdService.Execute(teachDeleteId);
                 var makeSure = 0;
                 while (true)
                 {
@@ -530,7 +544,7 @@ namespace Schoole.MenuHelper
                         Console.ForegroundColor = ConsoleColor.Blue;
                         Console.WriteLine("----------------------------");
                         Console.ResetColor();
-                        teacherService.DeleteTeacher(teachDeleteId);
+                        _deleteTeacherService.Execute(teachDeleteId);
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("The teacher successfully deleted");
                         Console.ResetColor();
@@ -550,7 +564,7 @@ namespace Schoole.MenuHelper
 
         }
 
-        public void ShowAllTeachers(DbTeacherRepository teacherRepo, TeacherService teacherService)
+        public void ShowAllTeachers()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -562,7 +576,7 @@ namespace Schoole.MenuHelper
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(" ***");
             Console.ResetColor();
-            List<Teacher> teachers = teacherRepo.GetAllTeachers();
+            List<Teacher> teachers = _getAllTeachersService.Execute();
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
@@ -593,7 +607,7 @@ namespace Schoole.MenuHelper
             Console.ReadKey();
         }
 
-        public void SearchByNationalCode(DbTeacherRepository teacherRepo, TeacherService teacherService)
+        public void SearchByNationalCode()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -609,7 +623,7 @@ namespace Schoole.MenuHelper
             Console.WriteLine("----------------------------");
             Console.ResetColor();
 
-            List<Teacher> teachers = teacherRepo.GetAllTeachers();
+            List<Teacher> teachers = _getAllTeachersService.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.ResetColor();
             if (teachers.Count == 0)
@@ -624,7 +638,7 @@ namespace Schoole.MenuHelper
             {
                 Console.WriteLine("Enter The National Code:");
                 string Code = Console.ReadLine();
-                var teacher = teacherService.ShowTeacher(Code);
+                var teacher = _showTeacherService.Execute(Code);
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("----------------------------");
                 Console.ResetColor();
@@ -647,6 +661,15 @@ namespace Schoole.MenuHelper
 
 
             Console.WriteLine("Press Any Key To Go Back.");
+            Console.ReadKey();
+        }
+
+        private void ControlInput()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Invalid selection. Please try again.");
+            Console.ResetColor();
+            Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
     }

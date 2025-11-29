@@ -1,21 +1,35 @@
-﻿using Schoole.Interfaces;
-using Schoole.Models;
-using Schoole.Repositories;
-using Schoole.Repositories.Database;
-using Schoole.Services;
+﻿using Schoole.Models;
+using Schoole.Services.CourseService;
+using Schoole.Services.TeacherService;
 
 namespace Schoole.MenuHelper
 {
     public class CourseMenu
     {
-        private readonly MenuHelper _menuHelper;
+        private readonly IAddCourseService _addCourseService;
+        private readonly IDeleteCourseServise _deleteCourseServise;
+        private readonly IGetAllCoursesService _getAllCoursesService;
+        private readonly IUpdateCourseService _updateCourseService;
+        private readonly IGetAllTeachersService _getAllTeachersService;
+        private readonly IGetCourseByIdService _getCourseByIdService;
 
-        public CourseMenu(MenuHelper menuHelper)
+        public CourseMenu(
+            IAddCourseService addCourseService,
+            IDeleteCourseServise deleteCourseServise,
+            IGetAllCoursesService getAllCoursesService,
+            IUpdateCourseService updateCourseService,
+            IGetAllTeachersService getAllTeachersService,
+            IGetCourseByIdService getCourseByIdService)
         {
-            _menuHelper = menuHelper;
+            _addCourseService = addCourseService;
+            _deleteCourseServise = deleteCourseServise;
+            _getAllCoursesService = getAllCoursesService;
+            _updateCourseService = updateCourseService;
+            _getAllTeachersService = getAllTeachersService;
+            _getCourseByIdService = getCourseByIdService;
         }
 
-        public void Course(DbTeacherRepository teacherRepo, TeacherService teacherService, DbCourseRepository courseRepo, CourseService courseService)
+        public void CourseMenuMain()
         {
             while (true)
             {
@@ -42,7 +56,7 @@ namespace Schoole.MenuHelper
                 switch (choice)
                 {
                     case "1":
-                        bool result = AddCourse(teacherRepo, teacherService, courseRepo, courseService);
+                        bool result = AddCourse();
                         if (result)
                         {
                             while (true)
@@ -55,7 +69,7 @@ namespace Schoole.MenuHelper
                                 int close = Convert.ToInt16(Console.ReadLine());
                                 if (close == 1)
                                 {
-                                    AddCourse(teacherRepo, teacherService, courseRepo, courseService);
+                                    AddCourse();
                                 }
                                 else if (close == 0)
                                 {
@@ -66,28 +80,27 @@ namespace Schoole.MenuHelper
 
                         break;
                     case "2":
-                        UpdateCourse(teacherRepo, teacherService, courseRepo, courseService);
+                        UpdateCourse();
 
                         break;
                     case "3":
-                        DeleteCourse(teacherRepo, teacherService, courseRepo, courseService);
+                        DeleteCourse();
 
                         break;
                     case "4":
 
-                        ShowAllCourses(teacherRepo, teacherService, courseRepo, courseService);
+                        ShowAllCourses();
                         break;
                     case "0":
-                        _menuHelper.MainMenu();
                         return;
                     default:
-                        _menuHelper.ControlInput();
+                        ControlInput();
                         break;
                 }
             }
         }
 
-        public bool AddCourse(DbTeacherRepository teacherRepo, TeacherService teacherService, DbCourseRepository courseRepo, CourseService courseService)
+        public bool AddCourse()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -100,7 +113,7 @@ namespace Schoole.MenuHelper
             Console.WriteLine(" ***");
             Console.ResetColor();
 
-            List<Teacher> teachers = teacherRepo.GetAllTeachers();
+            List<Teacher> teachers = _getAllTeachersService.Execute();
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
@@ -139,7 +152,7 @@ namespace Schoole.MenuHelper
                 Console.WriteLine("TecherId: ");
                 var teacherId = Convert.ToInt32(Console.ReadLine());
 
-                var result = courseService.AddCourse(title, teacherId);
+                var result = _addCourseService.Execute(title, teacherId);
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("----------------------------");
                 Console.ResetColor();
@@ -160,7 +173,7 @@ namespace Schoole.MenuHelper
             }
         }
 
-        public void UpdateCourse(DbTeacherRepository teacherRepo, TeacherService teacherService, DbCourseRepository courseRepo, CourseService courseService)
+        public void UpdateCourse()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -175,7 +188,7 @@ namespace Schoole.MenuHelper
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
-            List<Course> course = courseRepo.GetAll();
+            List<Course> course = _getAllCoursesService.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (course.Count == 0)
             {
@@ -204,7 +217,7 @@ namespace Schoole.MenuHelper
                 Console.ResetColor();
                 Console.WriteLine("Enter the course ID you want to edit: ");
                 var courseId = Convert.ToInt32(Console.ReadLine());
-                var courseResult = courseRepo.GetCourseById(courseId);
+                var courseResult = _getCourseByIdService.Execute(courseId);
                 if (courseResult == null)
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
@@ -269,7 +282,7 @@ namespace Schoole.MenuHelper
                                 teacher = courseResult.teacher
 
                             };
-                            courseService.UpdateCourse(updatedTitleCourse);
+                            _updateCourseService.Execute(updatedTitleCourse);
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -290,7 +303,7 @@ namespace Schoole.MenuHelper
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ResetColor();
-                            List<Teacher> teachers = teacherRepo.GetAllTeachers();
+                            List<Teacher> teachers = _getAllTeachersService.Execute();
                             Console.WriteLine($"Total teachers: {teachers.Count}");
                             foreach (Teacher teacher in teachers)
                             {
@@ -303,7 +316,7 @@ namespace Schoole.MenuHelper
                                 Console.WriteLine($"Expertise: {teacher.Expertise}");
 
                             }
-                            var selectedCourse = courseRepo.GetCourseById(courseResult.ID);
+                            var selectedCourse = _getCourseByIdService.Execute(courseResult.ID);
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ResetColor();
@@ -311,7 +324,7 @@ namespace Schoole.MenuHelper
                             var onlyTeacherId = Convert.ToInt32(Console.ReadLine());
 
                             selectedCourse.TeacherId = onlyTeacherId;
-                            courseService.UpdateCourse(selectedCourse);
+                            _updateCourseService.Execute(selectedCourse);
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -332,7 +345,7 @@ namespace Schoole.MenuHelper
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ResetColor();
-                            List<Teacher> t = teacherRepo.GetAllTeachers();
+                            List<Teacher> t = _getAllTeachersService.Execute();
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine($"Total teachers: {t.Count}");
                             Console.ResetColor();
@@ -350,7 +363,7 @@ namespace Schoole.MenuHelper
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ResetColor();
-                            var Mycourse = courseRepo.GetCourseById(courseResult.ID);
+                            var Mycourse = _getCourseByIdService.Execute(courseResult.ID);
                             Console.WriteLine("Enter New Title: ");
                             var nTitle = Console.ReadLine();
                             Console.WriteLine("Enter New Teacher Id: ");
@@ -361,7 +374,7 @@ namespace Schoole.MenuHelper
                             Mycourse.TeacherId = nTeacher;
 
 
-                            courseService.UpdateCourse(Mycourse);
+                            _updateCourseService.Execute(Mycourse);
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -378,7 +391,7 @@ namespace Schoole.MenuHelper
             }
         }
 
-        public void DeleteCourse(DbTeacherRepository teacherRepo, TeacherService teacherService, DbCourseRepository courseRepo, CourseService courseService)
+        public void DeleteCourse()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -393,7 +406,7 @@ namespace Schoole.MenuHelper
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
-            List<Course> courses = courseRepo.GetAll();
+            List<Course> courses = _getAllCoursesService.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (courses.Count == 0)
             {
@@ -424,7 +437,7 @@ namespace Schoole.MenuHelper
                 Console.ResetColor();
                 Console.WriteLine("Enter the Course ID you want to delete: ");
                 var courseDeleteId = Convert.ToInt32(Console.ReadLine());
-                var courseDeleteResult = courseRepo.GetCourseById(courseDeleteId);
+                var courseDeleteResult = _getCourseByIdService.Execute(courseDeleteId);
                 var makeSure = 0;
                 while (true)
                 {
@@ -461,7 +474,7 @@ namespace Schoole.MenuHelper
                         Console.ForegroundColor = ConsoleColor.Blue;
                         Console.WriteLine("----------------------------");
                         Console.ResetColor();
-                        courseService.DeleteCourse(courseDeleteId);
+                        _deleteCourseServise.Execute(courseDeleteId);
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("The course successfully deleted");
                         Console.ResetColor();
@@ -479,7 +492,7 @@ namespace Schoole.MenuHelper
             }
         }
 
-        public void ShowAllCourses(DbTeacherRepository teacherRepo, TeacherService teacherService, DbCourseRepository courseRepo, CourseService courseService)
+        public void ShowAllCourses()
         {
 
             Console.Clear();
@@ -492,7 +505,7 @@ namespace Schoole.MenuHelper
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(" ***");
             Console.ResetColor();
-            List<Course> courses = courseRepo.GetAll();
+            List<Course> courses = _getAllCoursesService.Execute();
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
@@ -525,6 +538,15 @@ namespace Schoole.MenuHelper
                 Console.WriteLine("Press Any Key To Go Back.");
                 Console.ReadKey();
             }
+        }
+
+        private void ControlInput()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Invalid selection. Please try again.");
+            Console.ResetColor();
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
         }
     }
 }

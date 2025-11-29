@@ -1,21 +1,50 @@
-﻿using Schoole.Interfaces;
-using Schoole.Models;
-using Schoole.Repositories;
-using Schoole.Repositories.Database;
-using Schoole.Services;
+﻿using Schoole.Models;
+using Schoole.Services.StudentsService;
 
 namespace Schoole.MenuHelper
 {
     public class StudentMenu
     {
-        private readonly MenuHelper _menuHelper;
+        private readonly IAddStudentService _addStudentService;
+        private readonly IDeleteStudentService _deleteStudentService;
+        private readonly IGetStudentByIdService _getStudentByIdService;
+        private readonly IGetAllStudentsService _getAllStudentsService;
+        private readonly IUpdateStudentService _updateStudentService;
+        private readonly IShowStudentService _showStudentService;
+        private readonly ISearchByNationalCodeService _searchByNationalCodeService;
 
-        public StudentMenu(MenuHelper menuHelper)
+
+        public StudentMenu(
+            IAddStudentService addStudentService,
+            IGetAllStudentsService getAllStudentsService,
+        IGetStudentByIdService getStudentByIdService,
+        IDeleteStudentService deleteStudentService,
+        IUpdateStudentService updateStudentService,
+        IShowStudentService showStudentService,
+        ISearchByNationalCodeService searchByNationalCodeService
+            )
         {
-            _menuHelper = menuHelper;
+            _addStudentService = addStudentService;
+            _addStudentService = addStudentService;
+            _getAllStudentsService = getAllStudentsService;
+            _getStudentByIdService = getStudentByIdService;
+            _deleteStudentService = deleteStudentService;
+            _updateStudentService = updateStudentService;
+            _showStudentService = showStudentService;
+            _searchByNationalCodeService = searchByNationalCodeService;
+
         }
 
-        public void Student(DbStudentRepository studentRepo, StudentService studentService)
+        private void ControlInput()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Invalid selection. Please try again.");
+            Console.ResetColor();
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+        }
+
+        public void StudentMenuMain()
         {
             while (true)
             {
@@ -40,52 +69,34 @@ namespace Schoole.MenuHelper
                 Console.ResetColor();
                 Console.Write("Your choice: ");
                 var choice = Console.ReadLine();
+
                 switch (choice)
                 {
                     case "1":
-                        AddingStudent(studentRepo, studentService);
-                        while (true)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Blue;
-                            Console.WriteLine("----------------------------");
-                            Console.ResetColor();
-                            Console.WriteLine("If you want to add a new student, press 1.");
-                            Console.WriteLine("To go back press 0");
-                            int close = Convert.ToInt16(Console.ReadLine());
-                            if (close == 1)
-                            {
-                                AddingStudent(studentRepo, studentService);
-                            }
-                            else if (close == 0)
-                            {
-                                break;
-                            }
-                        }
+                        AddingStudent();
                         break;
-
                     case "2":
-                        UpdateStudents(studentRepo, studentService);
+                        UpdateStudents();
                         break;
                     case "3":
-                        DeleteStudents(studentRepo, studentService);
+                        DeleteStudents();
                         break;
                     case "4":
-                        ShowAllStudents(studentRepo, studentService);
+                        ShowAllStudents();
                         break;
                     case "5":
-                        SearchByNationalCode(studentRepo, studentService);
+                        SearchByNationalCode();
                         break;
                     case "0":
-                        _menuHelper.MainMenu();
                         return;
                     default:
-                        _menuHelper.ControlInput();
+                        ControlInput();
                         break;
                 }
             }
         }
 
-        public void AddingStudent(DbStudentRepository studentRepo, StudentService studentService)
+        public void AddingStudent()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -100,11 +111,11 @@ namespace Schoole.MenuHelper
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
+
             Console.WriteLine("Student Name: ");
             var sName = Console.ReadLine();
 
             string nCode;
-
             while (true)
             {
                 Console.WriteLine("Enter national code: ");
@@ -137,8 +148,6 @@ namespace Schoole.MenuHelper
                 break;
             }
 
-
-
             DateTime birth;
             while (true)
             {
@@ -152,26 +161,219 @@ namespace Schoole.MenuHelper
                 Console.WriteLine("The date format is incorrect. Please enter it again.");
                 Console.ResetColor();
             }
-            var result = studentService.AddStudent(sName, birth, nCode);
+
+            var result = _addStudentService.Execute(sName, birth, nCode);
+
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
+
             if (result.Success)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(result.Message);
-                Console.ResetColor();
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(result.Message);
+            }
+            Console.ResetColor();
+
+            while (true)
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("----------------------------");
+                Console.ResetColor();
+                Console.WriteLine("If you want to add a new student, press 1.");
+                Console.WriteLine("To go back press 0");
+
+                if (int.TryParse(Console.ReadLine(), out int close))
+                {
+                    if (close == 1)
+                    {
+                        AddingStudent();
+                        return;
+                    }
+                    else if (close == 0)
+                    {
+                        return;
+                    }
+                }
+                ControlInput();
+            }
+        }
+
+        public void ShowAllStudents()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("*** ");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("Showing Student");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine(" ***");
+            Console.ResetColor();
+            List<Student> students = _getAllStudentsService.Execute();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("----------------------------");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            if (students.Count == 0)
+            {
+                Console.WriteLine("No students have been added.");
+            }
+            else
+            {
+                Console.WriteLine($"Total Students: {students.Count}");
+                foreach (Student student in students)
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("----------------------------");
+                    Console.ResetColor();
+                    Console.WriteLine($"Name: {student.FullName}");
+                    Console.WriteLine($"National code: {student.NCode}");
+                    Console.WriteLine($"Date of birth: {student.BirthDate.ToShortDateString()}");
+
+                }
+            }
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("----------------------------");
+            Console.ResetColor();
+            Console.WriteLine("Press Any Key To Go Back.");
+            Console.ReadKey();
+        }
+
+        public void DeleteStudents()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("*** ");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("Delete Student");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine(" ***");
+            Console.WriteLine("----------------------------");
+            Console.ResetColor();
+            List<Student> students = _getAllStudentsService.Execute();
+
+            if (students.Count == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("No students have been added.");
+                Console.WriteLine("----------------------------");
+                Console.ResetColor();
+                Console.WriteLine("Press Any Key To Go Back.");
+                Console.ReadKey();
+                return;
+            }
+
+            Console.WriteLine($"Total Students: {students.Count}");
+            foreach (Student student in students)
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("----------------------------");
+                Console.ResetColor();
+                Console.WriteLine($"Id: {student.ID}");
+                Console.WriteLine($"Name: {student.FullName}");
+                Console.WriteLine($"National code: {student.NCode}");
+                Console.WriteLine($"Date of birth: {student.BirthDate.ToShortDateString()}");
+            }
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("----------------------------");
+            Console.ResetColor();
+
+            int stdDeleteId;
+            bool isValidInput = false;
+
+            do
+            {
+                Console.WriteLine("Enter the student ID you want to delete:");
+                Console.WriteLine("Or enter 0 to cancel");
+                string input = Console.ReadLine();
+
+                if (input == "0") return;
+
+                isValidInput = int.TryParse(input, out stdDeleteId) && stdDeleteId > 0;
+
+                if (!isValidInput)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Invalid ID. Please enter a positive number.");
+                    Console.ResetColor();
+                }
+
+            } while (!isValidInput);
+
+            var studentToDelete = students.FirstOrDefault(s => s.ID == stdDeleteId);
+
+
+            if (studentToDelete == null)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("----------------------------");
+                Console.WriteLine("No student with this ID was found.");
+                Console.WriteLine("----------------------------");
+                Console.ResetColor();
+                Console.WriteLine("Press Any Key To Go Back.");
+                Console.ReadKey();
+                return;
+            }
+            while (true)
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("----------------------------");
+                Console.ResetColor();
+                Console.Write($"Are you sure you want to delete ");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write($"{studentToDelete.FullName}");
+                Console.ResetColor();
+                Console.WriteLine("?");
+                Console.Write("1. ");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("Yes");
+                Console.ResetColor();
+                Console.Write("    2. ");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("No");
+                Console.WriteLine("----------------------------");
+                Console.ResetColor();
+                Console.Write("Select an option (1/2): ");
+
+                if (int.TryParse(Console.ReadLine(), out int makeSure))
+                {
+                    if (makeSure == 1)
+                    {
+
+                        _deleteStudentService.Execute(stdDeleteId);
+
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine("----------------------------");
+                        Console.ResetColor();
+                        Console.ResetColor();
+                        break;
+                    }
+                    else if (makeSure == 2)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("Deletion cancelled.");
+                        Console.ResetColor();
+                        break;
+                    }
+                }
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Invalid selection. Please enter 1 or 2.");
                 Console.ResetColor();
             }
 
+            Console.WriteLine("Press Any Key To Go Back.");
+            Console.ReadKey();
         }
 
-        public void UpdateStudents(DbStudentRepository studentRepo, StudentService studentService)
+        public void UpdateStudents()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -186,7 +388,7 @@ namespace Schoole.MenuHelper
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
-            List<Student> students = studentRepo.GetAllStudents();
+            List<Student> students = _getAllStudentsService.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (students.Count == 0)
             {
@@ -217,7 +419,7 @@ namespace Schoole.MenuHelper
                 }
                 Console.WriteLine("Enter the student ID you want to edit: ");
                 var stdId = Convert.ToInt32(Console.ReadLine());
-                var studentResult = studentRepo.GetStudentById(stdId);
+                var studentResult = _getStudentByIdService.Execute(stdId);
                 if (studentResult == null)
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
@@ -283,7 +485,7 @@ namespace Schoole.MenuHelper
                                 NCode = studentResult.NCode,
                                 BirthDate = studentResult.BirthDate
                             };
-                            studentService.UpdateStudent(updatedStudent);
+                            _updateStudentService.Execute(updatedStudent);
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -304,10 +506,10 @@ namespace Schoole.MenuHelper
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ResetColor();
-                            
+
                             string onlyNCode;
 
-                            
+
                             while (true)
                             {
                                 Console.WriteLine("Enter New National code: ");
@@ -343,7 +545,7 @@ namespace Schoole.MenuHelper
                                     NCode = onlyNCode,
                                     BirthDate = studentResult.BirthDate
                                 };
-                                studentService.UpdateStudent(updatedNCodeStudent);
+                                _updateStudentService.Execute(updatedNCodeStudent);
                                 Console.ForegroundColor = ConsoleColor.Blue;
                                 Console.WriteLine("----------------------------");
                                 Console.ForegroundColor = ConsoleColor.Green;
@@ -354,7 +556,7 @@ namespace Schoole.MenuHelper
                                 break;
                             }
 
-                            
+
                             break;
 
                         case "3":
@@ -383,7 +585,7 @@ namespace Schoole.MenuHelper
                                 NCode = studentResult.NCode,
                                 BirthDate = onlyBDate
                             };
-                            studentService.UpdateStudent(updatedBDateStudent);
+                            _updateStudentService.Execute(updatedBDateStudent);
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -451,7 +653,7 @@ namespace Schoole.MenuHelper
                                     NCode = nStdNCode,
                                     BirthDate = nStdBDate
                                 };
-                                studentService.UpdateStudent(updatedAllStudent);
+                                _updateStudentService.Execute(updatedAllStudent);
                                 Console.ForegroundColor = ConsoleColor.Blue;
                                 Console.WriteLine("----------------------------");
                                 Console.ForegroundColor = ConsoleColor.Green;
@@ -465,7 +667,7 @@ namespace Schoole.MenuHelper
 
                     }
 
-                    
+
                 }
 
             }
@@ -474,171 +676,7 @@ namespace Schoole.MenuHelper
 
         }
 
-        public void DeleteStudents(DbStudentRepository studentRepo, StudentService studentService)
-        {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write("*** ");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write("Delete Student");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine(" ***");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("----------------------------");
-            Console.ResetColor();
-            List<Student> students = studentRepo.GetAllStudents();
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            if (students.Count == 0)
-            {
-                Console.WriteLine("No students have been added.");
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("----------------------------");
-                Console.ResetColor();
-                Console.WriteLine("Press Any Key To Go Back.");
-                Console.ReadKey();
-            }
-            else
-            {
-                Console.WriteLine($"Total Students: {students.Count}");
-                foreach (Student student in students)
-                {
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("----------------------------");
-                    Console.ResetColor();
-                    Console.WriteLine($"Id: {student.ID}");
-                    Console.WriteLine($"Name: {student.FullName}");
-                    Console.WriteLine($"National code: {student.NCode}");
-                    Console.WriteLine($"Date of birth: {student.BirthDate.ToShortDateString()}");
-
-                }
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("----------------------------");
-                Console.ResetColor();
-                Console.WriteLine("Enter the student ID you want to delete: ");
-                var stdDeleteId = Convert.ToInt32(Console.ReadLine());
-                var studentDeleteResult = studentRepo.GetStudentById(stdDeleteId);
-                var makeSure = 0;
-                if (studentDeleteResult == null)
-                {
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("----------------------------");
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("No student with this ID was found.");
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("----------------------------");
-                    Console.ResetColor();
-                    Console.WriteLine("Press Any Key To Go Back.");
-                    Console.ReadKey();
-                }
-                else
-                {
-                    while (true)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.WriteLine("----------------------------");
-                        Console.ResetColor();
-                        Console.Write($"Are you sure you want to delete ");
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write($"{studentDeleteResult.FullName}");
-                        Console.ResetColor();
-                        Console.WriteLine("?");
-                        Console.Write("1. ");
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("Yes");
-                        Console.ResetColor();
-                        Console.Write("   2. ");
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("No");
-                        Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.WriteLine("----------------------------");
-                        Console.ResetColor();
-                        Console.Write("Select an option (");
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("1");
-                        Console.ResetColor();
-                        Console.Write("/");
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.Write("2");
-                        Console.ResetColor();
-                        Console.Write("): ");
-
-
-
-
-                        makeSure = Convert.ToInt32(Console.ReadLine());
-                        if (makeSure == 1)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Blue;
-                            Console.WriteLine("----------------------------");
-                            Console.ResetColor();
-                            studentService.DeleteStudent(stdDeleteId);
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("The student successfully deleted.");
-                            Console.ResetColor();
-                            break;
-                        }
-                        else
-                        {
-                            break;
-                        }
-
-                    }
-                    Console.WriteLine("Press Any Key To Go Back.");
-                    Console.ReadKey();
-                }
-
-
-
-            }
-        }
-
-        public void ShowAllStudents(DbStudentRepository studentRepo, StudentService studentService)
-        {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write("*** ");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write("Showing Student");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine(" ***");
-            Console.ResetColor();
-            List<Student> students = studentRepo.GetAllStudents();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("----------------------------");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            if (students.Count == 0)
-            {
-                Console.WriteLine("No students have been added.");
-            }
-            else
-            {
-                Console.WriteLine($"Total Students: {students.Count}");
-                foreach (Student student in students)
-                {
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("----------------------------");
-                    Console.ResetColor();
-                    Console.WriteLine($"Name: {student.FullName}");
-                    Console.WriteLine($"National code: {student.NCode}");
-                    Console.WriteLine($"Date of birth: {student.BirthDate.ToShortDateString()}");
-
-                }
-            }
-
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("----------------------------");
-            Console.ResetColor();
-            Console.WriteLine("Press Any Key To Go Back.");
-            Console.ReadKey();
-        }
-
-        public void SearchByNationalCode(DbStudentRepository studentRepo, StudentService studentService)
+        public void SearchByNationalCode()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -653,8 +691,7 @@ namespace Schoole.MenuHelper
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
-
-            List<Student> students = studentRepo.GetAllStudents();
+            List<Student> students = _getAllStudentsService.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.ResetColor();
             if (students.Count == 0)
@@ -669,7 +706,7 @@ namespace Schoole.MenuHelper
             {
                 Console.WriteLine("Enter The National Code:");
                 string Code = Console.ReadLine();
-                var std = studentService.ShowStudent(Code);
+                var std = _showStudentService.Execute(Code);
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("----------------------------");
                 Console.ResetColor();
@@ -689,8 +726,6 @@ namespace Schoole.MenuHelper
                 Console.WriteLine("----------------------------");
                 Console.ResetColor();
             }
-
-
             Console.WriteLine("Press Any Key To Go Back.");
             Console.ReadKey();
         }

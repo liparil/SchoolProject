@@ -142,3 +142,4 @@ C:\C#\Net Core\Schoole - dataBase\Schoole\bin\Debug\net8.0\ru\Microsoft.CodeAnal
 C:\C#\Net Core\Schoole - dataBase\Schoole\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\C#\Net Core\Schoole - dataBase\Schoole\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\C#\Net Core\Schoole - dataBase\Schoole\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\C#\Net Core\Schoole - dataBase\Schoole\obj\Debug\net8.0\Schoole.sourcelink.json

@@ -10,6 +10,5 @@ namespace Schoole.Interfaces
         Classroom GetClassroomById(int classroomId);
         List<Classroom> GetAllClassrooms();
         Classroom GetClassroomByName (string name);
-        //void save();
     }
 }

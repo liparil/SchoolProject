@@ -1,6 +1,6 @@
 ﻿namespace Schoole.Models
 {
-    public class OutputTest
+    public class Output
     {
         public bool Success { get; set; }
 

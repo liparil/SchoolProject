@@ -12,9 +12,9 @@
 
         public string Name { get; set; }
 
-        public List<Student> Students { get; set; }
+        public ICollection<Student> Students { get; set; }
 
-        public List<Course> Courses { get; set; }
+        public ICollection<Course> Courses { get; set; }
 
     }
 
