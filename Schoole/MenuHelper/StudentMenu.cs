@@ -5,33 +5,32 @@ namespace Schoole.MenuHelper
 {
     public class StudentMenu
     {
-        private readonly IAddStudentService _addStudentService;
-        private readonly IDeleteStudentService _deleteStudentService;
-        private readonly IGetStudentByIdService _getStudentByIdService;
-        private readonly IGetAllStudentsService _getAllStudentsService;
-        private readonly IUpdateStudentService _updateStudentService;
-        private readonly IShowStudentService _showStudentService;
-        private readonly ISearchByNationalCodeService _searchByNationalCodeService;
+        private readonly IAddStudent _addStudent;
+        private readonly IDeleteStudent _deleteStudent;
+        private readonly IGetStudentById _getStudentById;
+        private readonly IGetAllStudents _getAllStudents;
+        private readonly IUpdateStudent _updateStudent;
+        private readonly IShowStudent _showStudent;
+
 
 
         public StudentMenu(
-            IAddStudentService addStudentService,
-            IGetAllStudentsService getAllStudentsService,
-        IGetStudentByIdService getStudentByIdService,
-        IDeleteStudentService deleteStudentService,
-        IUpdateStudentService updateStudentService,
-        IShowStudentService showStudentService,
-        ISearchByNationalCodeService searchByNationalCodeService
+            IAddStudent addStudent,
+            IGetAllStudents getAllStudents,
+        IGetStudentById getStudentById,
+        IDeleteStudent deleteStudent,
+        IUpdateStudent updateStudent,
+        IShowStudent showStudent
+
             )
         {
-            _addStudentService = addStudentService;
-            _addStudentService = addStudentService;
-            _getAllStudentsService = getAllStudentsService;
-            _getStudentByIdService = getStudentByIdService;
-            _deleteStudentService = deleteStudentService;
-            _updateStudentService = updateStudentService;
-            _showStudentService = showStudentService;
-            _searchByNationalCodeService = searchByNationalCodeService;
+            _addStudent = addStudent;
+            _addStudent = addStudent;
+            _getAllStudents = getAllStudents;
+            _getStudentById = getStudentById;
+            _deleteStudent = deleteStudent;
+            _updateStudent = updateStudent;
+            _showStudent = showStudent;
 
         }
 
@@ -162,7 +161,7 @@ namespace Schoole.MenuHelper
                 Console.ResetColor();
             }
 
-            var result = _addStudentService.Execute(sName, birth, nCode);
+            var result = _addStudent.Execute(sName, birth, nCode);
 
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
@@ -216,7 +215,7 @@ namespace Schoole.MenuHelper
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(" ***");
             Console.ResetColor();
-            List<Student> students = _getAllStudentsService.Execute();
+            List<Student> students = _getAllStudents.Execute();
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
@@ -258,7 +257,7 @@ namespace Schoole.MenuHelper
             Console.WriteLine(" ***");
             Console.WriteLine("----------------------------");
             Console.ResetColor();
-            List<Student> students = _getAllStudentsService.Execute();
+            List<Student> students = _getAllStudents.Execute();
 
             if (students.Count == 0)
             {
@@ -348,7 +347,7 @@ namespace Schoole.MenuHelper
                     if (makeSure == 1)
                     {
 
-                        _deleteStudentService.Execute(stdDeleteId);
+                        _deleteStudent.Execute(stdDeleteId);
 
                         Console.ForegroundColor = ConsoleColor.Blue;
                         Console.WriteLine("----------------------------");
@@ -388,7 +387,7 @@ namespace Schoole.MenuHelper
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
-            List<Student> students = _getAllStudentsService.Execute();
+            List<Student> students = _getAllStudents.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (students.Count == 0)
             {
@@ -419,7 +418,7 @@ namespace Schoole.MenuHelper
                 }
                 Console.WriteLine("Enter the student ID you want to edit: ");
                 var stdId = Convert.ToInt32(Console.ReadLine());
-                var studentResult = _getStudentByIdService.Execute(stdId);
+                var studentResult = _getStudentById.Execute(stdId);
                 if (studentResult == null)
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
@@ -485,7 +484,7 @@ namespace Schoole.MenuHelper
                                 NCode = studentResult.NCode,
                                 BirthDate = studentResult.BirthDate
                             };
-                            _updateStudentService.Execute(updatedStudent);
+                            _updateStudent.Execute(updatedStudent);
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -545,7 +544,7 @@ namespace Schoole.MenuHelper
                                     NCode = onlyNCode,
                                     BirthDate = studentResult.BirthDate
                                 };
-                                _updateStudentService.Execute(updatedNCodeStudent);
+                                _updateStudent.Execute(updatedNCodeStudent);
                                 Console.ForegroundColor = ConsoleColor.Blue;
                                 Console.WriteLine("----------------------------");
                                 Console.ForegroundColor = ConsoleColor.Green;
@@ -585,7 +584,7 @@ namespace Schoole.MenuHelper
                                 NCode = studentResult.NCode,
                                 BirthDate = onlyBDate
                             };
-                            _updateStudentService.Execute(updatedBDateStudent);
+                            _updateStudent.Execute(updatedBDateStudent);
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -653,7 +652,7 @@ namespace Schoole.MenuHelper
                                     NCode = nStdNCode,
                                     BirthDate = nStdBDate
                                 };
-                                _updateStudentService.Execute(updatedAllStudent);
+                                _updateStudent.Execute(updatedAllStudent);
                                 Console.ForegroundColor = ConsoleColor.Blue;
                                 Console.WriteLine("----------------------------");
                                 Console.ForegroundColor = ConsoleColor.Green;
@@ -691,7 +690,7 @@ namespace Schoole.MenuHelper
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
-            List<Student> students = _getAllStudentsService.Execute();
+            List<Student> students = _getAllStudents.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.ResetColor();
             if (students.Count == 0)
@@ -706,7 +705,7 @@ namespace Schoole.MenuHelper
             {
                 Console.WriteLine("Enter The National Code:");
                 string Code = Console.ReadLine();
-                var std = _showStudentService.Execute(Code);
+                var std = _showStudent.Execute(Code);
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("----------------------------");
                 Console.ResetColor();

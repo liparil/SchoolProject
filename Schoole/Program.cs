@@ -27,44 +27,41 @@ class Program
             .AddScoped<IGradeRepository, DbGradeRepository>()
 
 
-            .AddScoped<IAddStudentService, AddStudentService>()
-            .AddScoped<IDeleteStudentService, DeleteStudentService>()
-            .AddScoped<IGetStudentByIdService, GetStudentByIdService>()
-            .AddScoped<IGetAllStudentsService, GetAllStudentsService>()
-            .AddScoped<IUpdateStudentService, UpdateStudentService>()
-            .AddScoped<IShowStudentService, ShowStudentService>()
-            .AddScoped<ISearchByNationalCodeService, SearchByNationalCodeService>()
+            .AddScoped<IAddStudent, AddStudent>()
+            .AddScoped<IDeleteStudent, DeleteStudent>()
+            .AddScoped<IGetStudentById, GetStudentById>()
+            .AddScoped<IGetAllStudents, GetAllStudents>()
+            .AddScoped<IUpdateStudent, UpdateStudent>()
+            .AddScoped<IShowStudent, ShowStudent>()
 
 
-            .AddScoped<IAddTeacherService, AddTeacherService>()
-            .AddScoped<IDeleteTeacherService, DeleteTeacherService>()
-            .AddScoped<IGetTeacherByIdService, GetTeacherByIdService>()
-            .AddScoped<IGetAllTeachersService, GetAllTeachersService>()
-            .AddScoped<IUpdataTeacherService, UpdataTeacherService>()
-            .AddScoped<IShowTeacherService, ShowTeacherService>()
-            .AddScoped<ISearchTeacherByNationalCodeService, SearchTeacherByNationalCodeService>()
+            .AddScoped<IAddTeacher, AddTeacher>()
+            .AddScoped<IDeleteTeacher, DeleteTeacher>()
+            .AddScoped<IGetTeacherById, GetTeacherById>()
+            .AddScoped<IGetAllTeachers, GetAllTeachers>()
+            .AddScoped<IUpdataTeacher, UpdataTeacher>()
+            .AddScoped<IShowTeacher, ShowTeacher>()
 
 
-            .AddScoped<IAddCourseService, AddCourseService>()
-            .AddScoped<IDeleteCourseServise, DeleteCourseService>()
-            .AddScoped<IGetAllCoursesService, GetAllCoursesService>()
-            .AddScoped<IGetCourseByIdService, GetCourseByIdService>()
-            .AddScoped<IUpdateCourseService, UpdateCourseService>()
+
+            .AddScoped<IAddCourse, AddCourse>()
+            .AddScoped<IDeleteCourse, DeleteCourse>()
+            .AddScoped<IGetAllCourses, GetAllCourses>()
+            .AddScoped<IGetCourseById, GetCourseById>()
+            .AddScoped<IUpdateCourse, UpdateCourse>()
 
 
-            .AddScoped<IAddClassroomService, AddClassroomService>()
-            .AddScoped<IAddStudentToClassroomService, AddStudentToClassroomService>()
-            .AddScoped<IAssignCourseToClassroomService, AssignCourseToClassroomService>()
-            .AddScoped<IDeleteClassroomService, DeleteClassroomService>()
-            .AddScoped<IGetAllClassroomsService, GetAllClassroomsService>()
-            .AddScoped<IGetClassroomByIdService, GetClassroomByIdService>()
-            .AddScoped<IUpdateClassroomService, UpdateClassroomService>()
+            .AddScoped<IAddClassroom, AddClassroom>()
+            .AddScoped<IAddStudentToClassroom, AddStudentToClassroom>()
+            .AddScoped<IAssignCourseToClassroom, AssignCourseToClassroom>()
+            .AddScoped<IDeleteClassroom, DeleteClassroom>()
+            .AddScoped<IGetAllClassrooms, GetAllClassrooms>()
+            .AddScoped<IGetClassroomById, GetClassroomById>()
+            .AddScoped<IUpdateClassroom, UpdateClassroom>()
 
 
-            .AddScoped<IAddGradeService, AddGradeService>()
-            .AddScoped<IGetAllStudentsService, GetAllStudentsService>()
-            .AddScoped<IGetAllCoursesService, GetAllCoursesService>()
-            .AddScoped<IShowReportCardService, ShowReportCardService>()
+            .AddScoped<IAddGrade, AddGrade>()
+            .AddScoped<IShowReportCard, ShowReportCard>()
 
 
             .AddTransient<StudentMenu>()

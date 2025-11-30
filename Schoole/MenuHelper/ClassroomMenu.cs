@@ -7,37 +7,37 @@ namespace Schoole.MenuHelper
 {
     public class ClassroomMenu
     {
-        private readonly IAddClassroomService _addClassroomService;
-        private readonly IAddStudentToClassroomService _addStudentToClassroomService;
-        private readonly IAssignCourseToClassroomService _assignCourseToClassroomService;
-        private readonly IDeleteClassroomService _deleteClassroomService;
-        private readonly IGetAllClassroomsService _getAllClassroomsService;
-        private readonly IUpdateClassroomService _updateClassroomService;
-        private readonly IGetClassroomByIdService _getClassroomByIdService;
-        private readonly IGetAllStudentsService _getAllStudentsService;
-        private readonly IGetAllCoursesService _getAllCoursesService;
+        private readonly IAddClassroom _addClassroom;
+        private readonly IAddStudentToClassroom _addStudentToClassroom;
+        private readonly IAssignCourseToClassroom _assignCourseToClassroom;
+        private readonly IDeleteClassroom _deleteClassroom;
+        private readonly IGetAllClassrooms _getAllClassrooms;
+        private readonly IUpdateClassroom _updateClassroom;
+        private readonly IGetClassroomById _getClassroomById;
+        private readonly IGetAllStudents _getAllStudents;
+        private readonly IGetAllCourses _getAllCourses;
 
 
-        public ClassroomMenu(IAddClassroomService addClassroomService,
-         IAddStudentToClassroomService addStudentToClassroomService,
-         IAssignCourseToClassroomService assignCourseToClassroomService,
-         IDeleteClassroomService deleteClassroomService,
-         IGetAllClassroomsService getAllClassroomsService,
-         IUpdateClassroomService updateClassroomService,
-         IGetClassroomByIdService getClassroomByIdService,
-         IGetAllStudentsService getAllStudentsService,
-         IGetAllCoursesService getAllCoursesService
+        public ClassroomMenu(IAddClassroom addClassroom,
+         IAddStudentToClassroom addStudentToClassroom,
+         IAssignCourseToClassroom assignCourseToClassroom,
+         IDeleteClassroom deleteClassroom,
+         IGetAllClassrooms getAllClassrooms,
+         IUpdateClassroom updateClassroom,
+         IGetClassroomById getClassroomById,
+         IGetAllStudents getAllStudents,
+         IGetAllCourses getAllCourses
          )
         {
-            _addClassroomService = addClassroomService;
-            _addStudentToClassroomService = addStudentToClassroomService;
-            _assignCourseToClassroomService = assignCourseToClassroomService;
-            _deleteClassroomService = deleteClassroomService;
-            _getAllClassroomsService = getAllClassroomsService;
-            _updateClassroomService = updateClassroomService;
-            _getClassroomByIdService = getClassroomByIdService;
-            _getAllStudentsService = getAllStudentsService;
-            _getAllCoursesService = getAllCoursesService;
+            _addClassroom = addClassroom;
+            _addStudentToClassroom = addStudentToClassroom;
+            _assignCourseToClassroom = assignCourseToClassroom;
+            _deleteClassroom = deleteClassroom;
+            _getAllClassrooms = getAllClassrooms;
+            _updateClassroom = updateClassroom;
+            _getClassroomById = getClassroomById;
+            _getAllStudents = getAllStudents;
+            _getAllCourses = getAllCourses;
         }
 
         public void ClassroomMenuMain()
@@ -131,7 +131,7 @@ namespace Schoole.MenuHelper
             Console.ResetColor();
             Console.WriteLine("Classroom Name: ");
             var cName = Console.ReadLine();
-            var result = _addClassroomService.Execute(cName);
+            var result = _addClassroom.Execute(cName);
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
@@ -166,7 +166,7 @@ namespace Schoole.MenuHelper
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
-            List<Classroom> classrooms = _getAllClassroomsService.Execute();
+            List<Classroom> classrooms = _getAllClassrooms.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (classrooms.Count == 0)
             {
@@ -195,7 +195,7 @@ namespace Schoole.MenuHelper
                 Console.WriteLine("Enter the classroom ID you want to edit: ");
 
                 var clsId = Convert.ToInt32(Console.ReadLine());
-                var classrommResult = _getClassroomByIdService.Execute(clsId);
+                var classrommResult = _getClassroomById.Execute(clsId);
                 if (classrommResult == null)
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
@@ -236,7 +236,7 @@ namespace Schoole.MenuHelper
                         Name = nClsroomName,
 
                     };
-                    _updateClassroomService.Execute(updatedClassroom);
+                    _updateClassroom.Execute(updatedClassroom);
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("----------------------------");
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -263,7 +263,7 @@ namespace Schoole.MenuHelper
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
-            List<Classroom> classrooms = _getAllClassroomsService.Execute();
+            List<Classroom> classrooms = _getAllClassrooms.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (classrooms.Count == 0)
             {
@@ -291,7 +291,7 @@ namespace Schoole.MenuHelper
                 Console.ResetColor();
                 Console.WriteLine("Enter the classroom ID you want to delete: ");
                 var clsDeleteId = Convert.ToInt32(Console.ReadLine());
-                var classroomDeleteResult = _getClassroomByIdService.Execute(clsDeleteId);
+                var classroomDeleteResult = _getClassroomById.Execute(clsDeleteId);
                 var makeSure = 0;
                 while (true)
                 {
@@ -329,7 +329,7 @@ namespace Schoole.MenuHelper
                         Console.ForegroundColor = ConsoleColor.Blue;
                         Console.WriteLine("----------------------------");
                         Console.ResetColor();
-                        _deleteClassroomService.Execute(clsDeleteId);
+                        _deleteClassroom.Execute(clsDeleteId);
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("The classroom successfully deleted");
                         Console.ResetColor();
@@ -361,7 +361,7 @@ namespace Schoole.MenuHelper
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(" ***");
             Console.ResetColor();
-            List<Classroom> classrooms = _getAllClassroomsService.Execute();
+            List<Classroom> classrooms = _getAllClassrooms.Execute();
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
@@ -428,14 +428,14 @@ namespace Schoole.MenuHelper
             Console.WriteLine(" ***");
             Console.ResetColor();
 
-            List<Student> students = _getAllStudentsService.Execute();
+            List<Student> students = _getAllStudents.Execute();
 
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.ResetColor();
-            List<Classroom> classrooms = _getAllClassroomsService.Execute();
+            List<Classroom> classrooms = _getAllClassrooms.Execute();
             if (students.Count == 0 || classrooms.Count == 0)
             {
                 Console.WriteLine("You cannot perform this operation unless you have students or classroom.");
@@ -482,7 +482,7 @@ namespace Schoole.MenuHelper
                 Console.WriteLine("Classroom Id: ");
                 var classroomId = Convert.ToInt32(Console.ReadLine());
 
-                var result1 = _addStudentToClassroomService.Execute(studentId, classroomId);
+                var result1 = _addStudentToClassroom.Execute(studentId, classroomId);
 
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("----------------------------");
@@ -522,8 +522,8 @@ namespace Schoole.MenuHelper
             Console.ResetColor();
 
 
-            List<Course> courses = _getAllCoursesService.Execute();
-            List<Classroom> classrooms = _getAllClassroomsService.Execute();
+            List<Course> courses = _getAllCourses.Execute();
+            List<Classroom> classrooms = _getAllClassrooms.Execute();
 
             if (courses.Count == 0 || classrooms.Count == 0)
             {
@@ -572,7 +572,7 @@ namespace Schoole.MenuHelper
                 Console.WriteLine("Classroom Id: ");
                 var classroomId1 = Convert.ToInt32(Console.ReadLine());
 
-                var result2 = _assignCourseToClassroomService.Execute(courseId, classroomId1);
+                var result2 = _assignCourseToClassroom.Execute(courseId, classroomId1);
 
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("----------------------------");

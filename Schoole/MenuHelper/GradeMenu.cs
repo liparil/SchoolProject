@@ -7,20 +7,20 @@ namespace Schoole.MenuHelper
 {
     public class GradeMenu
     {
-        private readonly IAddGradeService _addGradeService;
-        private readonly IGetAllStudentsService _getAllStudentsService;
-        private readonly IGetAllCoursesService _getAllCoursesService;
-        private readonly IShowReportCardService _showReportCardService;
+        private readonly IAddGrade _addGrade;
+        private readonly IGetAllStudents _getAllStudents;
+        private readonly IGetAllCourses _getAllCourses;
+        private readonly IShowReportCard _showReportCard;
 
-        public GradeMenu(IAddGradeService addGradeService,
-            IGetAllStudentsService getAllStudentsService,
-            IGetAllCoursesService getAllCoursesService,
-            IShowReportCardService showReportCardService)
+        public GradeMenu(IAddGrade addGrade,
+            IGetAllStudents getAllStudents,
+            IGetAllCourses getAllCourses,
+            IShowReportCard showReportCard)
         {
-            _addGradeService = addGradeService;
-            _getAllStudentsService = getAllStudentsService;
-            _getAllCoursesService = getAllCoursesService;
-            _showReportCardService = showReportCardService;
+            _addGrade = addGrade;
+            _getAllStudents = getAllStudents;
+            _getAllCourses = getAllCourses;
+            _showReportCard = showReportCard;
 
         }
 
@@ -101,8 +101,8 @@ namespace Schoole.MenuHelper
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("----------------------------");
             Console.ResetColor();
-            List<Student> students = _getAllStudentsService.Execute();
-            List<Course> courses = _getAllCoursesService.Execute();
+            List<Student> students = _getAllStudents.Execute();
+            List<Course> courses = _getAllCourses.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (students.Count == 0 || courses.Count == 0)
             {
@@ -152,7 +152,7 @@ namespace Schoole.MenuHelper
                 var cId = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Score: ");
                 var score = Convert.ToDouble(Console.ReadLine());
-                var result = _addGradeService.Execute(sId, cId, score);
+                var result = _addGrade.Execute(sId, cId, score);
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("----------------------------");
                 Console.ResetColor();
@@ -190,7 +190,7 @@ namespace Schoole.MenuHelper
             Console.WriteLine("----------------------------");
             Console.ResetColor();
 
-            List<Student> students = _getAllStudentsService.Execute();
+            List<Student> students = _getAllStudents.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (students.Count == 0)
             {
@@ -220,7 +220,7 @@ namespace Schoole.MenuHelper
                 Console.ResetColor();
                 Console.Write("Student ID: ");
                 var stId = int.Parse(Console.ReadLine());
-                var result1 = _showReportCardService.Execute(stId);
+                var result1 = _showReportCard.Execute(stId);
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("----------------------------");
                 Console.ResetColor();
@@ -246,6 +246,7 @@ namespace Schoole.MenuHelper
             }
 
         }
+
         private void ControlInput()
         {
             Console.ForegroundColor = ConsoleColor.Red;
