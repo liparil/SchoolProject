@@ -10,12 +10,11 @@
         private readonly GradeMenu _gradeMenu;
 
         public MenuHelper(
-        StudentMenu studentMenu,
-        TeacherMenu teacherMenu,
-        CourseMenu courseMenu,
-        ClassroomMenu classroomMenu,
-        GradeMenu gradeMenu
-            )
+            StudentMenu studentMenu,
+            TeacherMenu teacherMenu,
+            CourseMenu courseMenu,
+            ClassroomMenu classroomMenu,
+            GradeMenu gradeMenu)
         {
             _studentMenu = studentMenu;
             _teacherMenu = teacherMenu;
@@ -30,26 +29,14 @@
 
             while (true)
             {
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.Write("*** ");
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.Write("Main Menu");
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine(" ***");
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("----------------------------");
-                Console.ResetColor();
+                Header("Main Menu");
                 Console.WriteLine("1. Students");
                 Console.WriteLine("2. Teachers");
                 Console.WriteLine("3. Courses");
                 Console.WriteLine("4. Classroom");
                 Console.WriteLine("5. Grade");
                 Console.WriteLine("0. Exit");
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("----------------------------");
-                Console.ResetColor();
-
+                LineUi();
                 var choice = Console.ReadLine();
                 choice = choice.Trim();
                 switch (choice)
@@ -82,9 +69,7 @@
 
         public void ControlInput()
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("----------------------------");
-            Console.ResetColor();
+            LineUi();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Your input is out of range");
             Console.ResetColor();
@@ -107,9 +92,7 @@
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine(" ***");
                 Console.ResetColor();
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("----------------------------");
-                Console.ResetColor();
+                LineUi();
                 Console.WriteLine($"Are you sure you want to exit?");
                 Console.WriteLine();
                 Console.Write("     1. ");
@@ -119,9 +102,7 @@
                 Console.Write("   2. ");
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("No");
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("----------------------------");
-                Console.ResetColor();
+                LineUi();
                 Console.Write("Select an option (");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("1");
@@ -146,6 +127,31 @@
                 }
 
             }
+        }
+
+        private void Header(string text)
+        {
+
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("*** ");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write($"{text}");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine(" ***");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("----------------------------");
+            Console.ResetColor();
+        }
+
+        private void LineUi()
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("----------------------------");
+            Console.ResetColor();
         }
 
     }

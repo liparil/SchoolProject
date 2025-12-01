@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "C:\\C#\\Net Core\\Schoole - dataBase\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\classroomsservice\\addclassroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\classroomsservice\\addclassroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\menuhelper\\classroommenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\menuhelper\\classroommenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\menuhelper\\teachermenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\menuhelper\\teachermenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\models\\output.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\models\\output.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\menuhelper\\studentmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\menuhelper\\studentmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\menuhelper\\coursemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\menuhelper\\coursemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\menuhelper\\grademenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\menuhelper\\grademenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\teacherservice\\updateteacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\teacherservice\\updateteacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\menuhelper\\menuhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\menuhelper\\menuhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,66 +43,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AddClassroom.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\ClassroomsService\\AddClassroom.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\ClassroomsService\\AddClassroom.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\ClassroomsService\\AddClassroom.cs*",
-              "RelativeToolTip": "Schoole\\Services\\ClassroomsService\\AddClassroom.cs*",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA1wBcAAAAfAAAAAAAAAA==",
+              "Title": "ClassroomMenu.cs",
+              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\ClassroomMenu.cs",
+              "RelativeDocumentMoniker": "Schoole\\MenuHelper\\ClassroomMenu.cs",
+              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\ClassroomMenu.cs*",
+              "RelativeToolTip": "Schoole\\MenuHelper\\ClassroomMenu.cs*",
+              "ViewState": "AgIAAGcAAAAAAAAAAAA4wAsBAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T05:19:52.135Z",
+              "WhenOpened": "2025-12-01T07:34:49.958Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Output.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Models\\Output.cs",
-              "RelativeDocumentMoniker": "Schoole\\Models\\Output.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Models\\Output.cs",
-              "RelativeToolTip": "Schoole\\Models\\Output.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAWAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "CourseMenu.cs",
+              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\CourseMenu.cs",
+              "RelativeDocumentMoniker": "Schoole\\MenuHelper\\CourseMenu.cs",
+              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\CourseMenu.cs",
+              "RelativeToolTip": "Schoole\\MenuHelper\\CourseMenu.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwB8AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T04:49:35.257Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-01T07:26:25.123Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Program.cs",
-              "RelativeDocumentMoniker": "Schoole\\Program.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Program.cs",
-              "RelativeToolTip": "Schoole\\Program.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAgwEQAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T04:46:36.679Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "GradeMenu.cs",
               "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\GradeMenu.cs",
               "RelativeDocumentMoniker": "Schoole\\MenuHelper\\GradeMenu.cs",
               "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\GradeMenu.cs",
               "RelativeToolTip": "Schoole\\MenuHelper\\GradeMenu.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBUAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAL4AAAAAAAAAAAAUwMYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T06:13:34.841Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "StudentMenu.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\StudentMenu.cs",
-              "RelativeDocumentMoniker": "Schoole\\MenuHelper\\StudentMenu.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\StudentMenu.cs",
-              "RelativeToolTip": "Schoole\\MenuHelper\\StudentMenu.cs",
-              "ViewState": "AgIAAOsBAAAAAAAAAAAlwPkBAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T06:13:08.437Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-01T07:23:10.07Z"
             },
             {
               "$type": "Document",
@@ -112,22 +85,46 @@
               "RelativeDocumentMoniker": "Schoole\\MenuHelper\\TeacherMenu.cs",
               "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\TeacherMenu.cs",
               "RelativeToolTip": "Schoole\\MenuHelper\\TeacherMenu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAowLYBAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T06:08:39.664Z",
+              "WhenOpened": "2025-12-01T07:11:16.997Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UpdateTeacher.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\UpdateTeacher.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\TeacherService\\UpdateTeacher.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\UpdateTeacher.cs",
-              "RelativeToolTip": "Schoole\\Services\\TeacherService\\UpdateTeacher.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAVAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "MenuHelper.cs",
+              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\MenuHelper.cs",
+              "RelativeDocumentMoniker": "Schoole\\MenuHelper\\MenuHelper.cs",
+              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\MenuHelper.cs",
+              "RelativeToolTip": "Schoole\\MenuHelper\\MenuHelper.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAowIQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T06:07:55.334Z"
+              "WhenOpened": "2025-12-01T07:07:49.545Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StudentMenu.cs",
+              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\StudentMenu.cs",
+              "RelativeDocumentMoniker": "Schoole\\MenuHelper\\StudentMenu.cs",
+              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\StudentMenu.cs",
+              "RelativeToolTip": "Schoole\\MenuHelper\\StudentMenu.cs",
+              "ViewState": "AgIAABgCAAAAAAAAAADwv0YCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T06:55:36.591Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Program.cs",
+              "RelativeDocumentMoniker": "Schoole\\Program.cs",
+              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Program.cs",
+              "RelativeToolTip": "Schoole\\Program.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T05:50:18.468Z"
             }
           ]
         }
