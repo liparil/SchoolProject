@@ -6,22 +6,16 @@ namespace Schoole.Services.GradeService
     {
         void Execute(int gradeId);
     }
-    public class DeleteGrade : IDeleteGrade
+    public class DeleteGrade (IGradeRepository gradeRepository): IDeleteGrade
     {
-        private readonly IGradeRepository _gradeRepository;
-        public DeleteGrade(IGradeRepository gradeRepository)
-        {
-            _gradeRepository = gradeRepository;
-        }
-
         public void Execute(int gradeId)
         {
-            var grade = _gradeRepository.GetGradeById(gradeId);
+            var grade = gradeRepository.GetGradeById(gradeId);
             if (grade != null)
             {
 
                 grade.Student?.Grades.Remove(grade);
-                _gradeRepository.Delete(gradeId);
+                gradeRepository.Delete(gradeId);
             }
         }
     }

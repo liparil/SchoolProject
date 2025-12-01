@@ -7,18 +7,12 @@ namespace Schoole.Services.CourseService
     {
         List<Course> Execute();
     }
-    public class GetAllCourses : IGetAllCourses
+    public class GetAllCourses(ICourseRepository courseRepository) : IGetAllCourses
     {
-        private readonly ICourseRepository _courseRepository;
-
-        public GetAllCourses(ICourseRepository courseRepository)
-        {
-            _courseRepository = courseRepository;
-        }
 
         public List<Course> Execute()
         {
-            return _courseRepository.GetAll();
+            return courseRepository.GetAll();
         }
     }
 }

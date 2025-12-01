@@ -7,16 +7,11 @@ namespace Schoole.Services.CourseService
     {
         void Execute(Course course);
     }
-    public class UpdateCourse : IUpdateCourse
+    public class UpdateCourse(ICourseRepository courseRepository) : IUpdateCourse
     {
-        private readonly ICourseRepository _courseRepository;
-        public UpdateCourse(ICourseRepository courseRepository)
-        {
-            _courseRepository = courseRepository;
-        }
         public void Execute(Course course)
         {
-            _courseRepository.Update(course);
+            courseRepository.Update(course);
         }
     }
 }

@@ -3,144 +3,32 @@
   "WorkspaceRootPath": "C:\\C#\\Net Core\\Schoole - dataBase\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\classroomsservice\\addclassroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\classroomsservice\\addclassroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\menuhelper\\teachermenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\menuhelper\\teachermenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\models\\output.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\models\\output.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\menuhelper\\studentmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\menuhelper\\studentmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\menuhelper\\classroommenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\menuhelper\\classroommenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\menuhelper\\grademenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\menuhelper\\grademenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\menuhelper\\coursemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\menuhelper\\coursemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\teacherservice\\showteacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\teacherservice\\showteacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\classroomsservice\\addstudenttoclassroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\classroomsservice\\addstudenttoclassroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\classroomsservice\\addclassroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\classroomsservice\\addclassroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\classroomsservice\\updateclassroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\classroomsservice\\updateclassroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\classroomsservice\\getclassroombyid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\classroomsservice\\getclassroombyid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\classroomsservice\\getallclassrooms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\classroomsservice\\getallclassrooms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\classroomsservice\\deleteclassroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\classroomsservice\\deleteclassroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\classroomsservice\\assigncoursetoclassroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\classroomsservice\\assigncoursetoclassroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\gradeservice\\addgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\gradeservice\\addgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\courseservice\\updatecourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\courseservice\\updatecourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\courseservice\\getcoursebyid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\courseservice\\getcoursebyid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\courseservice\\getallcourses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\courseservice\\getallcourses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\courseservice\\deletecourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\courseservice\\deletecourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\courseservice\\addcourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\courseservice\\addcourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\gradeservice\\updategrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\gradeservice\\updategrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\teacherservice\\getallteachers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\teacherservice\\getallteachers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\gradeservice\\getgradesbystudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\gradeservice\\getgradesbystudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\gradeservice\\getgradesbycourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\gradeservice\\getgradesbycourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\gradeservice\\deletegrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\gradeservice\\deletegrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\studentsservice\\deletestudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\studentsservice\\deletestudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\teacherservice\\updatateacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\teacherservice\\updatateacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\teacherservice\\getteacherbyid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\teacherservice\\getteacherbyid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\teacherservice\\deleteteacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\teacherservice\\deleteteacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\teacherservice\\addteacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\teacherservice\\addteacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\studentsservice\\getallstudents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\studentsservice\\getallstudents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\studentsservice\\updatestudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\studentsservice\\updatestudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\studentsservice\\showstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\studentsservice\\showstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\studentsservice\\showreportcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\studentsservice\\showreportcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\studentsservice\\getstudentbyid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\studentsservice\\getstudentbyid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\teacherservice\\updateteacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\teacherservice\\updateteacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -150,462 +38,96 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "AddClassroom.cs",
               "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\ClassroomsService\\AddClassroom.cs",
               "RelativeDocumentMoniker": "Schoole\\Services\\ClassroomsService\\AddClassroom.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\ClassroomsService\\AddClassroom.cs",
-              "RelativeToolTip": "Schoole\\Services\\ClassroomsService\\AddClassroom.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAtAAAAAAAAAA==",
+              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\ClassroomsService\\AddClassroom.cs*",
+              "RelativeToolTip": "Schoole\\Services\\ClassroomsService\\AddClassroom.cs*",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA1wBcAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:43:01.576Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "UpdateCourse.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\CourseService\\UpdateCourse.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\CourseService\\UpdateCourse.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\CourseService\\UpdateCourse.cs",
-              "RelativeToolTip": "Schoole\\Services\\CourseService\\UpdateCourse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:40:47.645Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GradeMenu.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\GradeMenu.cs",
-              "RelativeDocumentMoniker": "Schoole\\MenuHelper\\GradeMenu.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\GradeMenu.cs*",
-              "RelativeToolTip": "Schoole\\MenuHelper\\GradeMenu.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:38:59.84Z",
+              "WhenOpened": "2025-12-01T05:19:52.135Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ClassroomMenu.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\ClassroomMenu.cs",
-              "RelativeDocumentMoniker": "Schoole\\MenuHelper\\ClassroomMenu.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\ClassroomMenu.cs*",
-              "RelativeToolTip": "Schoole\\MenuHelper\\ClassroomMenu.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAWAAAAAAAAAA==",
+              "Title": "Output.cs",
+              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Models\\Output.cs",
+              "RelativeDocumentMoniker": "Schoole\\Models\\Output.cs",
+              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Models\\Output.cs",
+              "RelativeToolTip": "Schoole\\Models\\Output.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T12:12:21.529Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StudentMenu.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\StudentMenu.cs",
-              "RelativeDocumentMoniker": "Schoole\\MenuHelper\\StudentMenu.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\StudentMenu.cs*",
-              "RelativeToolTip": "Schoole\\MenuHelper\\StudentMenu.cs*",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T12:13:30.277Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Program.cs",
-              "RelativeDocumentMoniker": "Schoole\\Program.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Program.cs",
-              "RelativeToolTip": "Schoole\\Program.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAgwCIAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T10:57:13.135Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "GetCourseById.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\CourseService\\GetCourseById.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\CourseService\\GetCourseById.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\CourseService\\GetCourseById.cs",
-              "RelativeToolTip": "Schoole\\Services\\CourseService\\GetCourseById.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:40:40.682Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "GetAllClassrooms.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\ClassroomsService\\GetAllClassrooms.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\ClassroomsService\\GetAllClassrooms.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\ClassroomsService\\GetAllClassrooms.cs",
-              "RelativeToolTip": "Schoole\\Services\\ClassroomsService\\GetAllClassrooms.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:45:58.381Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ShowTeacher.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\ShowTeacher.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\TeacherService\\ShowTeacher.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\ShowTeacher.cs",
-              "RelativeToolTip": "Schoole\\Services\\TeacherService\\ShowTeacher.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:31:44.128Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "DeleteClassroom.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\ClassroomsService\\DeleteClassroom.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\ClassroomsService\\DeleteClassroom.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\ClassroomsService\\DeleteClassroom.cs",
-              "RelativeToolTip": "Schoole\\Services\\ClassroomsService\\DeleteClassroom.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:45:52.319Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "GetClassroomById.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\ClassroomsService\\GetClassroomById.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\ClassroomsService\\GetClassroomById.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\ClassroomsService\\GetClassroomById.cs",
-              "RelativeToolTip": "Schoole\\Services\\ClassroomsService\\GetClassroomById.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:46:07.143Z",
+              "WhenOpened": "2025-12-01T04:49:35.257Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "CourseMenu.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\CourseMenu.cs",
-              "RelativeDocumentMoniker": "Schoole\\MenuHelper\\CourseMenu.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\CourseMenu.cs*",
-              "RelativeToolTip": "Schoole\\MenuHelper\\CourseMenu.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAuAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Program.cs",
+              "RelativeDocumentMoniker": "Schoole\\Program.cs",
+              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Program.cs",
+              "RelativeToolTip": "Schoole\\Program.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAgwEQAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:35:30.111Z",
+              "WhenOpened": "2025-12-01T04:46:36.679Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
+              "Title": "GradeMenu.cs",
+              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\GradeMenu.cs",
+              "RelativeDocumentMoniker": "Schoole\\MenuHelper\\GradeMenu.cs",
+              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\GradeMenu.cs",
+              "RelativeToolTip": "Schoole\\MenuHelper\\GradeMenu.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T06:13:34.841Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "StudentMenu.cs",
+              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\StudentMenu.cs",
+              "RelativeDocumentMoniker": "Schoole\\MenuHelper\\StudentMenu.cs",
+              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\StudentMenu.cs",
+              "RelativeToolTip": "Schoole\\MenuHelper\\StudentMenu.cs",
+              "ViewState": "AgIAAOsBAAAAAAAAAAAlwPkBAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T06:13:08.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TeacherMenu.cs",
               "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\TeacherMenu.cs",
               "RelativeDocumentMoniker": "Schoole\\MenuHelper\\TeacherMenu.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\TeacherMenu.cs*",
-              "RelativeToolTip": "Schoole\\MenuHelper\\TeacherMenu.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAA==",
+              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\MenuHelper\\TeacherMenu.cs",
+              "RelativeToolTip": "Schoole\\MenuHelper\\TeacherMenu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:31:57.506Z",
+              "WhenOpened": "2025-11-30T06:08:39.664Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AddStudentToClassroom.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\ClassroomsService\\AddStudentToClassroom.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\ClassroomsService\\AddStudentToClassroom.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\ClassroomsService\\AddStudentToClassroom.cs",
-              "RelativeToolTip": "Schoole\\Services\\ClassroomsService\\AddStudentToClassroom.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA/AAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "UpdateTeacher.cs",
+              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\UpdateTeacher.cs",
+              "RelativeDocumentMoniker": "Schoole\\Services\\TeacherService\\UpdateTeacher.cs",
+              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\UpdateTeacher.cs",
+              "RelativeToolTip": "Schoole\\Services\\TeacherService\\UpdateTeacher.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:43:29.658Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AssignCourseToClassroom.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\ClassroomsService\\AssignCourseToClassroom.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\ClassroomsService\\AssignCourseToClassroom.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\ClassroomsService\\AssignCourseToClassroom.cs",
-              "RelativeToolTip": "Schoole\\Services\\ClassroomsService\\AssignCourseToClassroom.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:43:36.062Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UpdateClassroom.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\ClassroomsService\\UpdateClassroom.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\ClassroomsService\\UpdateClassroom.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\ClassroomsService\\UpdateClassroom.cs",
-              "RelativeToolTip": "Schoole\\Services\\ClassroomsService\\UpdateClassroom.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:46:16.123Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "GetAllCourses.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\CourseService\\GetAllCourses.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\CourseService\\GetAllCourses.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\CourseService\\GetAllCourses.cs",
-              "RelativeToolTip": "Schoole\\Services\\CourseService\\GetAllCourses.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:40:34.461Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "DeleteCourse.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\CourseService\\DeleteCourse.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\CourseService\\DeleteCourse.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\CourseService\\DeleteCourse.cs",
-              "RelativeToolTip": "Schoole\\Services\\CourseService\\DeleteCourse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:40:26.158Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "AddCourse.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\CourseService\\AddCourse.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\CourseService\\AddCourse.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\CourseService\\AddCourse.cs",
-              "RelativeToolTip": "Schoole\\Services\\CourseService\\AddCourse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:40:18.904Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "UpdateGrade.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\GradeService\\UpdateGrade.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\GradeService\\UpdateGrade.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\GradeService\\UpdateGrade.cs",
-              "RelativeToolTip": "Schoole\\Services\\GradeService\\UpdateGrade.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:36:34.907Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "GetGradesByStudent.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\GradeService\\GetGradesByStudent.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\GradeService\\GetGradesByStudent.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\GradeService\\GetGradesByStudent.cs",
-              "RelativeToolTip": "Schoole\\Services\\GradeService\\GetGradesByStudent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:36:29.492Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "GetGradesByCourse.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\GradeService\\GetGradesByCourse.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\GradeService\\GetGradesByCourse.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\GradeService\\GetGradesByCourse.cs",
-              "RelativeToolTip": "Schoole\\Services\\GradeService\\GetGradesByCourse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:36:23.072Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "DeleteGrade.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\GradeService\\DeleteGrade.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\GradeService\\DeleteGrade.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\GradeService\\DeleteGrade.cs",
-              "RelativeToolTip": "Schoole\\Services\\GradeService\\DeleteGrade.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:36:17.467Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "AddGrade.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\GradeService\\AddGrade.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\GradeService\\AddGrade.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\GradeService\\AddGrade.cs",
-              "RelativeToolTip": "Schoole\\Services\\GradeService\\AddGrade.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:36:06.969Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "UpdataTeacher.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\UpdataTeacher.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\TeacherService\\UpdataTeacher.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\UpdataTeacher.cs",
-              "RelativeToolTip": "Schoole\\Services\\TeacherService\\UpdataTeacher.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:31:52.247Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "GetTeacherById.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\GetTeacherById.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\TeacherService\\GetTeacherById.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\GetTeacherById.cs",
-              "RelativeToolTip": "Schoole\\Services\\TeacherService\\GetTeacherById.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:30:32.573Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "GetAllTeachers.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\GetAllTeachers.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\TeacherService\\GetAllTeachers.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\GetAllTeachers.cs",
-              "RelativeToolTip": "Schoole\\Services\\TeacherService\\GetAllTeachers.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:30:25.475Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "DeleteStudent.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\StudentsService\\DeleteStudent.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\StudentsService\\DeleteStudent.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\StudentsService\\DeleteStudent.cs",
-              "RelativeToolTip": "Schoole\\Services\\StudentsService\\DeleteStudent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:23:56.732Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "DeleteTeacher.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\DeleteTeacher.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\TeacherService\\DeleteTeacher.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\DeleteTeacher.cs",
-              "RelativeToolTip": "Schoole\\Services\\TeacherService\\DeleteTeacher.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:30:16.885Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "AddTeacher.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\AddTeacher.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\TeacherService\\AddTeacher.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\AddTeacher.cs",
-              "RelativeToolTip": "Schoole\\Services\\TeacherService\\AddTeacher.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:30:07.457Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "UpdateStudent.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\StudentsService\\UpdateStudent.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\StudentsService\\UpdateStudent.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\StudentsService\\UpdateStudent.cs",
-              "RelativeToolTip": "Schoole\\Services\\StudentsService\\UpdateStudent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:25:01.341Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "ShowStudent.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\StudentsService\\ShowStudent.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\StudentsService\\ShowStudent.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\StudentsService\\ShowStudent.cs",
-              "RelativeToolTip": "Schoole\\Services\\StudentsService\\ShowStudent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:24:50.152Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "ShowReportCard.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\StudentsService\\ShowReportCard.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\StudentsService\\ShowReportCard.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\StudentsService\\ShowReportCard.cs",
-              "RelativeToolTip": "Schoole\\Services\\StudentsService\\ShowReportCard.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:24:43.256Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "GetStudentById.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\StudentsService\\GetStudentById.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\StudentsService\\GetStudentById.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\StudentsService\\GetStudentById.cs",
-              "RelativeToolTip": "Schoole\\Services\\StudentsService\\GetStudentById.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:24:22.694Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "GetAllStudents.cs",
-              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\StudentsService\\GetAllStudents.cs",
-              "RelativeDocumentMoniker": "Schoole\\Services\\StudentsService\\GetAllStudents.cs",
-              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\StudentsService\\GetAllStudents.cs",
-              "RelativeToolTip": "Schoole\\Services\\StudentsService\\GetAllStudents.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T05:24:05.666Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T06:07:55.334Z"
             }
           ]
         }

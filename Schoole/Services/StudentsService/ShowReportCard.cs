@@ -8,17 +8,13 @@ namespace Schoole.Services.StudentsService
     {
         Output Execute(int studentId);
     }
-    internal class ShowReportCard : IShowReportCard
+    internal class ShowReportCard(IStudentRepository studentRepository) : IShowReportCard
     {
-        private readonly IStudentRepository _studentRepository;
-        public ShowReportCard(IStudentRepository studentRepository)
-        {
-            _studentRepository = studentRepository;
-        }
+
 
         public Output Execute(int studentId)
         {
-            var student = _studentRepository.GetStudentById(studentId);
+            var student = studentRepository.GetStudentById(studentId);
             var output = new Output();
 
             if (student == null)

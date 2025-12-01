@@ -7,17 +7,11 @@ namespace Schoole.Services.TeacherService
     {
         List<Teacher> Execute();
     }
-    public class GetAllTeachers : IGetAllTeachers
+    public class GetAllTeachers(ITeacherRepository teacherRepository) : IGetAllTeachers
     {
-        private readonly ITeacherRepository _teacherRepository;
-        public GetAllTeachers(ITeacherRepository teacherRepository)
-        {
-            _teacherRepository = teacherRepository;
-        }
-
         public List<Teacher> Execute()
         {
-            return _teacherRepository.GetAllTeachers();
+            return teacherRepository.GetAllTeachers();
         }
     }
 }

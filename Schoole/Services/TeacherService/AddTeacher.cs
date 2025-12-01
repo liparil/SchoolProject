@@ -7,16 +7,12 @@ namespace Schoole.Services.TeacherService
     {
         Output Execute(string fullName, string nCode, string expertise);
     }
-    public class AddTeacher : IAddTeacher
+    public class AddTeacher(ITeacherRepository teacherRepository) : IAddTeacher
     {
-        private readonly ITeacherRepository _teacherRepository;
-        public AddTeacher(ITeacherRepository teacherRepository)
-        {
-            _teacherRepository = teacherRepository;
-        }
+
         public Output Execute(string fullName, string nCode, string expertise)
         {
-            var existing = _teacherRepository.GetTeacherByNCode(nCode);
+            var existing = teacherRepository.GetTeacherByNCode(nCode);
             var output = new Output();
             if (existing != null)
             {
@@ -33,7 +29,7 @@ namespace Schoole.Services.TeacherService
                     NCode = nCode
                 };
 
-                _teacherRepository.Add(teacher);
+                teacherRepository.Add(teacher);
                 output.Success = true;
                 output.Message = "Teacher added successfully!";
                 return output;

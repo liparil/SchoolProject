@@ -7,20 +7,12 @@ namespace Schoole.Services.ClassroomsService
     {
         Output Execute(int courseId, int classroomId);
     }
-    public class AssignCourseToClassroom : IAssignCourseToClassroom
+    public class AssignCourseToClassroom(IClassroomRepository classroomRepository, ICourseRepository courseRepository) : IAssignCourseToClassroom
     {
-        private readonly ICourseRepository _courseRepository;
-        private readonly IClassroomRepository _classroomRepository;
-        public AssignCourseToClassroom(IClassroomRepository classroomRepository, ICourseRepository courseRepository)
-        {
-            _classroomRepository = classroomRepository;
-            _courseRepository = courseRepository;
-        }
-
         public Output Execute(int courseId, int classroomId)
         {
-            var course = _courseRepository.GetCourseById(courseId);
-            var classroom = _classroomRepository.GetClassroomById(classroomId);
+            var course = courseRepository.GetCourseById(courseId);
+            var classroom = classroomRepository.GetClassroomById(classroomId);
             var output = new Output();
             if (course == null)
             {

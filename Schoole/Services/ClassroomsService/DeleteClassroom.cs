@@ -6,17 +6,11 @@ namespace Schoole.Services.ClassroomsService
     {
         void Execute(int classroomId);
     }
-    public class DeleteClassroom : IDeleteClassroom
+    public class DeleteClassroom(IClassroomRepository classroomRepository) : IDeleteClassroom
     {
-        private readonly IClassroomRepository _classroomRepository;
-        public DeleteClassroom(IClassroomRepository classroomRepository)
-        {
-            _classroomRepository = classroomRepository;
-        }
-
         public void Execute(int classroomId)
         {
-            _classroomRepository.Delete(classroomId);
+            classroomRepository.Delete(classroomId);
         }
     }
 }

@@ -7,17 +7,11 @@ namespace Schoole.Services.GradeService
     {
         void Execute(Grade grade);
     }
-    public class UpdateGrade : IUpdateGradeService
+    public class UpdateGrade(IGradeRepository gradeRepository) : IUpdateGradeService
     {
-        private readonly IGradeRepository _gradeRepository;
-        public UpdateGrade(IGradeRepository gradeRepository)
-        {
-            _gradeRepository = gradeRepository;
-        }
-
         public void Execute(Grade grade)
         {
-            _gradeRepository.Update(grade);
+            gradeRepository.Update(grade);
         }
     }
 }

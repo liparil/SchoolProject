@@ -8,20 +8,12 @@ namespace Schoole.Services.TeacherService
         Output Execute(string nCode);
     }
 
-    public class ShowTeacher : IShowTeacher
+    public class ShowTeacher(ITeacherRepository teacherRepository) : IShowTeacher
     {
-        private readonly ITeacherRepository _teacherRepository;
-
-        public ShowTeacher(ITeacherRepository teacherRepository)
-        {
-            _teacherRepository = teacherRepository;
-        }
-
-
         public Output Execute(string nCode)
         {
 
-            var existing = _teacherRepository.GetTeacherByNCode(nCode);
+            var existing = teacherRepository.GetTeacherByNCode(nCode);
             var output = new Output();
             if (existing == null)
             {

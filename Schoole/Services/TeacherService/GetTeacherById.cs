@@ -7,17 +7,12 @@ namespace Schoole.Services.TeacherService
     {
         Teacher Execute(int teacherId);
     }
-    public class GetTeacherById : IGetTeacherById
+    public class GetTeacherById(AppDbContext context) : IGetTeacherById
     {
-        private readonly AppDbContext _context;
-        public GetTeacherById(AppDbContext context)
-        {
-            _context = context;
-        }
 
         public Teacher Execute(int teacherId)
         {
-            return _context.Teachers.FirstOrDefault(t => t.ID == teacherId);
+            return context.Teachers.FirstOrDefault(t => t.ID == teacherId);
         }
     }
 }

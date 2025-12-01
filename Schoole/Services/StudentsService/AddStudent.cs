@@ -8,19 +8,11 @@ namespace Schoole.Services.StudentsService
         Output Execute(string name, DateTime birth, string nationalCode);
     }
 
-    public class AddStudent : IAddStudent
+    public class AddStudent(IStudentRepository studentRepository) : IAddStudent
     {
-        private readonly IStudentRepository _studentRepository;
-
-
-        public AddStudent(IStudentRepository studentRepository)
-        {
-            _studentRepository = studentRepository;
-        }
-
         public Output Execute(string fullName, DateTime birthDate, string nCode)
         {
-            var existing = _studentRepository.GetStudentByNcode(nCode);
+            var existing = studentRepository.GetStudentByNcode(nCode);
             var student = new Student { FullName = fullName, BirthDate = birthDate, NCode = nCode };
             var output = new Output();
             if (existing != null)
@@ -30,7 +22,7 @@ namespace Schoole.Services.StudentsService
                 return output;
             }
 
-            _studentRepository.Add(student);
+            studentRepository.Add(student);
             output.Success = true;
             output.Message = "Student added successfully!";
             return output;

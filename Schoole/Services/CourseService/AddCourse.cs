@@ -7,20 +7,12 @@ namespace Schoole.Services.CourseService
     {
         Output Execute(string title, int teacherId);
     }
-    public class AddCourse : IAddCourse
+    public class AddCourse(ITeacherRepository teacherRepository, ICourseRepository courseRepository) : IAddCourse
     {
-        private readonly ITeacherRepository _teacherRepository;
-        private readonly ICourseRepository _courseRepository;
-
-        public AddCourse(ITeacherRepository teacherRepository, ICourseRepository courseRepository)
-        {
-            _teacherRepository = teacherRepository;
-            _courseRepository = courseRepository;
-        }
 
         public Output Execute(string title, int teacherId)
         {
-            var teacher = _teacherRepository.GetTeacherById(teacherId);
+            var teacher = teacherRepository.GetTeacherById(teacherId);
             var output = new Output();
 
             if (teacher == null)
@@ -36,7 +28,7 @@ namespace Schoole.Services.CourseService
                 TeacherId = teacherId
             };
 
-            _courseRepository.Add(newCourse);
+            courseRepository.Add(newCourse);
             teacher.Courses.Add(newCourse);
             output.Success = true;
             output.Message = $"Course {title} was added and {teacher.FullName} is its teacher.";

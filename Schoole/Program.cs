@@ -39,7 +39,7 @@ class Program
             .AddScoped<IDeleteTeacher, DeleteTeacher>()
             .AddScoped<IGetTeacherById, GetTeacherById>()
             .AddScoped<IGetAllTeachers, GetAllTeachers>()
-            .AddScoped<IUpdataTeacher, UpdataTeacher>()
+            .AddScoped<IUpdateTeacher, UpdateTeacher>()
             .AddScoped<IShowTeacher, ShowTeacher>()
 
 

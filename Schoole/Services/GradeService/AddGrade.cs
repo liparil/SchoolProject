@@ -7,22 +7,13 @@ namespace Schoole.Services.GradeService
     {
         Output Execute(int studentId, int courseId, double score);
     }
-    public class AddGrade : IAddGrade
+    public class AddGrade(ICourseRepository courseRepository, IStudentRepository studentRepository, IGradeRepository gradeRepository) : IAddGrade
     {
-        private readonly IStudentRepository _studentRepository;
-        private readonly ICourseRepository _courseRepository;
-        private readonly IGradeRepository _gradeRepository;
-        public AddGrade(ICourseRepository courseRepository, IStudentRepository studentRepository, IGradeRepository gradeRepository)
-        {
-            _courseRepository = courseRepository;
-            _studentRepository = studentRepository;
-            _gradeRepository = gradeRepository;
-        }
 
         public Output Execute(int studentId, int courseId, double score)
         {
-            var student = _studentRepository.GetStudentById(studentId);
-            var course = _courseRepository.GetCourseById(courseId);
+            var student = studentRepository.GetStudentById(studentId);
+            var course = courseRepository.GetCourseById(courseId);
 
             var test = new Output();
 
@@ -40,7 +31,7 @@ namespace Schoole.Services.GradeService
                 Score = score
             };
 
-            _gradeRepository.Add(newGrade);
+            gradeRepository.Add(newGrade);
 
             test.Success = true;
             test.Message = $"A score of {score} was recorded for student {student.FullName} in course {course.Title}.";

@@ -7,21 +7,14 @@ namespace Schoole.Services.ClassroomsService
     {
         Output Execute(string name);
     }
-    public class AddClassroom : IAddClassroom
+    public class AddClassroom(IClassroomRepository classroomRepository) : IAddClassroom
     {
-        private readonly IClassroomRepository _classroomRepository;
-
-        public AddClassroom(IClassroomRepository classroomRepository)
-        {
-            _classroomRepository = classroomRepository;
-        }
-
         public Output Execute(string name)
         {
             var classroom = new Classroom { Name = name };
             var output = new Output();
 
-            _classroomRepository.Add(classroom);
+            classroomRepository.Add(classroom);
 
             output.Success = true;
             output.Message = $"{name} Added Sucssesfuly.";

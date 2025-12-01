@@ -7,17 +7,11 @@ namespace Schoole.Services.StudentsService
     {
         List<Student> Execute();
     }
-    public class GetAllStudents : IGetAllStudents
+    public class GetAllStudents(IStudentRepository studentRepository) : IGetAllStudents
     {
-        private readonly IStudentRepository _studentRepository;
-        public GetAllStudents(IStudentRepository studentRepository)
-        {
-            _studentRepository = studentRepository;
-        }
-
         public List<Student> Execute()
         {
-            return _studentRepository.GetAllStudents();
+            return studentRepository.GetAllStudents();
         }
     }
 }

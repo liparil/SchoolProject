@@ -12,7 +12,8 @@ namespace Schoole.MenuHelper
         private readonly IGetAllCourses _getAllCourses;
         private readonly IShowReportCard _showReportCard;
 
-        public GradeMenu(IAddGrade addGrade,
+        public GradeMenu(
+            IAddGrade addGrade,
             IGetAllStudents getAllStudents,
             IGetAllCourses getAllCourses,
             IShowReportCard showReportCard)

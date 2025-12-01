@@ -6,24 +6,18 @@ namespace Schoole.Services.CourseService
     {
         void Execute(int courseId);
     }
-    public class DeleteCourse : IDeleteCourse
+    public class DeleteCourse(ICourseRepository courseRepository) : IDeleteCourse
     {
-        private readonly ICourseRepository _courseRepository;
-        public DeleteCourse(ICourseRepository courseRepository)
-        {
-            _courseRepository = courseRepository;
-        }
-
         public void Execute(int courseId)
         {
-            var course = _courseRepository.GetCourseById(courseId);
+            var course = courseRepository.GetCourseById(courseId);
 
             if (course != null && course.teacher != null)
             {
                 course.teacher.Courses.Remove(course);
             }
 
-            _courseRepository.Delete(courseId);
+            courseRepository.Delete(courseId);
         }
     }
 }

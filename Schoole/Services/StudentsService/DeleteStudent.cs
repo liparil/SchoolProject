@@ -6,17 +6,11 @@ namespace Schoole.Services.StudentsService
     {
         void Execute(int studentId);
     }
-    public class DeleteStudent : IDeleteStudent
+    public class DeleteStudent(IStudentRepository studentRepository) : IDeleteStudent
     {
-        private readonly IStudentRepository _studentRepository;
-        public DeleteStudent(IStudentRepository studentRepository)
-        {
-            _studentRepository = studentRepository;
-        }
-
         public void Execute(int studentId)
         {
-            _studentRepository.Delete(studentId);
+            studentRepository.Delete(studentId);
         }
     }
 }

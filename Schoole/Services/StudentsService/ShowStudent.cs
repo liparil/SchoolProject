@@ -7,20 +7,13 @@ namespace Schoole.Services.StudentsService
     {
         Output Execute(string nCode);
     }
-    public class ShowStudent : IShowStudent
+    public class ShowStudent(IStudentRepository studentRepository) : IShowStudent
     {
-        private readonly IStudentRepository _studentRepository;
-
-        public ShowStudent(IStudentRepository studentRepository)
-        {
-            _studentRepository = studentRepository;
-        }
-
 
         public Output Execute(string nCode)
         {
 
-            var existing = _studentRepository.GetStudentByNcode(nCode);
+            var existing = studentRepository.GetStudentByNcode(nCode);
             var output = new Output();
             if (existing == null)
             {

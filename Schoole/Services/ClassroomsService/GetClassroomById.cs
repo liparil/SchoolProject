@@ -8,17 +8,11 @@ namespace Schoole.Services.ClassroomsService
     {
         Classroom Execute(int classroomId);
     }
-    public class GetClassroomById : IGetClassroomById
+    public class GetClassroomById(AppDbContext context) : IGetClassroomById
     {
-        private readonly AppDbContext _context;
-        public GetClassroomById(AppDbContext context)
-        {
-            _context = context;
-        }
-
         public Classroom Execute(int classroomId)
         {
-            return _context.Classrooms.Include(c => c.Students).FirstOrDefault(c => c.ID == classroomId);
+            return context.Classrooms.Include(c => c.Students).FirstOrDefault(c => c.ID == classroomId);
         }
     }
 }

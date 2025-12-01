@@ -7,20 +7,13 @@ namespace Schoole.Services.ClassroomsService
     {
         Output Execute(int studentId, int classroomId);
     }
-    public class AddStudentToClassroom : IAddStudentToClassroom
+    public class AddStudentToClassroom(IClassroomRepository classroomRepository, IStudentRepository studentRepository) : IAddStudentToClassroom
     {
-        private readonly IClassroomRepository _classroomRepository;
-        private readonly IStudentRepository _studentRepository;
-        public AddStudentToClassroom(IClassroomRepository classroomRepository, IStudentRepository studentRepository)
-        {
-            _classroomRepository = classroomRepository;
-            _studentRepository = studentRepository;
-        }
 
         public Output Execute(int studentId, int classroomId)
         {
-            var classroom = _classroomRepository.GetClassroomById(classroomId);
-            var student = _studentRepository.GetStudentById(studentId);
+            var classroom = classroomRepository.GetClassroomById(classroomId);
+            var student = studentRepository.GetStudentById(studentId);
             var output = new Output();
 
             if (student == null)
@@ -50,8 +43,8 @@ namespace Schoole.Services.ClassroomsService
             if (student.ClassroomId != null)
             {
                 student.ClassroomId = classroomId;
-                _studentRepository.Update(student);
-                _studentRepository.save();
+                studentRepository.Update(student);
+                studentRepository.save();
                 output.Success = true;
                 output.Message = $"Student: {student.FullName} Added to: {classroom.Name}";
                 return output;

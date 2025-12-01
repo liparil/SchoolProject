@@ -9,14 +9,15 @@ namespace Schoole.MenuHelper
         private readonly IDeleteTeacher _deleteTeacher;
         private readonly IGetTeacherById _getTeacherById;
         private readonly IGetAllTeachers _getAllTeachers;
-        private readonly IUpdataTeacher _updataTeacher;
+        private readonly IUpdateTeacher _UpdateTeacher;
         private readonly IShowTeacher _showTeacher;
 
-        public TeacherMenu(IAddTeacher addTeacher,
+        public TeacherMenu(
+          IAddTeacher addTeacher,
           IDeleteTeacher deleteTeacher,
           IGetTeacherById getTeacherById,
           IGetAllTeachers getAllTeachers,
-          IUpdataTeacher updataTeacher,
+          IUpdateTeacher UpdateTeacher,
           IShowTeacher showTeacher
            )
         {
@@ -24,9 +25,8 @@ namespace Schoole.MenuHelper
             _deleteTeacher = deleteTeacher;
             _getTeacherById = getTeacherById;
             _getAllTeachers = getAllTeachers;
-            _updataTeacher = updataTeacher;
+            _UpdateTeacher = UpdateTeacher;
             _showTeacher = showTeacher;
-             
         }
 
         public void TeacherMenuMain()
@@ -286,7 +286,7 @@ namespace Schoole.MenuHelper
                                 NCode = teacherResult.NCode,
                                 Expertise = teacherResult.Expertise
                             };
-                            _updataTeacher.Execute(updatedNameTeacher);
+                            _UpdateTeacher.Execute(updatedNameTeacher);
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -346,7 +346,7 @@ namespace Schoole.MenuHelper
                                     NCode = onlyNCode,
                                     Expertise = teacherResult.Expertise
                                 };
-                                _updataTeacher.Execute(updatedNCodetTeacher);
+                                _UpdateTeacher.Execute(updatedNCodetTeacher);
                                 Console.ForegroundColor = ConsoleColor.Blue;
                                 Console.WriteLine("----------------------------");
                                 Console.ForegroundColor = ConsoleColor.Green;
@@ -379,7 +379,7 @@ namespace Schoole.MenuHelper
                                 NCode = teacherResult.NCode,
                                 Expertise = onlyExpertise
                             };
-                            _updataTeacher.Execute(updatedExpertiseTeacher);
+                            _UpdateTeacher.Execute(updatedExpertiseTeacher);
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -444,7 +444,7 @@ namespace Schoole.MenuHelper
                                 NCode = nTchrNCode,
                                 Expertise = nTchrExpertise,
                             };
-                            _updataTeacher.Execute(updatedTeacher);
+                            _UpdateTeacher.Execute(updatedTeacher);
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("----------------------------");
                             Console.ForegroundColor = ConsoleColor.Green;

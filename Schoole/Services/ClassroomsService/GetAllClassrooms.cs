@@ -7,18 +7,11 @@ namespace Schoole.Services.ClassroomsService
     {
         List<Classroom> Execute();
     }
-    public class GetAllClassrooms : IGetAllClassrooms
+    public class GetAllClassrooms(IClassroomRepository classroomRepository) : IGetAllClassrooms
     {
-        private readonly IClassroomRepository _classroomRepository;
-
-        public GetAllClassrooms(IClassroomRepository classroomRepository)
-        {
-            _classroomRepository = classroomRepository;
-        }
-
         public List<Classroom> Execute()
         {
-            return _classroomRepository.GetAllClassrooms();
+            return classroomRepository.GetAllClassrooms();
         }
     }
 }

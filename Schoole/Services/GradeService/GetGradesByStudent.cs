@@ -7,17 +7,11 @@ namespace Schoole.Services.GradeService
     {
         List<Grade> Execute(int studentId);
     }
-    public class GetGradesByStudent : IGetGradesByStudent
+    public class GetGradesByStudent(IGradeRepository gradeRepository) : IGetGradesByStudent
     {
-        private readonly IGradeRepository _gradeRepository;
-        public GetGradesByStudent(IGradeRepository gradeRepository)
-        {
-            _gradeRepository = gradeRepository;
-        }
-
         public List<Grade> Execute(int studentId)
         {
-            return _gradeRepository.GetGradeByStudentId(studentId);
+            return gradeRepository.GetGradeByStudentId(studentId);
         }
     }
 }

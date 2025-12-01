@@ -13,10 +13,9 @@ namespace Schoole.MenuHelper
         private readonly IShowStudent _showStudent;
 
 
-
         public StudentMenu(
-            IAddStudent addStudent,
-            IGetAllStudents getAllStudents,
+        IAddStudent addStudent,
+        IGetAllStudents getAllStudents,
         IGetStudentById getStudentById,
         IDeleteStudent deleteStudent,
         IUpdateStudent updateStudent,
@@ -34,14 +33,6 @@ namespace Schoole.MenuHelper
 
         }
 
-        private void ControlInput()
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Invalid selection. Please try again.");
-            Console.ResetColor();
-            Console.WriteLine("Press any key to continue...");
-            Console.ReadKey();
-        }
 
         public void StudentMenuMain()
         {
@@ -726,6 +717,15 @@ namespace Schoole.MenuHelper
                 Console.ResetColor();
             }
             Console.WriteLine("Press Any Key To Go Back.");
+            Console.ReadKey();
+        }
+
+        private void ControlInput()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Invalid selection. Please try again.");
+            Console.ResetColor();
+            Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
     }
