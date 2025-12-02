@@ -98,15 +98,12 @@ namespace Schoole.MenuHelper
 
             if (result.Success)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(result.Message);
-                Console.ResetColor();
+                TextColor($"{result.Message}\n", "Green");
+
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(result.Message);
-                Console.ResetColor();
+                TextColor($"{result.Message}\n", "Red");
             }
 
         }
@@ -141,8 +138,7 @@ namespace Schoole.MenuHelper
                 if (classrommResult == null)
                 {
                     LineUi();
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("No classroom with this ID was found.");
+                    TextColor("No classroom with this ID was found.\n", "Red");
                     LineUi();
                     Console.WriteLine("Press Any Key To Go Back.");
                     Console.ReadKey();
@@ -150,9 +146,7 @@ namespace Schoole.MenuHelper
                 else
                 {
                     Header("Edit Classroom");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"The Classroom You Want To Edit:");
-                    Console.ResetColor();
+                    TextColor($"The Classroom You Want To Edit:\n", "Green");
                     Console.WriteLine($"Name: {classrommResult.Name}");
                     LineUi();
                     Console.WriteLine("Enter New Name: ");
@@ -165,9 +159,7 @@ namespace Schoole.MenuHelper
                     };
                     _updateClassroom.Execute(updatedClassroom);
                     LineUi();
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("The classroom successfully changed");
-                    Console.ResetColor();
+                    TextColor("The classroom successfully changed\n", "Green");
                     Console.WriteLine("Press Any Key To Go Back.");
                     Console.ReadKey();
                 }
@@ -205,26 +197,17 @@ namespace Schoole.MenuHelper
                 {
                     LineUi();
                     Console.Write($"Are you sure you want to delete ");
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write($"{classroomDeleteResult.Name}");
-                    Console.ResetColor();
+                    TextColor($"{classroomDeleteResult.Name}", "Red");
                     Console.WriteLine("?");
                     Console.Write("1. ");
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("Yes");
-                    Console.ResetColor();
+                    TextColor("Yes", "Red");
                     Console.Write("   2. ");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("No");
+                    TextColor("No\n", "Green");
                     LineUi();
                     Console.Write("Select an option (");
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("1");
-                    Console.ResetColor();
+                    TextColor("1", "Red");
                     Console.Write("/");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write("2");
-                    Console.ResetColor();
+                    TextColor("2", "Green");
                     Console.Write("): ");
 
                     makeSure = Convert.ToInt32(Console.ReadLine());
@@ -232,9 +215,7 @@ namespace Schoole.MenuHelper
                     {
                         LineUi();
                         _deleteClassroom.Execute(clsDeleteId);
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("The classroom successfully deleted");
-                        Console.ResetColor();
+                        TextColor("The classroom successfully deleted\n", "Red");
                         break;
                     }
                     else
@@ -263,8 +244,7 @@ namespace Schoole.MenuHelper
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"Total classrooms: {classrooms.Count}");
+                TextColor($"Total classrooms: {classrooms.Count}\n", "Yellow");
                 LineUi();
                 var counter = 1;
                 foreach (Classroom classroom in classrooms)
@@ -308,9 +288,7 @@ namespace Schoole.MenuHelper
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"Total students: {students.Count}");
-                Console.ResetColor();
+                TextColor($"Total students: {students.Count}\n", "Yellow");
                 foreach (Student student in students)
                 {
                     LineUi();
@@ -321,10 +299,7 @@ namespace Schoole.MenuHelper
 
                 }
                 LineUi();
-
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"Total classrooms: {classrooms.Count}");
-                Console.ResetColor();
+                TextColor($"Total classrooms: {classrooms.Count}\n", "Yellow");
                 foreach (Classroom classroom in classrooms)
                 {
                     LineUi();
@@ -343,15 +318,12 @@ namespace Schoole.MenuHelper
 
                 if (result1.Success)
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(result1.Message);
-                    Console.ResetColor();
+                    TextColor($"{result1.Message}\n", "Green");
+
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(result1.Message);
-                    Console.ResetColor();
+                    TextColor($"{result1.Message}\n", "Red");
                 }
                 Console.ReadKey();
             }
@@ -373,9 +345,7 @@ namespace Schoole.MenuHelper
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"Total courses: {courses.Count}");
-                Console.ResetColor();
+                TextColor($"Total courses: {courses.Count}\n", "Yellow");
                 foreach (Course course in courses)
                 {
                     LineUi();
@@ -385,9 +355,7 @@ namespace Schoole.MenuHelper
 
                 }
                 LineUi();
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"Total classrooms: {classrooms.Count}");
-                Console.ResetColor();
+                TextColor($"Total classrooms: {classrooms.Count}", "Yellow");
                 foreach (Classroom classroom in classrooms)
                 {
                     LineUi();
@@ -407,15 +375,12 @@ namespace Schoole.MenuHelper
 
                 if (result2.Success)
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(result2.Message);
-                    Console.ResetColor();
+                    TextColor($"{result2.Message}\n", "Green");
+
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(result2.Message);
-                    Console.ResetColor();
+                    TextColor($"{result2.Message}\n", "Red");
                 }
                 Console.ReadKey();
             }
@@ -425,35 +390,36 @@ namespace Schoole.MenuHelper
 
         private void ControlInput()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Invalid selection. Please try again.");
-            Console.ResetColor();
+            TextColor("Invalid selection. Please try again.\n", "Red");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
 
         private void Header(string text)
         {
-
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write("*** ");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write($"{text}");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine(" ***");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("----------------------------");
-            Console.ResetColor();
+            TextColor("*** ", "Blue");
+            TextColor($"{text}", "Cyan");
+            TextColor(" ***\n", "Blue");
+            LineUi();
         }
 
         private void LineUi()
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("----------------------------");
+            TextColor("----------------------------\n", "Blue");
+        }
+
+        private void TextColor(string text, string color)
+        {
+            if (Enum.TryParse(typeof(ConsoleColor), color, true, out var parsedColor))
+            {
+                Console.ForegroundColor = (ConsoleColor)parsedColor;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            Console.Write(text);
             Console.ResetColor();
         }
     }

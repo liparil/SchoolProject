@@ -102,8 +102,7 @@ namespace Schoole.MenuHelper
                 }
 
                 LineUi();
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"Total courses: {courses.Count}");
+                TextColor($"Total courses: {courses.Count}\n", "Yellow");
                 foreach (Course course in courses)
                 {
                     LineUi();
@@ -123,15 +122,12 @@ namespace Schoole.MenuHelper
 
                 if (result.Success)
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(result.Message);
-                    Console.ResetColor();
+                    TextColor($"{result.Message}\n", "Green");
+                    
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(result.Message);
-                    Console.ResetColor();
+                    TextColor($"{result.Message}\n", "Red");
                 }
                 return true;
             }
@@ -171,15 +167,11 @@ namespace Schoole.MenuHelper
                 {
                     LineUi();
                     Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(result1.Message);
-                    Console.ResetColor();
+                    TextColor($"{result1.Message}\n", "Green");
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(result1.Message);
-                    Console.ResetColor();
+                    TextColor($"{result1.Message}\n", "Red");
                 }
                 LineUi();
                 Console.WriteLine("Press Any Key To Go Back.");
@@ -192,9 +184,7 @@ namespace Schoole.MenuHelper
 
         private void ControlInput()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Invalid selection. Please try again.");
-            Console.ResetColor();
+            TextColor("Invalid selection. Please try again.\n", "Red");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
@@ -203,24 +193,28 @@ namespace Schoole.MenuHelper
         {
 
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write("*** ");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write($"{text}");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine(" ***");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("----------------------------");
-            Console.ResetColor();
+            TextColor("*** ", "Blue");
+            TextColor($"{text}", "Cyan");
+            TextColor(" ***\n", "Blue");
+            LineUi();
         }
 
         private void LineUi()
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("----------------------------");
+            TextColor("----------------------------\n", "Blue");
+        }
+
+        private void TextColor(string text, string color)
+        {
+            if (Enum.TryParse(typeof(ConsoleColor), color, true, out var parsedColor))
+            {
+                Console.ForegroundColor = (ConsoleColor)parsedColor;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            Console.Write(text);
             Console.ResetColor();
         }
     }

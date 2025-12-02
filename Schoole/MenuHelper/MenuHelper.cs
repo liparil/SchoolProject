@@ -56,9 +56,8 @@
         public void ControlInput()
         {
             LineUi();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Your input is out of range");
-            Console.ResetColor();
+            TextColor("Invalid Input\n", "Red");
+
             Console.Write("Press any key to try again");
             Console.ReadKey();
         }
@@ -68,44 +67,23 @@
             var exit = 0;
             while (true)
             {
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.Write("   *** ");
-                Console.ResetColor();
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.Write("Exit Program");
-                Console.ResetColor();
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine(" ***");
-                Console.ResetColor();
-                LineUi();
+                Header("Exit Program");
                 Console.WriteLine($"Are you sure you want to exit?");
                 Console.WriteLine();
                 Console.Write("     1. ");
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("Yes");
-                Console.ResetColor();
+                TextColor("Yes", "Red");
                 Console.Write("   2. ");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("No");
+                TextColor("No\n", "Green");
                 LineUi();
                 Console.Write("Select an option (");
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("1");
-                Console.ResetColor();
+                TextColor("1", "Red");
                 Console.Write("/");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.Write("2");
-                Console.ResetColor();
+                TextColor("2", "Green");
                 Console.Write("): ");
                 exit = Convert.ToInt32(Console.ReadLine());
                 if (exit == 1)
                 {
-                    Environment.Exit(0);
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("The student successfully deleted");
-                    Console.ResetColor();
-                    break;
+                    Environment.Exit(0);;
                 }
                 else
                 {
@@ -117,26 +95,29 @@
 
         private void Header(string text)
         {
-
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write("*** ");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write($"{text}");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine(" ***");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("----------------------------");
-            Console.ResetColor();
+            TextColor("*** ", "Blue");
+            TextColor($"{text}", "Cyan");
+            TextColor(" ***\n", "Blue");
+            LineUi();
         }
 
         private void LineUi()
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("----------------------------");
+            TextColor("----------------------------\n", "Blue");
+        }
+
+        private void TextColor(string text , string color)
+        {
+            if (Enum.TryParse(typeof(ConsoleColor), color, true, out var parsedColor))
+            {
+                Console.ForegroundColor = (ConsoleColor)parsedColor;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            Console.Write(text);
             Console.ResetColor();
         }
 

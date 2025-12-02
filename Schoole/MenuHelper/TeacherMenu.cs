@@ -87,25 +87,19 @@ namespace Schoole.MenuHelper
 
                 if (string.IsNullOrWhiteSpace(nCode))
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("National code cannot be empty!");
-                    Console.ResetColor();
+                    TextColor("National code cannot be empty!\n", "Red");
                     continue;
                 }
 
                 if (!nCode.All(char.IsDigit))
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("National code must contain only numbers!");
-                    Console.ResetColor();
+                    TextColor("National code must contain only numbers!\n", "Red");
                     continue;
                 }
 
                 if (nCode.Length != 10)
                 {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("National code should be exactly 10 numbers!");
-                    Console.ResetColor();
+                    TextColor("National code should be exactly 10 numbers!\n", "Yellow");
                     continue;
                 }
                 break;
@@ -118,15 +112,11 @@ namespace Schoole.MenuHelper
 
             if (result.Success)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(result.Message);
-                Console.ResetColor();
+                TextColor($"{result.Message}\n", "Green");
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(result.Message);
-                Console.ResetColor();
+                TextColor($"{result.Message}\n", "Red");
             }
         }
 
@@ -160,8 +150,7 @@ namespace Schoole.MenuHelper
                 if (teacherResult == null)
                 {
                     LineUi();
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("No teacher with this ID was found.");
+                    TextColor("No teacher with this ID was found.\n", "Red");
                     LineUi();
                     Console.WriteLine("Press Any Key To Go Back.");
                     Console.ReadKey();
@@ -169,9 +158,7 @@ namespace Schoole.MenuHelper
                 else
                 {
                     Header("Edit Teacher");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"The teacher You Want To Edit:");
-                    Console.ResetColor();
+                    TextColor("The teacher You Want To Edit:\n", "Green");
                     Console.WriteLine($"Name: {teacherResult.FullName}\nNational code: {teacherResult.NCode}\nExpertise: {teacherResult.Expertise}");
                     LineUi();
                     Console.WriteLine("What do you want to edit?");
@@ -201,9 +188,7 @@ namespace Schoole.MenuHelper
                             };
                             _UpdateTeacher.Execute(updatedNameTeacher);
                             LineUi();
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("The teacher successfully changed");
-                            Console.ResetColor();
+                            TextColor("The teacher successfully changed\n", "Green");
                             Console.WriteLine("Press Any Key To Go Back.");
                             Console.ReadKey();
                             break;
@@ -217,25 +202,19 @@ namespace Schoole.MenuHelper
                                 onlyNCode = Console.ReadLine();
                                 if (string.IsNullOrWhiteSpace(onlyNCode))
                                 {
-                                    Console.ForegroundColor = ConsoleColor.Red;
-                                    Console.WriteLine("National code cannot be empty!");
-                                    Console.ResetColor();
+                                    TextColor("National code cannot be empty!\n", "Red");
                                     continue;
                                 }
 
                                 if (!onlyNCode.All(char.IsDigit))
                                 {
-                                    Console.ForegroundColor = ConsoleColor.Red;
-                                    Console.WriteLine("National code must contain only numbers!");
-                                    Console.ResetColor();
+                                    TextColor("National code must contain only numbers!\n", "Red");
                                     continue;
                                 }
 
                                 if (onlyNCode.Length != 10)
                                 {
-                                    Console.ForegroundColor = ConsoleColor.Yellow;
-                                    Console.WriteLine("National code should be exactly 10 numbers!");
-                                    Console.ResetColor();
+                                    TextColor("National code should be exactly 10 numbers!\n", "Yellow");
                                     continue;
                                 }
 
@@ -248,9 +227,7 @@ namespace Schoole.MenuHelper
                                 };
                                 _UpdateTeacher.Execute(updatedNCodetTeacher);
                                 LineUi();
-                                Console.ForegroundColor = ConsoleColor.Green;
-                                Console.WriteLine("The Teacher successfully changed");
-                                Console.ResetColor();
+                                TextColor("The Teacher successfully changed\n", "Green");
                                 Console.WriteLine("Press Any Key To Go Back.");
                                 Console.ReadKey();
                                 break;
@@ -271,9 +248,7 @@ namespace Schoole.MenuHelper
                             };
                             _UpdateTeacher.Execute(updatedExpertiseTeacher);
                             LineUi();
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("The teacher successfully changed");
-                            Console.ResetColor();
+                            TextColor("The teacher successfully changed\n", "Green");
                             Console.WriteLine("Press Any Key To Go Back.");
                             Console.ReadKey();
                             break;
@@ -291,25 +266,19 @@ namespace Schoole.MenuHelper
 
                                 if (string.IsNullOrWhiteSpace(nTchrNCode))
                                 {
-                                    Console.ForegroundColor = ConsoleColor.Red;
-                                    Console.WriteLine("National code cannot be empty!");
-                                    Console.ResetColor();
+                                    TextColor("National code cannot be empty!\n", "Red");
                                     continue;
                                 }
 
                                 if (!nTchrNCode.All(char.IsDigit))
                                 {
-                                    Console.ForegroundColor = ConsoleColor.Red;
-                                    Console.WriteLine("National code must contain only numbers!");
-                                    Console.ResetColor();
+                                    TextColor("National code must contain only numbers!\n", "Red");
                                     continue;
                                 }
 
                                 if (nTchrNCode.Length != 10)
                                 {
-                                    Console.ForegroundColor = ConsoleColor.Yellow;
-                                    Console.WriteLine("National code should be exactly 10 numbers!");
-                                    Console.ResetColor();
+                                    TextColor("National code should be exactly 10 numbers!\n", "Yellow");
                                     continue;
                                 }
 
@@ -326,9 +295,7 @@ namespace Schoole.MenuHelper
                             };
                             _UpdateTeacher.Execute(updatedTeacher);
                             LineUi();
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("The teacher successfully changed");
-                            Console.ResetColor();
+                            TextColor("The teacher successfully changed\n", "Green");
                             Console.WriteLine("Press Any Key To Go Back.");
                             Console.ReadKey();
                             break;
@@ -375,9 +342,7 @@ namespace Schoole.MenuHelper
                     isValidInput = int.TryParse(input, out teachDeleteId) && teachDeleteId > 0;
                     if (!isValidInput)
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Invalid ID. Please enter a positive number.");
-                        Console.ResetColor();
+                        TextColor("Invalid ID. Please enter a positive number.\n", "Red");
                     }
                 } while (!isValidInput);
                 var teachDeleteResult = _getTeacherById.Execute(teachDeleteId);
@@ -397,19 +362,13 @@ namespace Schoole.MenuHelper
                 {
                     LineUi();
                     Console.Write($"Are you sure you want to delete ");
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write($"{teachDeleteResult.FullName}");
-                    Console.ResetColor();
+                    TextColor($"{teachDeleteResult.FullName}", "Red");
                     Console.WriteLine("?");
                     Console.Write("1. ");
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("Yes");
-                    Console.ResetColor();
+                    TextColor("Yes", "Red");
                     Console.Write("    2. ");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("No");
-                    Console.WriteLine("----------------------------");
-                    Console.ResetColor();
+                    TextColor("No\n", "Green");
+                    LineUi();
                     Console.Write("Select an option (1/2): ");
 
                     if (int.TryParse(Console.ReadLine(), out int makeSure))
@@ -422,15 +381,11 @@ namespace Schoole.MenuHelper
                         }
                         else if (makeSure == 2)
                         {
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine("Deletion cancelled.");
-                            Console.ResetColor();
+                            TextColor("Deletion cancelled.\n", "Yellow");
                             break;
                         }
                     }
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Invalid selection. Please enter 1 or 2.");
-                    Console.ResetColor();
+                    TextColor("Invalid selection. Please enter 1 or 2.\n", "Red");
                 }
                 Console.WriteLine("Press Any Key To Go Back.");
                 Console.ReadKey();
@@ -486,15 +441,12 @@ namespace Schoole.MenuHelper
                 LineUi();
                 if (teacher.Success)
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(teacher.Message);
-                    Console.ResetColor();
+                    TextColor($"{teacher.Message}\n", "Green");
+                    
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(teacher.Message);
-                    Console.ResetColor();
+                    TextColor($"{teacher.Message}\n", "Red");
                 }
                 LineUi();
             }
@@ -506,35 +458,36 @@ namespace Schoole.MenuHelper
 
         private void ControlInput()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Invalid selection. Please try again.");
-            Console.ResetColor();
+            TextColor("Invalid selection. Please try again.\n", "Red");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
 
         private void Header(string text)
         {
-
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write("*** ");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write($"{text}");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine(" ***");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("----------------------------");
-            Console.ResetColor();
+            TextColor("*** ", "Blue");
+            TextColor($"{text}", "Cyan");
+            TextColor(" ***\n", "Blue");
+            LineUi();
         }
 
         private void LineUi()
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("----------------------------");
+            TextColor("----------------------------\n", "Blue");
+        }
+
+        private void TextColor(string text, string color)
+        {
+            if (Enum.TryParse(typeof(ConsoleColor), color, true, out var parsedColor))
+            {
+                Console.ForegroundColor = (ConsoleColor)parsedColor;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            Console.Write(text);
             Console.ResetColor();
         }
     }
