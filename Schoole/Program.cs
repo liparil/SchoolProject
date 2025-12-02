@@ -19,14 +19,14 @@ class Program
 
             .AddScoped<AppDbContext>()
 
-
+            
             .AddScoped<IStudentRepository, DbStudentRepository>()
             .AddScoped<ITeacherRepository, DbTeacherRepository>()
             .AddScoped<ICourseRepository, DbCourseRepository>()
             .AddScoped<IClassroomRepository, DbClassroomRepository>()
             .AddScoped<IGradeRepository, DbGradeRepository>()
 
-
+            //student
             .AddScoped<IAddStudent, AddStudent>()
             .AddScoped<IDeleteStudent, DeleteStudent>()
             .AddScoped<IGetStudentById, GetStudentById>()
@@ -34,7 +34,7 @@ class Program
             .AddScoped<IUpdateStudent, UpdateStudent>()
             .AddScoped<IShowStudent, ShowStudent>()
 
-
+            //teacher
             .AddScoped<IAddTeacher, AddTeacher>()
             .AddScoped<IDeleteTeacher, DeleteTeacher>()
             .AddScoped<IGetTeacherById, GetTeacherById>()
@@ -42,15 +42,14 @@ class Program
             .AddScoped<IUpdateTeacher, UpdateTeacher>()
             .AddScoped<IShowTeacher, ShowTeacher>()
 
-
-
+            //course
             .AddScoped<IAddCourse, AddCourse>()
             .AddScoped<IDeleteCourse, DeleteCourse>()
             .AddScoped<IGetAllCourses, GetAllCourses>()
             .AddScoped<IGetCourseById, GetCourseById>()
             .AddScoped<IUpdateCourse, UpdateCourse>()
 
-
+            //classroom
             .AddScoped<IAddClassroom, AddClassroom>()
             .AddScoped<IAddStudentToClassroom, AddStudentToClassroom>()
             .AddScoped<IAssignCourseToClassroom, AssignCourseToClassroom>()
@@ -59,7 +58,7 @@ class Program
             .AddScoped<IGetClassroomById, GetClassroomById>()
             .AddScoped<IUpdateClassroom, UpdateClassroom>()
 
-
+            //grade
             .AddScoped<IAddGrade, AddGrade>()
             .AddScoped<IShowReportCard, ShowReportCard>()
 

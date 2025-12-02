@@ -62,24 +62,12 @@ namespace Schoole.MenuHelper
                             }
                         }
                         break;
-                    case "2":
-                        UpdateTeachers();
-
-                        break;
-                    case "3":
-                        DeleteTeachers();
-                        break;
-                    case "4":
-                        ShowAllTeachers();
-                        break;
-                    case "5":
-                        SearchByNationalCode();
-                        break;
-                    case "0":
-                        return;
-                    default:
-                        ControlInput();
-                        break;
+                    case "2": UpdateTeachers(); break;
+                    case "3": DeleteTeachers(); break;
+                    case "4": ShowAllTeachers(); break;
+                    case "5": SearchByNationalCode(); break;
+                    case "0": return;
+                    default: ControlInput(); break;
                 }
             }
         }
@@ -120,13 +108,11 @@ namespace Schoole.MenuHelper
                     Console.ResetColor();
                     continue;
                 }
-
                 break;
             }
 
             Console.WriteLine("Expertise: ");
             var expertise = Console.ReadLine();
-
             var result = _addTeacher.Execute(tName, nCode, expertise);
             LineUi();
 
@@ -142,7 +128,6 @@ namespace Schoole.MenuHelper
                 Console.WriteLine(result.Message);
                 Console.ResetColor();
             }
-
         }
 
         public void UpdateTeachers()
@@ -368,7 +353,7 @@ namespace Schoole.MenuHelper
             }
             else
             {
-                Console.WriteLine($"Total Students: {teachers.Count}");
+                Console.WriteLine($"Total Teachers: {teachers.Count}");
                 foreach (Teacher teach in teachers)
                 {
                     LineUi();
@@ -380,10 +365,34 @@ namespace Schoole.MenuHelper
 
                 }
                 LineUi();
-                Console.WriteLine("Enter the teacher ID you want to delete: ");
-                var teachDeleteId = Convert.ToInt32(Console.ReadLine());
+                int teachDeleteId;
+                bool isValidInput = false;
+                do
+                {
+                    Console.WriteLine("Enter the teacher ID you want to delete: (Or press 0 to cancel)");
+                    string input = Console.ReadLine();
+                    if (input == "0") return;
+                    isValidInput = int.TryParse(input, out teachDeleteId) && teachDeleteId > 0;
+                    if (!isValidInput)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Invalid ID. Please enter a positive number.");
+                        Console.ResetColor();
+                    }
+                } while (!isValidInput);
                 var teachDeleteResult = _getTeacherById.Execute(teachDeleteId);
-                var makeSure = 0;
+                if (teachDeleteResult == null)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("----------------------------");
+                    Console.WriteLine("No teacher with this ID was found.");
+                    Console.WriteLine("----------------------------");
+                    Console.ResetColor();
+                    Console.WriteLine("Press Any Key To Go Back.");
+                    Console.ReadKey();
+                    return;
+                }
+
                 while (true)
                 {
                     LineUi();
@@ -396,41 +405,36 @@ namespace Schoole.MenuHelper
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write("Yes");
                     Console.ResetColor();
-                    Console.Write("   2. ");
+                    Console.Write("    2. ");
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("No");
-                    LineUi();
-                    Console.Write("Select an option (");
+                    Console.WriteLine("----------------------------");
+                    Console.ResetColor();
+                    Console.Write("Select an option (1/2): ");
+
+                    if (int.TryParse(Console.ReadLine(), out int makeSure))
+                    {
+                        if (makeSure == 1)
+                        {
+                            _deleteTeacher.Execute(teachDeleteId);
+                            LineUi();
+                            break;
+                        }
+                        else if (makeSure == 2)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("Deletion cancelled.");
+                            Console.ResetColor();
+                            break;
+                        }
+                    }
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("1");
+                    Console.WriteLine("Invalid selection. Please enter 1 or 2.");
                     Console.ResetColor();
-                    Console.Write("/");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write("2");
-                    Console.ResetColor();
-                    Console.Write("): ");
-                    makeSure = Convert.ToInt32(Console.ReadLine());
-                    if (makeSure == 1)
-                    {
-                        LineUi();
-                        _deleteTeacher.Execute(teachDeleteId);
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("The teacher successfully deleted");
-                        Console.ResetColor();
-                        break;
-                    }
-                    else
-                    {
-                        break;
-                    }
-
                 }
-
                 Console.WriteLine("Press Any Key To Go Back.");
                 Console.ReadKey();
             }
-
-
         }
 
         public void ShowAllTeachers()
@@ -439,7 +443,6 @@ namespace Schoole.MenuHelper
             Header("Showing Teacher");
 
             List<Teacher> teachers = _getAllTeachers.Execute();
-            LineUi();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (teachers.Count == 0)
             {

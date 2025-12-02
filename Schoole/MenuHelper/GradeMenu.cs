@@ -169,6 +169,8 @@ namespace Schoole.MenuHelper
                 LineUi();
                 if (result1.Success)
                 {
+                    LineUi();
+                    Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(result1.Message);
                     Console.ResetColor();
@@ -196,6 +198,7 @@ namespace Schoole.MenuHelper
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
+
         private void Header(string text)
         {
 

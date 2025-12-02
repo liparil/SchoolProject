@@ -41,27 +41,13 @@
                 choice = choice.Trim();
                 switch (choice)
                 {
-                    case "1":
-                        _studentMenu.StudentMenuMain();
-                        break;
-                    case "2":
-                        _teacherMenu.TeacherMenuMain();
-                        break;
-                    case "3":
-                        _courseMenu.CourseMenuMain();
-                        break;
-                    case "4":
-                        _classroomMenu.ClassroomMenuMain();
-                        break;
-                    case "5":
-                        _gradeMenu.GradeMenuMain();
-                        break;
-                    case "0":
-                        exitMethod();
-                        break;
-                    default:
-                        ControlInput();
-                        break;
+                    case "1": _studentMenu.StudentMenuMain(); break;
+                    case "2": _teacherMenu.TeacherMenuMain(); break;
+                    case "3": _courseMenu.CourseMenuMain(); break;
+                    case "4": _classroomMenu.ClassroomMenuMain(); break;
+                    case "5": _gradeMenu.GradeMenuMain(); break;
+                    case "0": exitMethod(); break;
+                    default: ControlInput(); break;
 
                 }
             }

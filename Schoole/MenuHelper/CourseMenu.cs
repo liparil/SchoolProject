@@ -67,23 +67,11 @@ namespace Schoole.MenuHelper
                         }
 
                         break;
-                    case "2":
-                        UpdateCourse();
-
-                        break;
-                    case "3":
-                        DeleteCourse();
-
-                        break;
-                    case "4":
-
-                        ShowAllCourses();
-                        break;
-                    case "0":
-                        return;
-                    default:
-                        ControlInput();
-                        break;
+                    case "2": UpdateCourse(); break;
+                    case "3": DeleteCourse(); break;
+                    case "4": ShowAllCourses(); break;
+                    case "0": return;
+                    default: ControlInput(); break;
                 }
             }
         }

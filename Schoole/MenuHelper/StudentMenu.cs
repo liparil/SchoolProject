@@ -49,26 +49,13 @@ namespace Schoole.MenuHelper
 
                 switch (choice)
                 {
-                    case "1":
-                        AddingStudent();
-                        break;
-                    case "2":
-                        UpdateStudents();
-                        break;
-                    case "3":
-                        DeleteStudents();
-                        break;
-                    case "4":
-                        ShowAllStudents();
-                        break;
-                    case "5":
-                        SearchByNationalCode();
-                        break;
-                    case "0":
-                        return;
-                    default:
-                        ControlInput();
-                        break;
+                    case "1": AddingStudent(); break;
+                    case "2": UpdateStudents(); break;
+                    case "3": DeleteStudents(); break;
+                    case "4": ShowAllStudents(); break;
+                    case "5": SearchByNationalCode(); break;
+                    case "0": return;
+                    default: ControlInput(); break;
                 }
             }
         }
@@ -168,7 +155,6 @@ namespace Schoole.MenuHelper
         {
             Header("Showing Student");
             List<Student> students = _getAllStudents.Execute();
-            LineUi();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (students.Count == 0)
             {
@@ -278,11 +264,8 @@ namespace Schoole.MenuHelper
                 {
                     if (makeSure == 1)
                     {
-
                         _deleteStudent.Execute(stdDeleteId);
-
                         LineUi();
-                        //Console.ResetColor();
                         break;
                     }
                     else if (makeSure == 2)
@@ -386,8 +369,6 @@ namespace Schoole.MenuHelper
                         case "2":
                             Header("Edit National code");
                             string onlyNCode;
-
-
                             while (true)
                             {
                                 Console.WriteLine("Enter New National code: ");
@@ -432,8 +413,6 @@ namespace Schoole.MenuHelper
                                 Console.ReadKey();
                                 break;
                             }
-
-
                             break;
 
                         case "3":
@@ -467,7 +446,6 @@ namespace Schoole.MenuHelper
                             Console.WriteLine("Enter New Name: ");
                             var nStdName = Console.ReadLine();
                             string nStdNCode;
-
                             while (true)
                             {
                                 Console.WriteLine("Enter national code: ");
@@ -504,6 +482,7 @@ namespace Schoole.MenuHelper
                                 {
                                     Console.WriteLine("Invalid date format. Try again (yyyy-MM-dd): ");
                                 }
+
                                 var updatedAllStudent = new Student
                                 {
                                     ID = studentResult.ID,
@@ -511,6 +490,7 @@ namespace Schoole.MenuHelper
                                     NCode = nStdNCode,
                                     BirthDate = nStdBDate
                                 };
+
                                 _updateStudent.Execute(updatedAllStudent);
                                 LineUi();
                                 Console.ForegroundColor = ConsoleColor.Green;
@@ -521,16 +501,9 @@ namespace Schoole.MenuHelper
                                 break;
                             }
                             break;
-
                     }
-
-
                 }
-
             }
-
-
-
         }
 
         public void SearchByNationalCode()
@@ -578,7 +551,8 @@ namespace Schoole.MenuHelper
             Console.ReadKey();
         }
 
-        private void Header(string text) {
+        private void Header(string text)
+        {
 
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Blue;

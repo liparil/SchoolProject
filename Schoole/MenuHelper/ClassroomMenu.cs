@@ -77,26 +77,13 @@ namespace Schoole.MenuHelper
                         }
                         break;
 
-                    case "2":
-                        UpdateClassroom();
-                        break;
-                    case "3":
-                        DeleteClassroom();
-                        break;
-                    case "4":
-                        ShowAllClassroom();
-                        break;
-                    case "5":
-                        AddStudentToClassroom();
-                        break;
-                    case "6":
-                        AssignCoursetoClassroom();
-                        break;
-                    case "0":
-                        return;
-                    default:
-                        ControlInput();
-                        break;
+                    case "2": UpdateClassroom(); break;
+                    case "3": DeleteClassroom(); break;
+                    case "4": ShowAllClassroom(); break;
+                    case "5": AddStudentToClassroom(); break;
+                    case "6": AssignCoursetoClassroom(); break;
+                    case "0": return;
+                    default: ControlInput(); break;
                 }
             }
         }

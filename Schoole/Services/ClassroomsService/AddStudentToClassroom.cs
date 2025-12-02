@@ -55,7 +55,6 @@ namespace Schoole.Services.ClassroomsService
                 output.Message = "Student added in classroom";
                 return output;
             }
-
         }
     }
 }
