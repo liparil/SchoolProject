@@ -28,10 +28,11 @@ namespace Schoole.MenuHelper
             _showTeacher = showTeacher;
         }
 
-        public void TeacherMenuMain()
+        public async Task TeacherMenuMain()
         {
             while (true)
             {
+                Console.Clear();
                 Header("Teacher Menu");
                 Console.WriteLine("1. Add Teachers");
                 Console.WriteLine("2. Update Teachers");
@@ -44,26 +45,9 @@ namespace Schoole.MenuHelper
                 var choice = Console.ReadLine();
                 switch (choice)
                 {
-                    case "1":
-                        AddTeachers();
-                        while (true)
-                        {
-                            LineUi();
-                            Console.WriteLine("If you want to add a new teacher, press 1.");
-                            Console.WriteLine("To go back press 0");
-                            int close = Convert.ToInt16(Console.ReadLine());
-                            if (close == 1)
-                            {
-                                AddTeachers();
-                            }
-                            else if (close == 0)
-                            {
-                                break;
-                            }
-                        }
-                        break;
-                    case "2": UpdateTeachers(); break;
-                    case "3": DeleteTeachers(); break;
+                    case "1": await AddTeachers(); break;
+                    case "2": await UpdateTeachers(); break;
+                    case "3": await DeleteTeachers(); break;
                     case "4": ShowAllTeachers(); break;
                     case "5": SearchByNationalCode(); break;
                     case "0": return;
@@ -72,7 +56,7 @@ namespace Schoole.MenuHelper
             }
         }
 
-        public void AddTeachers()
+        public async Task AddTeachers()
         {
             Header("Adding Teacher");
             Console.WriteLine("Teacher Name: ");
@@ -107,7 +91,10 @@ namespace Schoole.MenuHelper
 
             Console.WriteLine("Expertise: ");
             var expertise = Console.ReadLine();
-            var result = _addTeacher.Execute(tName, nCode, expertise);
+
+            await LoadingSpinner();
+
+            var result = await _addTeacher.Execute(tName, nCode, expertise);
             LineUi();
 
             if (result.Success)
@@ -118,9 +105,11 @@ namespace Schoole.MenuHelper
             {
                 TextColor($"{result.Message}\n", "Red");
             }
+            Console.WriteLine("Press any key to go back.");
+            Console.ReadKey(true);
         }
 
-        public void UpdateTeachers()
+        public async Task UpdateTeachers()
         {
             Header("Update Teachers");
             List<Teacher> teachers = _getAllTeachers.Execute();
@@ -186,7 +175,8 @@ namespace Schoole.MenuHelper
                                 NCode = teacherResult.NCode,
                                 Expertise = teacherResult.Expertise
                             };
-                            _UpdateTeacher.Execute(updatedNameTeacher);
+                            await LoadingSpinner();
+                            await _UpdateTeacher.Execute(updatedNameTeacher);
                             LineUi();
                             TextColor("The teacher successfully changed\n", "Green");
                             Console.WriteLine("Press Any Key To Go Back.");
@@ -225,7 +215,8 @@ namespace Schoole.MenuHelper
                                     NCode = onlyNCode,
                                     Expertise = teacherResult.Expertise
                                 };
-                                _UpdateTeacher.Execute(updatedNCodetTeacher);
+                                await LoadingSpinner();
+                                await _UpdateTeacher.Execute(updatedNCodetTeacher);
                                 LineUi();
                                 TextColor("The Teacher successfully changed\n", "Green");
                                 Console.WriteLine("Press Any Key To Go Back.");
@@ -246,7 +237,8 @@ namespace Schoole.MenuHelper
                                 NCode = teacherResult.NCode,
                                 Expertise = onlyExpertise
                             };
-                            _UpdateTeacher.Execute(updatedExpertiseTeacher);
+                            await LoadingSpinner();
+                            await _UpdateTeacher.Execute(updatedExpertiseTeacher);
                             LineUi();
                             TextColor("The teacher successfully changed\n", "Green");
                             Console.WriteLine("Press Any Key To Go Back.");
@@ -293,7 +285,8 @@ namespace Schoole.MenuHelper
                                 NCode = nTchrNCode,
                                 Expertise = nTchrExpertise,
                             };
-                            _UpdateTeacher.Execute(updatedTeacher);
+                            await LoadingSpinner();
+                            await _UpdateTeacher.Execute(updatedTeacher);
                             LineUi();
                             TextColor("The teacher successfully changed\n", "Green");
                             Console.WriteLine("Press Any Key To Go Back.");
@@ -306,17 +299,20 @@ namespace Schoole.MenuHelper
             }
         }
 
-        public void DeleteTeachers()
+        public async Task DeleteTeachers()
         {
             Header("Delete Teacher");
             List<Teacher> teachers = _getAllTeachers.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
+
             if (teachers.Count == 0)
             {
+                
                 Console.WriteLine("No teacher have been added.");
                 LineUi();
                 Console.WriteLine("Press Any Key To Go Back.");
                 Console.ReadKey();
+                return;
             }
             else
             {
@@ -336,7 +332,8 @@ namespace Schoole.MenuHelper
                 bool isValidInput = false;
                 do
                 {
-                    Console.WriteLine("Enter the teacher ID you want to delete: (Or press 0 to cancel)");
+                    Console.Write("Enter the teacher ID you want to delete:");
+                    TextColor(" (Or press 0 to cancel)\n", "Yellow");
                     string input = Console.ReadLine();
                     if (input == "0") return;
                     isValidInput = int.TryParse(input, out teachDeleteId) && teachDeleteId > 0;
@@ -345,6 +342,8 @@ namespace Schoole.MenuHelper
                         TextColor("Invalid ID. Please enter a positive number.\n", "Red");
                     }
                 } while (!isValidInput);
+
+                //await LoadingSpinner();
                 var teachDeleteResult = _getTeacherById.Execute(teachDeleteId);
                 if (teachDeleteResult == null)
                 {
@@ -375,7 +374,8 @@ namespace Schoole.MenuHelper
                     {
                         if (makeSure == 1)
                         {
-                            _deleteTeacher.Execute(teachDeleteId);
+                            await LoadingSpinner();
+                            await _deleteTeacher.Execute(teachDeleteId);
                             LineUi();
                             break;
                         }
@@ -489,6 +489,24 @@ namespace Schoole.MenuHelper
             }
             Console.Write(text);
             Console.ResetColor();
+        }
+
+        static async Task LoadingSpinner(int durationMs = 3000)
+        {
+            char[] frames = { '|', '/', '-', '\\' };
+            int index = 0;
+            int interval = 100;
+
+            DateTime end = DateTime.Now.AddMilliseconds(durationMs);
+
+            while (DateTime.Now < end)
+            {
+                Console.Write($"\rLoading... {frames[index]}");
+                index = (index + 1) % frames.Length;
+                await Task.Delay(interval);
+            }
+
+            Console.Write("\rLoading... Done!   \n");
         }
     }
 }

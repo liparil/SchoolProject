@@ -5,13 +5,14 @@ namespace Schoole.Services.CourseService
 {
     public interface IUpdateCourse
     {
-        void Execute(Course course);
+        Task Execute(Course course);
     }
-    public class UpdateCourse(ICourseRepository courseRepository) : IUpdateCourse
+    public class UpdateCourse(ICourseRepository courseRepository, ILogService logService) : IUpdateCourse
     {
-        public void Execute(Course course)
+        public async Task Execute(Course course)
         {
             courseRepository.Update(course);
+            await logService.LogInfo($"Course updated: {course.Title}");
         }
     }
 }

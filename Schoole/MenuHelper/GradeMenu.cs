@@ -2,6 +2,7 @@
 using Schoole.Services.CourseService;
 using Schoole.Services.GradeService;
 using Schoole.Services.StudentsService;
+using System.Threading.Tasks;
 
 namespace Schoole.MenuHelper
 {
@@ -25,7 +26,7 @@ namespace Schoole.MenuHelper
 
         }
 
-        public void GradeMenuMain()
+        public async Task GradeMenuMain()
         {
             while (true)
             {
@@ -40,7 +41,7 @@ namespace Schoole.MenuHelper
                 {
                     case "1":
 
-                        bool result = AddGrade();
+                        bool result =await AddGrade();
                         if (result)
                         {
                             while (true)
@@ -51,7 +52,7 @@ namespace Schoole.MenuHelper
                                 int close = Convert.ToInt16(Console.ReadLine());
                                 if (close == 1)
                                 {
-                                    AddGrade();
+                                    await AddGrade();
                                 }
                                 else if (close == 0)
                                 {
@@ -74,7 +75,7 @@ namespace Schoole.MenuHelper
             }
         }
 
-        public bool AddGrade()
+        public async Task<bool> AddGrade()
         {
             Header("Adding Grade");
             List<Student> students = _getAllStudents.Execute();
@@ -117,7 +118,8 @@ namespace Schoole.MenuHelper
                 var cId = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Score: ");
                 var score = Convert.ToDouble(Console.ReadLine());
-                var result = _addGrade.Execute(sId, cId, score);
+                await LoadingSpinner();
+                var result = await _addGrade.Execute(sId, cId, score);
                 LineUi();
 
                 if (result.Success)
@@ -217,5 +219,24 @@ namespace Schoole.MenuHelper
             Console.Write(text);
             Console.ResetColor();
         }
+
+        static async Task LoadingSpinner(int durationMs = 3000)
+        {
+            char[] frames = { '|', '/', '-', '\\' };
+            int index = 0;
+            int interval = 100;
+
+            DateTime end = DateTime.Now.AddMilliseconds(durationMs);
+
+            while (DateTime.Now < end)
+            {
+                Console.Write($"\rLoading... {frames[index]}");
+                index = (index + 1) % frames.Length;
+                await Task.Delay(interval);
+            }
+
+            Console.Write("\rLoading... Done!   \n");
+        }
     }
+
 }

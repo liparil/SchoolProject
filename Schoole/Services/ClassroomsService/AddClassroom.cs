@@ -5,19 +5,21 @@ namespace Schoole.Services.ClassroomsService
 {
     public interface IAddClassroom
     {
-        Output Execute(string name);
+        Task<Output> Execute(string name);
     }
-    public class AddClassroom(IClassroomRepository classroomRepository) : IAddClassroom
+    public class AddClassroom(IClassroomRepository classroomRepository, ILogService logService) : IAddClassroom
     {
-        public Output Execute(string name)
+        public async Task<Output> Execute(string name)
         {
             var classroom = new Classroom { Name = name };
             var output = new Output();
+
 
             classroomRepository.Add(classroom);
 
             output.Success = true;
             output.Message = $"{name} Added Sucssesfuly.";
+            await logService.LogInfo($"Classroom added: {name}");
             return output;
         }
     }

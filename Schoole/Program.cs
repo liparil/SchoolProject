@@ -6,12 +6,13 @@ using Schoole.Repositories.Database;
 using Schoole.Services.ClassroomsService;
 using Schoole.Services.CourseService;
 using Schoole.Services.GradeService;
+using Schoole.Services.LogModelService;
 using Schoole.Services.StudentsService;
 using Schoole.Services.TeacherService;
 
 class Program
 {
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
 
 
@@ -62,6 +63,8 @@ class Program
             .AddScoped<IAddGrade, AddGrade>()
             .AddScoped<IShowReportCard, ShowReportCard>()
 
+            .AddScoped<ILogModelRepository, DbLogModelRepository>()
+            .AddScoped<ILogService, LogService>()
 
             .AddTransient<StudentMenu>()
             .AddTransient<TeacherMenu>()
@@ -74,7 +77,8 @@ class Program
             .BuildServiceProvider();
 
         var menuHelper = serviceProvider.GetRequiredService<MenuHelper>();
-        menuHelper.MainMenu();
+
+        await menuHelper.MainMenuAsync();
 
     }
 

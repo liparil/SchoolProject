@@ -1,16 +1,17 @@
 ﻿using Schoole.Interfaces;
 using Schoole.Models;
+using Schoole.Services.LogModelService;
 
 namespace Schoole.Services.GradeService
 {
     public interface IAddGrade
     {
-        Output Execute(int studentId, int courseId, double score);
+        Task<Output> Execute(int studentId, int courseId, double score);
     }
-    public class AddGrade(ICourseRepository courseRepository, IStudentRepository studentRepository, IGradeRepository gradeRepository) : IAddGrade
+    public class AddGrade(ICourseRepository courseRepository, IStudentRepository studentRepository, IGradeRepository gradeRepository, ILogService logService) : IAddGrade
     {
 
-        public Output Execute(int studentId, int courseId, double score)
+        public async Task<Output> Execute(int studentId, int courseId, double score)
         {
             var student = studentRepository.GetStudentById(studentId);
             var course = courseRepository.GetCourseById(courseId);
@@ -21,6 +22,7 @@ namespace Schoole.Services.GradeService
             {
                 test.Success = false;
                 test.Message = "Student Or Course Does Not Exist!";
+
                 return test;
             }
 
@@ -35,7 +37,10 @@ namespace Schoole.Services.GradeService
 
             test.Success = true;
             test.Message = $"A score of {score} was recorded for student {student.FullName} in course {course.Title}.";
+            await logService.LogInfo($"Grade added: {studentId} - {courseId} - {score}");
             return test;
         }
+
+
     }
 }

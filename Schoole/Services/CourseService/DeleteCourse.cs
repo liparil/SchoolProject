@@ -1,14 +1,16 @@
 ﻿using Schoole.Interfaces;
+using Schoole.Models;
+using Schoole.Services.LogModelService;
 
 namespace Schoole.Services.CourseService
 {
     public interface IDeleteCourse
     {
-        void Execute(int courseId);
+        Task Execute(int courseId);
     }
-    public class DeleteCourse(ICourseRepository courseRepository) : IDeleteCourse
+    public class DeleteCourse(ICourseRepository courseRepository, ILogService logService) : IDeleteCourse
     {
-        public void Execute(int courseId)
+        public async Task Execute(int courseId)
         {
             var course = courseRepository.GetCourseById(courseId);
 
@@ -18,6 +20,7 @@ namespace Schoole.Services.CourseService
             }
 
             courseRepository.Delete(courseId);
+            await logService.LogInfo($"Course deleted: {course.Title} - Teacher Name: {course.teacher}");
         }
     }
 }

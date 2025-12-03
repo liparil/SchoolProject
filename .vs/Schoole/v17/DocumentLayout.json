@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\C#\\Net Core\\Schoole - dataBase\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\teacherservice\\addteacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\teacherservice\\addteacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\services\\studentsservice\\addstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\services\\studentsservice\\addstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|c:\\c#\\net core\\schoole - database\\schoole\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{585FD909-32AE-4F7A-9E3D-690419812CC2}|Schoole\\Schoole.csproj|solutionrelative:schoole\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddStudent.cs",
+              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\StudentsService\\AddStudent.cs",
+              "RelativeDocumentMoniker": "Schoole\\Services\\StudentsService\\AddStudent.cs",
+              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\StudentsService\\AddStudent.cs",
+              "RelativeToolTip": "Schoole\\Services\\StudentsService\\AddStudent.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T11:18:12.768Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AddTeacher.cs",
+              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\AddTeacher.cs",
+              "RelativeDocumentMoniker": "Schoole\\Services\\TeacherService\\AddTeacher.cs",
+              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Services\\TeacherService\\AddTeacher.cs",
+              "RelativeToolTip": "Schoole\\Services\\TeacherService\\AddTeacher.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAwwBoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T11:18:08.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Program.cs",
+              "RelativeDocumentMoniker": "Schoole\\Program.cs",
+              "ToolTip": "C:\\C#\\Net Core\\Schoole - dataBase\\Schoole\\Program.cs",
+              "RelativeToolTip": "Schoole\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T11:16:49.971Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

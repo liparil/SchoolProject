@@ -5,13 +5,14 @@ namespace Schoole.Services.GradeService
 {
     public interface IUpdateGradeService
     {
-        void Execute(Grade grade);
+        Task Execute(Grade grade);
     }
-    public class UpdateGrade(IGradeRepository gradeRepository) : IUpdateGradeService
+    public class UpdateGrade(IGradeRepository gradeRepository, ILogService logService) : IUpdateGradeService
     {
-        public void Execute(Grade grade)
+        public async Task Execute(Grade grade)
         {
             gradeRepository.Update(grade);
+            //await logService.LogInfo($"Grade updated: {grade.} - {student.NCode}");
         }
     }
 }

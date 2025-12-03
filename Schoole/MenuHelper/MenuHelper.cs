@@ -1,4 +1,5 @@
-﻿namespace Schoole.MenuHelper
+﻿
+namespace Schoole.MenuHelper
 {
     public class MenuHelper
     {
@@ -24,11 +25,12 @@
            
         }
 
-        public void MainMenu()
+        public async Task MainMenuAsync()
         {
 
             while (true)
             {
+                Console.Clear();
                 Header("Main Menu");
                 Console.WriteLine("1. Students");
                 Console.WriteLine("2. Teachers");
@@ -41,11 +43,27 @@
                 choice = choice.Trim();
                 switch (choice)
                 {
-                    case "1": _studentMenu.StudentMenuMain(); break;
-                    case "2": _teacherMenu.TeacherMenuMain(); break;
-                    case "3": _courseMenu.CourseMenuMain(); break;
-                    case "4": _classroomMenu.ClassroomMenuMain(); break;
-                    case "5": _gradeMenu.GradeMenuMain(); break;
+                    case "1":
+                        await _studentMenu.StudentMenuMain();
+                        Console.Clear();
+                        break;
+
+                    case "2":
+                        await _teacherMenu.TeacherMenuMain();
+                        Console.Clear();
+                        break;
+                    case "3":
+                        await _courseMenu.CourseMenuMain();
+                        Console.Clear();
+                        break;
+                    case "4": 
+                        await _classroomMenu.ClassroomMenuMain();
+                        Console.Clear();
+                        break;
+                    case "5":
+                        await _gradeMenu.GradeMenuMain();
+                        Console.Clear();
+                        break;
                     case "0": exitMethod(); break;
                     default: ControlInput(); break;
 

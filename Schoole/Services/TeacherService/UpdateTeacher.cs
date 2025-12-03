@@ -5,13 +5,14 @@ namespace Schoole.Services.TeacherService
 {
     public interface IUpdateTeacher
     {
-        void Execute(Teacher teacher);
+        Task Execute(Teacher teacher);
     }
-    internal class UpdateTeacher(ITeacherRepository teacherRepository) : IUpdateTeacher
+    internal class UpdateTeacher(ITeacherRepository teacherRepository, ILogService logService) : IUpdateTeacher
     {
-        public void Execute(Teacher teacher)
+        public async Task Execute(Teacher teacher)
         {
             teacherRepository.Update(teacher);
+            await logService.LogInfo($"Teacher updated: {teacher.FullName} - {teacher.NCode}");
         }
 
     }

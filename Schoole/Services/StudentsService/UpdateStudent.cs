@@ -1,17 +1,21 @@
 ﻿using Schoole.Interfaces;
 using Schoole.Models;
+using Schoole.Services.LogModelService;
+using System.Threading.Tasks;
 
 namespace Schoole.Services.StudentsService
 {
     public interface IUpdateStudent
     {
-        void Execute(Student student);
+        Task Execute(Student student);
     }
-    public class UpdateStudent(IStudentRepository studentRepository) : IUpdateStudent
+    public class UpdateStudent(IStudentRepository studentRepository, ILogService logService ) : IUpdateStudent
     {
-        public void Execute(Student student)
+        public async Task Execute(Student student)
         {
             studentRepository.Update(student);
+
+            await logService.LogInfo($"Student updated: {student.FullName} - {student.NCode}");
         }
     }
 }

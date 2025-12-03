@@ -32,10 +32,11 @@ namespace Schoole.MenuHelper
         }
 
 
-        public void StudentMenuMain()
+        public async Task StudentMenuMain()
         {
             while (true)
             {
+                Console.Clear();
                 Header("Students Menu");
                 Console.WriteLine("1. Add Students");
                 Console.WriteLine("2. Update Students");
@@ -49,9 +50,9 @@ namespace Schoole.MenuHelper
 
                 switch (choice)
                 {
-                    case "1": AddingStudent(); break;
-                    case "2": UpdateStudents(); break;
-                    case "3": DeleteStudents(); break;
+                    case "1": await AddingStudent(); break;
+                    case "2": await UpdateStudents(); break;
+                    case "3": await DeleteStudents(); break;
                     case "4": ShowAllStudents(); break;
                     case "5": SearchByNationalCode(); break;
                     case "0": return;
@@ -60,7 +61,7 @@ namespace Schoole.MenuHelper
             }
         }
 
-        public void AddingStudent()
+        public async Task AddingStudent()
         {
             Header("Adding Student");
             Console.WriteLine("Student Name: ");
@@ -105,7 +106,8 @@ namespace Schoole.MenuHelper
                 TextColor("The date format is incorrect. Please enter it again.\n", "Red");
             }
 
-            var result = _addStudent.Execute(sName, birth, nCode);
+            await LoadingSpinner();
+            var result = await _addStudent.Execute(sName, birth, nCode);
 
             LineUi();
 
@@ -117,28 +119,10 @@ namespace Schoole.MenuHelper
             {
                 TextColor($"{result.Message}\n", "Red");
             }
-            Console.ResetColor();
+            
 
-            while (true)
-            {
-                LineUi();
-                Console.WriteLine("If you want to add a new student, press 1.");
-                Console.WriteLine("To go back press 0");
-
-                if (int.TryParse(Console.ReadLine(), out int close))
-                {
-                    if (close == 1)
-                    {
-                        AddingStudent();
-                        return;
-                    }
-                    else if (close == 0)
-                    {
-                        return;
-                    }
-                }
-                ControlInput();
-            }
+            Console.WriteLine("Press any key to go back.");
+            Console.ReadKey(true);
         }
 
         public void ShowAllStudents()
@@ -168,14 +152,15 @@ namespace Schoole.MenuHelper
             Console.ReadKey();
         }
 
-        public void DeleteStudents()
+        public async Task DeleteStudents()
         {
             Header("Delete Student");
             List<Student> students = _getAllStudents.Execute();
+            Console.ForegroundColor = ConsoleColor.Yellow;
 
             if (students.Count == 0)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                
                 Console.WriteLine("No students have been added.");
                 Console.WriteLine("----------------------------");
                 Console.ResetColor();
@@ -200,8 +185,8 @@ namespace Schoole.MenuHelper
 
             do
             {
-                Console.WriteLine("Enter the student ID you want to delete:");
-                Console.WriteLine("Or enter 0 to cancel");
+                Console.Write("Enter the student ID you want to delete:");
+                TextColor(" (Or press 0 to cancel)\n", "Yellow");
                 string input = Console.ReadLine();
 
                 if (input == "0") return;
@@ -246,8 +231,10 @@ namespace Schoole.MenuHelper
                 {
                     if (makeSure == 1)
                     {
-                        _deleteStudent.Execute(stdDeleteId);
+                        await LoadingSpinner();
+                        await _deleteStudent.Execute(stdDeleteId);
                         LineUi();
+                        TextColor("Student deleted successfully!\n", "Green");
                         break;
                     }
                     else if (makeSure == 2)
@@ -263,7 +250,7 @@ namespace Schoole.MenuHelper
             Console.ReadKey();
         }
 
-        public void UpdateStudents()
+        public async Task UpdateStudents()
         {
             Header("Update Student");
             List<Student> students = _getAllStudents.Execute();
@@ -330,7 +317,8 @@ namespace Schoole.MenuHelper
                                 NCode = studentResult.NCode,
                                 BirthDate = studentResult.BirthDate
                             };
-                            _updateStudent.Execute(updatedStudent);
+                            await LoadingSpinner();
+                            await _updateStudent.Execute(updatedStudent);
                             LineUi();
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine("The student successfully changed");
@@ -371,7 +359,8 @@ namespace Schoole.MenuHelper
                                     NCode = onlyNCode,
                                     BirthDate = studentResult.BirthDate
                                 };
-                                _updateStudent.Execute(updatedNCodeStudent);
+                                await LoadingSpinner();
+                                await _updateStudent.Execute(updatedNCodeStudent);
                                 LineUi();
                                 TextColor("The student successfully changed\n", "Green");
                                 Console.WriteLine("Press Any Key To Go Back.");
@@ -395,7 +384,8 @@ namespace Schoole.MenuHelper
                                 NCode = studentResult.NCode,
                                 BirthDate = onlyBDate
                             };
-                            _updateStudent.Execute(updatedBDateStudent);
+                            await LoadingSpinner();
+                            await _updateStudent.Execute(updatedBDateStudent);
                             LineUi();
                             TextColor("The student successfully changed\n", "Green");
                             Console.WriteLine("Press Any Key To Go Back.");
@@ -445,8 +435,8 @@ namespace Schoole.MenuHelper
                                     NCode = nStdNCode,
                                     BirthDate = nStdBDate
                                 };
-
-                                _updateStudent.Execute(updatedAllStudent);
+                                await LoadingSpinner();
+                                await _updateStudent.Execute(updatedAllStudent);
                                 LineUi();
                                 TextColor("The student successfully changed\n", "Green");
                                 Console.WriteLine("Press Any Key To Go Back.");
@@ -525,6 +515,24 @@ namespace Schoole.MenuHelper
             }
             Console.Write(text);
             Console.ResetColor();
+        }
+
+        static async Task LoadingSpinner(int durationMs = 3000)
+        {
+            char[] frames = { '|', '/', '-', '\\' };
+            int index = 0;
+            int interval = 100;
+
+            DateTime end = DateTime.Now.AddMilliseconds(durationMs);
+
+            while (DateTime.Now < end)
+            {
+                Console.Write($"\rLoading... {frames[index]}");
+                index = (index + 1) % frames.Length;
+                await Task.Delay(interval);
+            }
+
+            Console.Write("\rLoading... Done!   \n");
         }
     }
 }

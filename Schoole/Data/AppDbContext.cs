@@ -15,6 +15,8 @@ namespace Schoole.Data
 
         public DbSet<Grade> Grades { get; set; }
 
+        public DbSet<LogModel> LogModels { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

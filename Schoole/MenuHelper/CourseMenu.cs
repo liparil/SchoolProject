@@ -1,6 +1,7 @@
 ﻿using Schoole.Models;
 using Schoole.Services.CourseService;
 using Schoole.Services.TeacherService;
+using System.Threading.Tasks;
 
 namespace Schoole.MenuHelper
 {
@@ -29,10 +30,11 @@ namespace Schoole.MenuHelper
             _getCourseById = getCourseById;
         }
 
-        public void CourseMenuMain()
+        public async Task CourseMenuMain()
         {
             while (true)
             {
+                Console.Clear();
                 Header("Course Menu");
                 Console.WriteLine("1. Add Course");
                 Console.WriteLine("2. Update Course");
@@ -45,7 +47,7 @@ namespace Schoole.MenuHelper
                 switch (choice)
                 {
                     case "1":
-                        bool result = AddCourse();
+                        bool result = await AddCourse();
                         if (result)
                         {
                             while (true)
@@ -56,7 +58,7 @@ namespace Schoole.MenuHelper
                                 int close = Convert.ToInt16(Console.ReadLine());
                                 if (close == 1)
                                 {
-                                    AddCourse();
+                                    await AddCourse();
                                 }
                                 else if (close == 0)
                                 {
@@ -66,8 +68,8 @@ namespace Schoole.MenuHelper
                         }
 
                         break;
-                    case "2": UpdateCourse(); break;
-                    case "3": DeleteCourse(); break;
+                    case "2": await UpdateCourse(); break;
+                    case "3": await DeleteCourse(); break;
                     case "4": ShowAllCourses(); break;
                     case "0": return;
                     default: ControlInput(); break;
@@ -75,7 +77,7 @@ namespace Schoole.MenuHelper
             }
         }
 
-        public bool AddCourse()
+        public async Task<bool> AddCourse()
         {
             Header("Adding Course");
             List<Teacher> teachers = _getAllTeachers.Execute();
@@ -108,7 +110,8 @@ namespace Schoole.MenuHelper
                 Console.WriteLine("TecherId: ");
                 var teacherId = Convert.ToInt32(Console.ReadLine());
 
-                var result = _addCourse.Execute(title, teacherId);
+                await LoadingSpinner();
+                var result = await _addCourse.Execute(title, teacherId);
                 LineUi();
 
                 if (result.Success)
@@ -124,7 +127,7 @@ namespace Schoole.MenuHelper
             }
         }
 
-        public void UpdateCourse()
+        public async Task UpdateCourse()
         {
             Header("Update Course");
             List<Course> course = _getAllCourses.Execute();
@@ -188,7 +191,8 @@ namespace Schoole.MenuHelper
                                 teacher = courseResult.teacher
 
                             };
-                            _updateCourse.Execute(updatedTitleCourse);
+                            await LoadingSpinner();
+                            await _updateCourse.Execute(updatedTitleCourse);
                             LineUi();
                             TextColor("The course successfully changed\n", "Green");
                             Console.WriteLine("Press Any Key To Go Back.");
@@ -214,7 +218,8 @@ namespace Schoole.MenuHelper
                             var onlyTeacherId = Convert.ToInt32(Console.ReadLine());
 
                             selectedCourse.TeacherId = onlyTeacherId;
-                            _updateCourse.Execute(selectedCourse);
+                            await LoadingSpinner();
+                            await _updateCourse.Execute(selectedCourse);
                             LineUi();
                             TextColor("The course successfully changed\n", "Green");
                             Console.WriteLine("Press Any Key To Go Back.");
@@ -245,8 +250,8 @@ namespace Schoole.MenuHelper
                             Mycourse.Title = nTitle;
                             Mycourse.TeacherId = nTeacher;
 
-
-                            _updateCourse.Execute(Mycourse);
+                            await LoadingSpinner();
+                            await _updateCourse.Execute(Mycourse);
                             LineUi();
                             TextColor("The course successfully changed\n", "Green");
                             Console.WriteLine("Press Any Key To Go Back.");
@@ -260,18 +265,20 @@ namespace Schoole.MenuHelper
             }
         }
 
-        public void DeleteCourse()
+        public async Task DeleteCourse()
         {
             Header("Delete Course");
             List<Course> courses = _getAllCourses.Execute();
-            LineUi();
+
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (courses.Count == 0)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("No Course have been added.");
                 LineUi();
                 Console.WriteLine("Press Any Key To Go Back.");
                 Console.ReadKey();
+                return;
             }
             else
             {
@@ -286,10 +293,42 @@ namespace Schoole.MenuHelper
 
                 }
                 LineUi();
-                Console.WriteLine("Enter the Course ID you want to delete: ");
-                var courseDeleteId = Convert.ToInt32(Console.ReadLine());
+
+                int courseDeleteId;
+                bool isValidInput = false;
+
+                do
+                {
+                    Console.Write("Enter the Course ID you want to delete:");
+                    TextColor(" (Or press 0 to cancel)\n", "Yellow");
+                    string input = Console.ReadLine();
+
+                    if (input == "0") return;
+
+                    isValidInput = int.TryParse(input, out courseDeleteId) && courseDeleteId > 0;
+
+                    if (!isValidInput)
+                    {
+                        TextColor("Invalid ID. Please enter a positive number.\n", "Red");
+                    }
+
+                } while (!isValidInput);
+
+                //Console.WriteLine(" ");
+                //var courseDeleteId = Convert.ToInt32(Console.ReadLine());
                 var courseDeleteResult = _getCourseById.Execute(courseDeleteId);
-                var makeSure = 0;
+
+                if (courseDeleteResult == null)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("----------------------------");
+                    Console.WriteLine("No student with this ID was found.");
+                    Console.WriteLine("----------------------------");
+                    Console.ResetColor();
+                    Console.WriteLine("Press Any Key To Go Back.");
+                    Console.ReadKey();
+                    return;
+                }
                 while (true)
                 {
                     LineUi();
@@ -298,31 +337,32 @@ namespace Schoole.MenuHelper
                     Console.WriteLine("?");
                     Console.Write("1. ");
                     TextColor("Yes", "Red");
-                    Console.Write("   2. ");
+                    Console.Write("    2. ");
                     TextColor("No\n", "Green");
                     LineUi();
-                    Console.Write("Select an option (");
-                    TextColor("1", "Red");
-                    Console.Write("/");
-                    TextColor("2", "Green");
-                    Console.Write("): ");
-                    makeSure = Convert.ToInt32(Console.ReadLine());
-                    if (makeSure == 1)
-                    {
-                        LineUi();
-                        _deleteCourse.Execute(courseDeleteId);
-                        TextColor("The course successfully deleted\n", "Red");
-                        break;
-                    }
-                    else
-                    {
-                        break;
-                    }
+                    Console.Write("Select an option (1/2): ");
 
+                    if (int.TryParse(Console.ReadLine(), out int makeSure))
+                    {
+                        if (makeSure == 1)
+                        {
+                            await LoadingSpinner();
+                            await _deleteCourse.Execute(courseDeleteId);
+                            LineUi();
+                            break;
+                        }
+                        else if (makeSure == 2)
+                        {
+                            TextColor("Deletion cancelled.\n", "Yellow");
+                            break;
+                        }
+                    }
+                    TextColor("Invalid selection. Please enter 1 or 2.\n", "Red");
                 }
 
                 Console.WriteLine("Press Any Key To Go Back.");
                 Console.ReadKey();
+               
             }
         }
 
@@ -391,6 +431,24 @@ namespace Schoole.MenuHelper
             }
             Console.Write(text);
             Console.ResetColor();
+        }
+
+        static async Task LoadingSpinner(int durationMs = 3000)
+        {
+            char[] frames = { '|', '/', '-', '\\' };
+            int index = 0;
+            int interval = 100;
+
+            DateTime end = DateTime.Now.AddMilliseconds(durationMs);
+
+            while (DateTime.Now < end)
+            {
+                Console.Write($"\rLoading... {frames[index]}");
+                index = (index + 1) % frames.Length;
+                await Task.Delay(interval);
+            }
+
+            Console.Write("\rLoading... Done!   \n");
         }
     }
 }
