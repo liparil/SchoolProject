@@ -118,6 +118,7 @@ namespace Schoole.MenuHelper
         public async Task UpdateClassroom()
         {
             Header("Update Classroom");
+            await LoadingSpinner();
             List<Classroom> classrooms = await _getAllClassrooms.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (classrooms.Count == 0)
@@ -272,6 +273,7 @@ namespace Schoole.MenuHelper
         public async Task ShowAllClassroom()
         {
             Header("Show All Classroom");
+            await LoadingSpinner();
             List<Classroom> classrooms = await _getAllClassrooms.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.ResetColor();
@@ -395,7 +397,7 @@ namespace Schoole.MenuHelper
 
                 }
                 LineUi();
-                TextColor($"Total classrooms: {classrooms.Count}", "Yellow");
+                TextColor($"Total classrooms: {classrooms.Count}\n", "Yellow");
                 foreach (Classroom classroom in classrooms)
                 {
                     LineUi();
@@ -408,8 +410,8 @@ namespace Schoole.MenuHelper
                 var courseId = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Classroom Id: ");
                 var classroomId1 = Convert.ToInt32(Console.ReadLine());
-
-                var result2 = _assignCourseToClassroom.Execute(courseId, classroomId1);
+                await LoadingSpinner();
+                var result2 = await _assignCourseToClassroom.Execute(courseId, classroomId1);
 
                 LineUi();
 

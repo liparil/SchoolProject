@@ -5,11 +5,11 @@ namespace Schoole.Services.ClassroomsService
 {
     public interface IAssignCourseToClassroom
     {
-        Output Execute(int courseId, int classroomId);
+        Task<Output> Execute(int courseId, int classroomId);
     }
-    public class AssignCourseToClassroom(IClassroomRepository classroomRepository, ICourseRepository courseRepository) : IAssignCourseToClassroom
+    public class AssignCourseToClassroom(IClassroomRepository classroomRepository, ICourseRepository courseRepository,ILogService logService) : IAssignCourseToClassroom
     {
-        public Output Execute(int courseId, int classroomId)
+        public async Task<Output> Execute(int courseId, int classroomId)
         {
             var course = courseRepository.GetCourseById(courseId);
             var classroom = classroomRepository.GetClassroomById(classroomId);
@@ -19,6 +19,7 @@ namespace Schoole.Services.ClassroomsService
                 output.Success = false;
                 output.Message = "Course Does Not Exist";
                 return output;
+
             }
             if (classroom == null)
             {
@@ -32,6 +33,7 @@ namespace Schoole.Services.ClassroomsService
             }
             output.Success = true;
             output.Message = $"Course: {course.Title} Added to: {classroom.Name}";
+            await logService.LogCreate($"Assign Course To Classroom : {course.Title} - {classroom.Name}");
             return output;
         }
     }

@@ -21,7 +21,7 @@
             _courseMenu = courseMenu;
             _classroomMenu = classroomMenu;
             _gradeMenu = gradeMenu;
-           
+
         }
 
         public async Task MainMenuAsync()
@@ -57,7 +57,7 @@
                         Console.Clear();
                         break;
 
-                    case "4": 
+                    case "4":
                         await _classroomMenu.ClassroomMenuMain();
                         Console.Clear();
                         break;
@@ -104,13 +104,10 @@
                 Console.Write("): ");
                 exit = Convert.ToInt32(Console.ReadLine());
                 if (exit == 1)
-                {
-                    Environment.Exit(0);;
-                }
+                    Environment.Exit(0);
                 else
-                {
                     break;
-                }
+                
 
             }
         }
@@ -129,7 +126,7 @@
             TextColor("----------------------------\n", "Blue");
         }
 
-        private void TextColor(string text , string color)
+        private void TextColor(string text, string color)
         {
             if (Enum.TryParse(typeof(ConsoleColor), color, true, out var parsedColor))
             {

@@ -134,6 +134,7 @@ namespace Schoole.MenuHelper
         public async Task UpdateCourse()
         {
             Header("Update Course");
+            await LoadingSpinner();
             List<Course> course = await _getAllCourses.Execute();
             LineUi();
             Console.ForegroundColor = ConsoleColor.Yellow;

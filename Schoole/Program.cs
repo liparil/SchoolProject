@@ -20,7 +20,7 @@ class Program
 
             .AddScoped<AppDbContext>()
 
-            
+            //dbRepositories
             .AddScoped<IStudentRepository, DbStudentRepository>()
             .AddScoped<ITeacherRepository, DbTeacherRepository>()
             .AddScoped<ICourseRepository, DbCourseRepository>()
@@ -63,9 +63,12 @@ class Program
             .AddScoped<IAddGrade, AddGrade>()
             .AddScoped<IShowReportCard, ShowReportCard>()
 
+            //log
             .AddScoped<ILogModelRepository, DbLogModelRepository>()
             .AddScoped<ILogService, LogService>()
 
+
+            //menu
             .AddTransient<StudentMenu>()
             .AddTransient<TeacherMenu>()
             .AddTransient<CourseMenu>()

@@ -118,6 +118,7 @@ namespace Schoole.MenuHelper
         public async Task UpdateTeachers()
         {
             Header("Update Teachers");
+            await LoadingSpinner();
             List<Teacher> teachers = await _getAllTeachers.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (teachers.Count == 0)
@@ -299,9 +300,7 @@ namespace Schoole.MenuHelper
                             Console.ReadKey();
                             break;
                     }
-
                 }
-
             }
         }
 
@@ -349,7 +348,6 @@ namespace Schoole.MenuHelper
                     }
                 } while (!isValidInput);
 
-                //await LoadingSpinner();
                 var teachDeleteResult = _getTeacherById.Execute(teachDeleteId);
                 if (teachDeleteResult == null)
                 {

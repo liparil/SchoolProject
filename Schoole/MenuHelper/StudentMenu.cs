@@ -260,6 +260,7 @@ namespace Schoole.MenuHelper
         public async Task UpdateStudents()
         {
             Header("Update Student");
+            await LoadingSpinner();
             List<Student> students = await _getAllStudents.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (students.Count == 0)
@@ -543,5 +544,7 @@ namespace Schoole.MenuHelper
             Console.Write("\r" + new string(' ', Console.BufferWidth) + "\r");
 
         }
+
+
     }
 }
