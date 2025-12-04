@@ -51,19 +51,24 @@
                         await _teacherMenu.TeacherMenuMain();
                         Console.Clear();
                         break;
+
                     case "3":
                         await _courseMenu.CourseMenuMain();
                         Console.Clear();
                         break;
+
                     case "4": 
                         await _classroomMenu.ClassroomMenuMain();
                         Console.Clear();
                         break;
+
                     case "5":
                         await _gradeMenu.GradeMenuMain();
                         Console.Clear();
                         break;
+
                     case "0": exitMethod(); break;
+
                     default: ControlInput(); break;
 
                 }

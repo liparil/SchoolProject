@@ -59,7 +59,6 @@ namespace Schoole.MenuHelper
                 switch (choice)
                 {
                     case "1":
-
                        await AddClassroom();
                         while (true)
                         {
@@ -79,11 +78,17 @@ namespace Schoole.MenuHelper
                         break;
 
                     case "2": await UpdateClassroom(); break;
+
                     case "3": await DeleteClassroom(); break;
-                    case "4": ShowAllClassroom(); break;
+
+                    case "4": await ShowAllClassroom(); break;
+
                     case "5": await AddStudentToClassroom(); break;
-                    case "6": AssignCoursetoClassroom(); break;
+
+                    case "6": await AssignCoursetoClassroom(); break;
+
                     case "0": return;
+
                     default: ControlInput(); break;
                 }
             }

@@ -11,7 +11,7 @@ namespace Schoole.Services.StudentsService
     {
         public async Task<List<Student>> Execute()
         {
-            await logService.LogRead($"All students fetched. Count: {studentRepository.GetAllStudents().Count}");
+            await logService.LogRead($"All Students fetched. Count: {studentRepository.GetAllStudents().Count}");
             return studentRepository.GetAllStudents();
             
         }

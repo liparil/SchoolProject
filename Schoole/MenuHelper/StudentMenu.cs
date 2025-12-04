@@ -51,11 +51,17 @@ namespace Schoole.MenuHelper
                 switch (choice)
                 {
                     case "1": await AddingStudent(); break;
+
                     case "2": await UpdateStudents(); break;
+
                     case "3": await DeleteStudents(); break;
+
                     case "4": await ShowAllStudents(); break;
-                    case "5": SearchByNationalCode(); break;
+
+                    case "5": await SearchByNationalCode(); break;
+
                     case "0": return;
+
                     default: ControlInput(); break;
                 }
             }
@@ -294,7 +300,7 @@ namespace Schoole.MenuHelper
                 {
                     Header("Edit Student");
                     TextColor($"The student You Want To Edit:\n", "Green");
-                    Console.WriteLine($"Name: {studentResult.FullName}\nNational code: {studentResult.NCode}\nDate of birth: {studentResult.BirthDate} ");
+                    Console.WriteLine($"Name: {studentResult.FullName}\nNational code: {studentResult.NCode}\nDate of birth: {studentResult.BirthDate.ToShortDateString()} ");
                     LineUi();
                     Console.WriteLine("What do you want to edit?");
                     Console.WriteLine("     1. Edit Name");
@@ -466,6 +472,7 @@ namespace Schoole.MenuHelper
             {
                 Console.WriteLine("Enter The National Code:");
                 string Code = Console.ReadLine();
+                await LoadingSpinner();
                 var std = _showStudent.Execute(Code);
                 LineUi();
                 if (std.Success)

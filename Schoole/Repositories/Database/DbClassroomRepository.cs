@@ -5,18 +5,12 @@ using Schoole.Models;
 
 namespace Schoole.Repositories.Database
 {
-    public class DbClassroomRepository : IClassroomRepository
+    public class DbClassroomRepository(AppDbContext context) : IClassroomRepository
     {
-        private readonly AppDbContext _context;
-
-        public DbClassroomRepository(AppDbContext context)
-        {
-            _context = context;
-        }
         public void Add(Classroom classroom)
         {
-            _context.Classrooms.Add(classroom);
-            _context.SaveChanges();
+            context.Classrooms.Add(classroom);
+            context.SaveChanges();
         }
 
         public void Delete(int classroomId)
@@ -24,26 +18,26 @@ namespace Schoole.Repositories.Database
             var classroom = GetClassroomById(classroomId);
             if (classroom != null)
             {
-                _context.Classrooms.Remove(classroom);
-                _context.SaveChanges();
+                context.Classrooms.Remove(classroom);
+                context.SaveChanges();
             }
         }
 
         public List<Classroom> GetAllClassrooms()
         {
-            return _context.Classrooms
+            return context.Classrooms
             .Include(c => c.Students)
             .ToList();
         }
 
         public Classroom GetClassroomById(int classroomId)
         {
-            return _context.Classrooms.Include(c => c.Students).FirstOrDefault(c => c.ID == classroomId);
+            return context.Classrooms.Include(c => c.Students).FirstOrDefault(c => c.ID == classroomId);
         }
 
         public Classroom GetClassroomByName(string name)
         {
-            return _context.Classrooms.FirstOrDefault(c => c.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+            return context.Classrooms.FirstOrDefault(c => c.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
 
         public void Update(Classroom classroom)
@@ -54,7 +48,7 @@ namespace Schoole.Repositories.Database
                 existing.Name = classroom.Name;
                 existing.Students = classroom.Students;
                 existing.Courses = classroom.Courses;
-                _context.SaveChanges();
+                context.SaveChanges();
             }
         }
     }

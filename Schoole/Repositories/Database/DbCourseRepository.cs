@@ -5,18 +5,12 @@ using Schoole.Models;
 
 namespace Schoole.Repositories.Database
 {
-    public class DbCourseRepository : ICourseRepository
+    public class DbCourseRepository(AppDbContext context) : ICourseRepository
     {
-        private readonly AppDbContext _context;
-
-        public DbCourseRepository(AppDbContext context)
-        {
-            _context = context;
-        }
         public void Add(Course course)
         {
-            _context.Courses.Add(course);
-            _context.SaveChanges();
+            context.Courses.Add(course);
+            context.SaveChanges();
         }
 
         public void Delete(int courseId)
@@ -24,25 +18,25 @@ namespace Schoole.Repositories.Database
             var course = GetCourseById(courseId);
             if (course != null)
             {
-                _context.Courses.Remove(course);
-                _context.SaveChanges();
+                context.Courses.Remove(course);
+                context.SaveChanges();
             }
         }
 
         public List<Course> GetAll()
         {
-            return _context.Courses.Include(c => c.teacher).ToList();
+            return context.Courses.Include(c => c.teacher).ToList();
 
         }
 
         public Course GetCourseById(int courseId)
         {
-            return _context.Courses.Include(c => c.teacher).FirstOrDefault(c => c.ID == courseId);
+            return context.Courses.Include(c => c.teacher).FirstOrDefault(c => c.ID == courseId);
         }
 
         public List<Course> GetCourseByTeacherId(int teacherId)
         {
-            return _context.Courses.Where(c => c.teacher != null && c.teacher.ID == teacherId).ToList();
+            return context.Courses.Where(c => c.teacher != null && c.teacher.ID == teacherId).ToList();
         }
 
         public void Update(Course course)
@@ -52,7 +46,7 @@ namespace Schoole.Repositories.Database
             {
                 existing.Title = course.Title;
                 existing.teacher = course.teacher;
-                _context.SaveChanges();
+                context.SaveChanges();
 
             }
         }

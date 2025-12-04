@@ -46,11 +46,17 @@ namespace Schoole.MenuHelper
                 switch (choice)
                 {
                     case "1": await AddTeachers(); break;
+
                     case "2": await UpdateTeachers(); break;
+
                     case "3": await DeleteTeachers(); break;
+
                     case "4": await ShowAllTeachers(); break;
-                    case "5": SearchByNationalCode(); break;
+
+                    case "5": await SearchByNationalCode(); break;
+
                     case "0": return;
+
                     default: ControlInput(); break;
                 }
             }
@@ -437,6 +443,7 @@ namespace Schoole.MenuHelper
             {
                 Console.WriteLine("Enter The National Code:");
                 string Code = Console.ReadLine();
+                await LoadingSpinner();
                 var teacher = _showTeacher.Execute(Code);
                 LineUi();
                 if (teacher.Success)

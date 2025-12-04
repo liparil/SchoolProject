@@ -67,10 +67,15 @@ namespace Schoole.MenuHelper
                         }
 
                         break;
+
                     case "2": await UpdateCourse(); break;
+
                     case "3": await DeleteCourse(); break;
+
                     case "4": await ShowAllCourses(); break;
+
                     case "0": return;
+
                     default: ControlInput(); break;
                 }
             }

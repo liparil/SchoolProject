@@ -65,7 +65,6 @@ namespace Schoole.MenuHelper
                         await ShowStudentReportCard();
                         break;
                     case "0":
-
                         return;
                     default:
                         ControlInput();

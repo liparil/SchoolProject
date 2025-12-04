@@ -5,19 +5,13 @@ using Schoole.Models;
 
 namespace Schoole.Repositories.Database
 {
-    public class DbStudentRepository : IStudentRepository
+    public class DbStudentRepository(AppDbContext context) : IStudentRepository
     {
-        private readonly AppDbContext _context;
-
-        public DbStudentRepository(AppDbContext context)
-        {
-            _context = context;
-        }
 
         public void Add(Student student)
         {
-            _context.Students.Add(student);
-            _context.SaveChanges();
+            context.Students.Add(student);
+            context.SaveChanges();
         }
 
         public void Delete(int studentId)
@@ -25,29 +19,29 @@ namespace Schoole.Repositories.Database
             var student = GetStudentById(studentId);
             if (student != null)
             {
-                _context.Students.Remove(student);
-                _context.SaveChanges();
+                context.Students.Remove(student);
+                context.SaveChanges();
             }
         }
 
         public List<Student> GetAllStudents()
         {
-            return _context.Students.ToList();
+            return context.Students.ToList();
         }
 
         public Student GetStudentById(int studentId)
         {
-            return _context.Students.Include(s => s.Grades).ThenInclude(g => g.Course).FirstOrDefault(s => s.ID == studentId);
+            return context.Students.Include(s => s.Grades).ThenInclude(g => g.Course).FirstOrDefault(s => s.ID == studentId);
         }
 
         public Student GetStudentByNcode(string nCode)
         {
-            return _context.Students.FirstOrDefault(s => s.NCode == nCode);
+            return context.Students.FirstOrDefault(s => s.NCode == nCode);
         }
 
         public void save()
         {
-            _context.SaveChanges();
+            context.SaveChanges();
         }
 
         public void Update(Student student)
@@ -59,7 +53,7 @@ namespace Schoole.Repositories.Database
                 existing.NCode = student.NCode;
                 existing.BirthDate = student.BirthDate;
                 existing.Classroom = student.Classroom;
-                _context.SaveChanges();
+                context.SaveChanges();
             }
         }
     }

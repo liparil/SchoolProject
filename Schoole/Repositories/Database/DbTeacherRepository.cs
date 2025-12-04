@@ -4,18 +4,12 @@ using Schoole.Models;
 
 namespace Schoole.Repositories.Database
 {
-    public class DbTeacherRepository : ITeacherRepository
+    public class DbTeacherRepository(AppDbContext context) : ITeacherRepository
     {
-        private readonly AppDbContext _context;
-
-        public DbTeacherRepository(AppDbContext context)
-        {
-            _context = context;
-        }
         public void Add(Teacher teacher)
         {
-            _context.Teachers.Add(teacher);
-            _context.SaveChanges();
+            context.Teachers.Add(teacher);
+            context.SaveChanges();
         }
 
         public void Delete(int teacherId)
@@ -23,24 +17,24 @@ namespace Schoole.Repositories.Database
             var teacher = GetTeacherById(teacherId);
             if (teacher != null)
             {
-                _context.Teachers.Remove(teacher);
-                _context.SaveChanges();
+                context.Teachers.Remove(teacher);
+                context.SaveChanges();
             }
         }
 
         public List<Teacher> GetAllTeachers()
         {
-            return _context.Teachers.ToList();
+            return context.Teachers.ToList();
         }
 
         public Teacher GetTeacherById(int teacherId)
         {
-            return _context.Teachers.FirstOrDefault(t => t.ID == teacherId);
+            return context.Teachers.FirstOrDefault(t => t.ID == teacherId);
         }
 
         public Teacher GetTeacherByNCode(string code)
         {
-            return _context.Teachers.FirstOrDefault(t => t.NCode == code);
+            return context.Teachers.FirstOrDefault(t => t.NCode == code);
         }
 
         public void Update(Teacher teacher)
@@ -51,7 +45,7 @@ namespace Schoole.Repositories.Database
                 existing.FullName = teacher.FullName;
                 existing.NCode = teacher.NCode;
                 existing.Expertise = teacher.Expertise;
-                _context.SaveChanges();
+                context.SaveChanges();
             }
         }
     }
