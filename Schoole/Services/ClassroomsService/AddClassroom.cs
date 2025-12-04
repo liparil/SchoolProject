@@ -19,7 +19,7 @@ namespace Schoole.Services.ClassroomsService
 
             output.Success = true;
             output.Message = $"{name} Added Sucssesfuly.";
-            await logService.LogInfo($"Classroom added: {name}");
+            await logService.LogCreate($"Classroom added: {name}");
             return output;
         }
     }

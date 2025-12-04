@@ -5,13 +5,15 @@ namespace Schoole.Services.StudentsService
 {
     public interface IGetAllStudents
     {
-        List<Student> Execute();
+        Task<List<Student>> Execute();
     }
-    public class GetAllStudents(IStudentRepository studentRepository) : IGetAllStudents
+    public class GetAllStudents(IStudentRepository studentRepository, ILogService logService) : IGetAllStudents
     {
-        public List<Student> Execute()
+        public async Task<List<Student>> Execute()
         {
+            await logService.LogRead($"All students fetched. Count: {studentRepository.GetAllStudents().Count}");
             return studentRepository.GetAllStudents();
+            
         }
     }
 }

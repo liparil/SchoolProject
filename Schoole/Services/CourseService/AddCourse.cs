@@ -28,7 +28,7 @@ namespace Schoole.Services.CourseService
             teacher.Courses.Add(newCourse);
             output.Success = true;
             output.Message = $"Course {title} was added and {teacher.FullName} is its teacher.";
-            await logService.LogInfo($"Course added: {title} - Teacher Name: {teacher.FullName}");
+            await logService.LogCreate($"Course added: {title} - Teacher Name: {teacher.FullName}");
             return output;
         }
     }

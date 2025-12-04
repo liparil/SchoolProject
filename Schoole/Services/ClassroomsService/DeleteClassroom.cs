@@ -16,7 +16,7 @@ namespace Schoole.Services.ClassroomsService
             if (classroom == null) return;
 
             classroomRepository.Delete(classroomId);
-            await logService.LogInfo($"Classroom deleted: {classroom.Name}");
+            await logService.LogDelete($"Classroom deleted: {classroom.Name}");
         }
     }
 }

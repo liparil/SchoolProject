@@ -12,7 +12,7 @@ namespace Schoole.Services.TeacherService
         public async Task Execute(Teacher teacher)
         {
             teacherRepository.Update(teacher);
-            await logService.LogInfo($"Teacher updated: {teacher.FullName} - {teacher.NCode}");
+            await logService.LogUpdate($"Teacher updated: {teacher.FullName} - {teacher.NCode}");
         }
 
     }

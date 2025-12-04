@@ -12,7 +12,7 @@ namespace Schoole.Services.CourseService
         public async Task Execute(Course course)
         {
             courseRepository.Update(course);
-            await logService.LogInfo($"Course updated: {course.Title}");
+            await logService.LogUpdate($"Course updated: {course.Title}");
         }
     }
 }

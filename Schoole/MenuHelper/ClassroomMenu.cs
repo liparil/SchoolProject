@@ -2,7 +2,6 @@
 using Schoole.Services.ClassroomsService;
 using Schoole.Services.CourseService;
 using Schoole.Services.StudentsService;
-using System.Threading.Tasks;
 
 namespace Schoole.MenuHelper
 {
@@ -82,7 +81,7 @@ namespace Schoole.MenuHelper
                     case "2": await UpdateClassroom(); break;
                     case "3": await DeleteClassroom(); break;
                     case "4": ShowAllClassroom(); break;
-                    case "5": AddStudentToClassroom(); break;
+                    case "5": await AddStudentToClassroom(); break;
                     case "6": AssignCoursetoClassroom(); break;
                     case "0": return;
                     default: ControlInput(); break;
@@ -114,7 +113,7 @@ namespace Schoole.MenuHelper
         public async Task UpdateClassroom()
         {
             Header("Update Classroom");
-            List<Classroom> classrooms = _getAllClassrooms.Execute();
+            List<Classroom> classrooms = await _getAllClassrooms.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (classrooms.Count == 0)
             {
@@ -173,7 +172,7 @@ namespace Schoole.MenuHelper
         public async Task DeleteClassroom()
         {
             Header("Delete Classroom");
-            List<Classroom> classrooms = _getAllClassrooms.Execute();
+            List<Classroom> classrooms = await _getAllClassrooms.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
 
             if (classrooms.Count == 0)
@@ -265,10 +264,10 @@ namespace Schoole.MenuHelper
 
         }
 
-        public void ShowAllClassroom()
+        public async Task ShowAllClassroom()
         {
             Header("Show All Classroom");
-            List<Classroom> classrooms = _getAllClassrooms.Execute();
+            List<Classroom> classrooms = await _getAllClassrooms.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.ResetColor();
             if (classrooms.Count == 0)
@@ -308,14 +307,14 @@ namespace Schoole.MenuHelper
             }
         }
 
-        public void AddStudentToClassroom()
+        public async Task AddStudentToClassroom()
         {
             Header("Adding Student To Classroom");
-            List<Student> students = _getAllStudents.Execute();
+            List<Student> students = await _getAllStudents.Execute();
             LineUi();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.ResetColor();
-            List<Classroom> classrooms = _getAllClassrooms.Execute();
+            List<Classroom> classrooms = await _getAllClassrooms.Execute();
             if (students.Count == 0 || classrooms.Count == 0)
             {
                 Console.WriteLine("You cannot perform this operation unless you have students or classroom.");
@@ -366,11 +365,11 @@ namespace Schoole.MenuHelper
 
         }
 
-        public void AssignCoursetoClassroom()
+        public async Task AssignCoursetoClassroom()
         {
             Header("Assign Course to Classroom");
-            List<Course> courses = _getAllCourses.Execute();
-            List<Classroom> classrooms = _getAllClassrooms.Execute();
+            List<Course> courses = await _getAllCourses.Execute();
+            List<Classroom> classrooms = await _getAllClassrooms.Execute();
 
             if (courses.Count == 0 || classrooms.Count == 0)
             {
@@ -474,7 +473,8 @@ namespace Schoole.MenuHelper
                 await Task.Delay(interval);
             }
 
-            Console.Write("\rLoading... Done!   \n");
+            Console.Write("\r" + new string(' ', Console.BufferWidth) + "\r");
+
         }
     }
 }

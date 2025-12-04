@@ -1,7 +1,4 @@
 ﻿using Schoole.Interfaces;
-using Schoole.Repositories.Database;
-using Schoole.Services.LogModelService;
-using System.Threading.Tasks;
 
 namespace Schoole.Services.StudentsService
 {
@@ -21,7 +18,7 @@ namespace Schoole.Services.StudentsService
             }
 
             studentRepository.Delete(studentId);
-            await logService.LogInfo($"Student deleted: {student.FullName} - {student.NCode}");
+            await logService.LogDelete($"Student deleted: {student.FullName} - {student.NCode}");
         }
     }
 }

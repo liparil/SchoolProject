@@ -1,7 +1,5 @@
 ﻿using Schoole.Interfaces;
 using Schoole.Models;
-using Schoole.Services.LogModelService;
-using System.Threading.Tasks;
 
 namespace Schoole.Services.StudentsService
 {
@@ -15,7 +13,7 @@ namespace Schoole.Services.StudentsService
         {
             studentRepository.Update(student);
 
-            await logService.LogInfo($"Student updated: {student.FullName} - {student.NCode}");
+            await logService.LogUpdate($"Student updated: {student.FullName} - {student.NCode}");
         }
     }
 }

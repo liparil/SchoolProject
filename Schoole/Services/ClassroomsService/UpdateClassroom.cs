@@ -1,6 +1,5 @@
 ﻿using Schoole.Interfaces;
 using Schoole.Models;
-using Schoole.Services.LogModelService;
 
 namespace Schoole.Services.ClassroomsService
 {
@@ -13,7 +12,7 @@ namespace Schoole.Services.ClassroomsService
         public async Task Execute(Classroom classroom)
         {
             classroomRepository.Update(classroom);
-            await logService.LogInfo($"Classroom updated: {classroom.Name}");
+            await logService.LogUpdate($"Classroom updated: {classroom.Name}");
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-namespace Schoole.MenuHelper
+﻿namespace Schoole.MenuHelper
 {
     public class MenuHelper
     {

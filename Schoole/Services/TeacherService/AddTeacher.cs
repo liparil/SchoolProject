@@ -26,7 +26,7 @@ namespace Schoole.Services.TeacherService
                 teacherRepository.Add(teacher);
                 output.Success = true;
                 output.Message = "Teacher added successfully!";
-                await logService.LogInfo($"Teacher added: {fullName} - {nCode}");
+                await logService.LogCreate($"Teacher added: {fullName} - {nCode}");
                 return output;
         }
     }

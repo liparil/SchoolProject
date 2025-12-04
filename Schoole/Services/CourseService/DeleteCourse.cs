@@ -1,6 +1,4 @@
 ﻿using Schoole.Interfaces;
-using Schoole.Models;
-using Schoole.Services.LogModelService;
 
 namespace Schoole.Services.CourseService
 {
@@ -20,7 +18,7 @@ namespace Schoole.Services.CourseService
             }
 
             courseRepository.Delete(courseId);
-            await logService.LogInfo($"Course deleted: {course.Title} - Teacher Name: {course.teacher}");
+            await logService.LogDelete($"Course deleted: {course.Title} - Teacher Name: {course.teacher}");
         }
     }
 }

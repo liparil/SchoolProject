@@ -1,10 +1,5 @@
 ﻿using Schoole.Interfaces;
 using Schoole.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Schoole.Services.LogModelService
 {
@@ -20,6 +15,23 @@ namespace Schoole.Services.LogModelService
         public async Task LogInfo(string message)
         {
             await WriteLog("Info", message);
+        }
+
+        public async Task LogCreate(string message)
+        {
+            await WriteLog("Create", message);
+        }
+        public async Task LogRead(string message)
+        {
+            await WriteLog("Read", message);
+        }
+        public async Task LogDelete(string message)
+        {
+            await WriteLog("Delete", message);
+        }
+        public async Task LogUpdate(string message)
+        {
+            await WriteLog("Update", message);
         }
 
         public async Task LogWarning(string message)

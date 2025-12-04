@@ -1,7 +1,6 @@
 ﻿using Schoole.Models;
 using Schoole.Services.CourseService;
 using Schoole.Services.TeacherService;
-using System.Threading.Tasks;
 
 namespace Schoole.MenuHelper
 {
@@ -70,7 +69,7 @@ namespace Schoole.MenuHelper
                         break;
                     case "2": await UpdateCourse(); break;
                     case "3": await DeleteCourse(); break;
-                    case "4": ShowAllCourses(); break;
+                    case "4": await ShowAllCourses(); break;
                     case "0": return;
                     default: ControlInput(); break;
                 }
@@ -80,7 +79,7 @@ namespace Schoole.MenuHelper
         public async Task<bool> AddCourse()
         {
             Header("Adding Course");
-            List<Teacher> teachers = _getAllTeachers.Execute();
+            List<Teacher> teachers = await _getAllTeachers.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (teachers.Count == 0)
             {
@@ -130,7 +129,7 @@ namespace Schoole.MenuHelper
         public async Task UpdateCourse()
         {
             Header("Update Course");
-            List<Course> course = _getAllCourses.Execute();
+            List<Course> course = await _getAllCourses.Execute();
             LineUi();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (course.Count == 0)
@@ -201,7 +200,7 @@ namespace Schoole.MenuHelper
 
                         case "2":
                             Header("Edit Teacher");
-                            List<Teacher> teachers = _getAllTeachers.Execute();
+                            List<Teacher> teachers = await _getAllTeachers.Execute();
                             Console.WriteLine($"Total teachers: {teachers.Count}");
                             foreach (Teacher teacher in teachers)
                             {
@@ -228,7 +227,7 @@ namespace Schoole.MenuHelper
 
                         case "3":
                             Header("Edit All Information");
-                            List<Teacher> t = _getAllTeachers.Execute();
+                            List<Teacher> t = await _getAllTeachers.Execute();
                             TextColor($"Total teachers: {t.Count}\n", "Yellow");
                             foreach (Teacher teacher in t)
                             {
@@ -268,7 +267,7 @@ namespace Schoole.MenuHelper
         public async Task DeleteCourse()
         {
             Header("Delete Course");
-            List<Course> courses = _getAllCourses.Execute();
+            List<Course> courses = await _getAllCourses.Execute();
 
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (courses.Count == 0)
@@ -314,8 +313,6 @@ namespace Schoole.MenuHelper
 
                 } while (!isValidInput);
 
-                //Console.WriteLine(" ");
-                //var courseDeleteId = Convert.ToInt32(Console.ReadLine());
                 var courseDeleteResult = _getCourseById.Execute(courseDeleteId);
 
                 if (courseDeleteResult == null)
@@ -366,10 +363,11 @@ namespace Schoole.MenuHelper
             }
         }
 
-        public void ShowAllCourses()
+        public async Task ShowAllCourses()
         {
             Header("Showing Courses");
-            List<Course> courses = _getAllCourses.Execute();
+            await LoadingSpinner();
+            List<Course> courses = await _getAllCourses.Execute();
             LineUi();
 
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -448,7 +446,8 @@ namespace Schoole.MenuHelper
                 await Task.Delay(interval);
             }
 
-            Console.Write("\rLoading... Done!   \n");
+            Console.Write("\r" + new string(' ', Console.BufferWidth) + "\r");
+
         }
     }
 }

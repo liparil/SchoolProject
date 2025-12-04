@@ -1,7 +1,5 @@
 ﻿using Schoole.Interfaces;
 using Schoole.Models;
-using Schoole.Services.LogModelService;
-using System.Threading.Tasks;
 
 namespace Schoole.Services.StudentsService
 {
@@ -28,7 +26,7 @@ namespace Schoole.Services.StudentsService
             studentRepository.Add(student);
             output.Success = true;
             output.Message = "Student added successfully!";
-            await logService.LogInfo($"Student added: {fullName} - {nCode}");
+            await logService.LogCreate($"Student added: {fullName} - {nCode}");
             return output;
         }
     }

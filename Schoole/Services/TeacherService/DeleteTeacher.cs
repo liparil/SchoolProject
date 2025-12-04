@@ -1,6 +1,4 @@
 ﻿using Schoole.Interfaces;
-using Schoole.Models;
-using Schoole.Repositories.Database;
 
 namespace Schoole.Services.TeacherService
 {
@@ -16,7 +14,7 @@ namespace Schoole.Services.TeacherService
             if (teacher == null) return;
 
             teacherRepository.Delete(teacherId);
-            await logService.LogInfo($"teacher deleted: {teacher.FullName} - {teacher.NCode}");
+            await logService.LogDelete($"teacher deleted: {teacher.FullName} - {teacher.NCode}");
         }
     }
 }

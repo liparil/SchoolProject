@@ -48,7 +48,7 @@ namespace Schoole.MenuHelper
                     case "1": await AddTeachers(); break;
                     case "2": await UpdateTeachers(); break;
                     case "3": await DeleteTeachers(); break;
-                    case "4": ShowAllTeachers(); break;
+                    case "4": await ShowAllTeachers(); break;
                     case "5": SearchByNationalCode(); break;
                     case "0": return;
                     default: ControlInput(); break;
@@ -112,7 +112,7 @@ namespace Schoole.MenuHelper
         public async Task UpdateTeachers()
         {
             Header("Update Teachers");
-            List<Teacher> teachers = _getAllTeachers.Execute();
+            List<Teacher> teachers = await _getAllTeachers.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (teachers.Count == 0)
             {
@@ -302,7 +302,7 @@ namespace Schoole.MenuHelper
         public async Task DeleteTeachers()
         {
             Header("Delete Teacher");
-            List<Teacher> teachers = _getAllTeachers.Execute();
+            List<Teacher> teachers = await _getAllTeachers.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
 
             if (teachers.Count == 0)
@@ -392,12 +392,12 @@ namespace Schoole.MenuHelper
             }
         }
 
-        public void ShowAllTeachers()
+        public async Task ShowAllTeachers()
         {
 
             Header("Showing Teacher");
-
-            List<Teacher> teachers = _getAllTeachers.Execute();
+            await LoadingSpinner();
+            List<Teacher> teachers = await _getAllTeachers.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (teachers.Count == 0)
             {
@@ -421,10 +421,10 @@ namespace Schoole.MenuHelper
             Console.ReadKey();
         }
 
-        public void SearchByNationalCode()
+        public async Task SearchByNationalCode()
         {
             Header("Search By National Code");
-            List<Teacher> teachers = _getAllTeachers.Execute();
+            List<Teacher> teachers = await _getAllTeachers.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.ResetColor();
             if (teachers.Count == 0)
@@ -506,7 +506,9 @@ namespace Schoole.MenuHelper
                 await Task.Delay(interval);
             }
 
-            Console.Write("\rLoading... Done!   \n");
+            Console.Write("\r" + new string(' ', Console.BufferWidth) + "\r");
+
+
         }
     }
 }

@@ -2,7 +2,6 @@
 using Schoole.Services.CourseService;
 using Schoole.Services.GradeService;
 using Schoole.Services.StudentsService;
-using System.Threading.Tasks;
 
 namespace Schoole.MenuHelper
 {
@@ -63,7 +62,7 @@ namespace Schoole.MenuHelper
 
                         break;
                     case "2":
-                        ShowStudentReportCard();
+                        await ShowStudentReportCard();
                         break;
                     case "0":
 
@@ -78,8 +77,8 @@ namespace Schoole.MenuHelper
         public async Task<bool> AddGrade()
         {
             Header("Adding Grade");
-            List<Student> students = _getAllStudents.Execute();
-            List<Course> courses = _getAllCourses.Execute();
+            List<Student> students = await _getAllStudents.Execute();
+            List<Course> courses = await _getAllCourses.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (students.Count == 0 || courses.Count == 0)
             {
@@ -136,10 +135,10 @@ namespace Schoole.MenuHelper
 
         }
 
-        public void ShowStudentReportCard()
+        public async Task ShowStudentReportCard()
         {
             Header("Show student report card");
-            List<Student> students = _getAllStudents.Execute();
+            List<Student> students = await _getAllStudents.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (students.Count == 0)
             {
@@ -235,7 +234,8 @@ namespace Schoole.MenuHelper
                 await Task.Delay(interval);
             }
 
-            Console.Write("\rLoading... Done!   \n");
+            Console.Write("\r" + new string(' ', Console.BufferWidth) + "\r");
+
         }
     }
 

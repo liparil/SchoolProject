@@ -1,6 +1,5 @@
 ﻿using Schoole.Interfaces;
 using Schoole.Models;
-using Schoole.Services.LogModelService;
 
 namespace Schoole.Services.GradeService
 {
@@ -37,7 +36,7 @@ namespace Schoole.Services.GradeService
 
             test.Success = true;
             test.Message = $"A score of {score} was recorded for student {student.FullName} in course {course.Title}.";
-            await logService.LogInfo($"Grade added: {studentId} - {courseId} - {score}");
+            await logService.LogCreate($"Grade added: {studentId} - {courseId} - {score}");
             return test;
         }
 

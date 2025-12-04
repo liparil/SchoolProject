@@ -5,13 +5,15 @@ namespace Schoole.Services.TeacherService
 {
     public interface IGetAllTeachers
     {
-        List<Teacher> Execute();
+        Task<List<Teacher>> Execute();
     }
-    public class GetAllTeachers(ITeacherRepository teacherRepository) : IGetAllTeachers
+    public class GetAllTeachers(ITeacherRepository teacherRepository, ILogService logService ) : IGetAllTeachers
     {
-        public List<Teacher> Execute()
+        public async Task<List<Teacher>> Execute()
         {
+            await logService.LogRead($"All teachers fetched. Count: {teacherRepository.GetAllTeachers().Count}");
             return teacherRepository.GetAllTeachers();
+
         }
     }
 }

@@ -5,13 +5,14 @@ namespace Schoole.Services.CourseService
 {
     public interface IGetAllCourses
     {
-        List<Course> Execute();
+        Task<List<Course>> Execute();
     }
-    public class GetAllCourses(ICourseRepository courseRepository) : IGetAllCourses
+    public class GetAllCourses(ICourseRepository courseRepository, ILogService logService) : IGetAllCourses
     {
 
-        public List<Course> Execute()
+        public async Task<List<Course>> Execute()
         {
+            await logService.LogRead($"All Course fetched. Count: {courseRepository.GetAll().Count}");
             return courseRepository.GetAll();
         }
     }
