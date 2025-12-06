@@ -184,7 +184,7 @@ namespace Schoole.MenuHelper
 
         private void ControlInput()
         {
-            TextColor("Invalid selection. Please try again.\n", "Red");
+            TextColor("Invalid Input\n", "Red");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }

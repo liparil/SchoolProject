@@ -50,7 +50,24 @@ namespace Schoole.MenuHelper
 
                 switch (choice)
                 {
-                    case "1": await AddingStudent(); break;
+                    case "1":
+                        await AddingStudent();
+                        while (true)
+                        {
+                            LineUi();
+                            Console.WriteLine("If you want to add a new classroom, press 1.");
+                            Console.WriteLine("To go back press 0");
+                            int close = Convert.ToInt16(Console.ReadLine());
+                            if (close == 1)
+                            {
+                                await AddingStudent();
+                            }
+                            else if (close == 0)
+                            {
+                                break;
+                            }
+                        }
+                        break;
 
                     case "2": await UpdateStudents(); break;
 
@@ -125,10 +142,6 @@ namespace Schoole.MenuHelper
             {
                 TextColor($"{result.Message}\n", "Red");
             }
-            
-
-            Console.WriteLine("Press any key to go back.");
-            Console.ReadKey(true);
         }
 
         public async Task ShowAllStudents()
@@ -492,7 +505,7 @@ namespace Schoole.MenuHelper
 
         private void ControlInput()
         {
-            TextColor("Invalid selection. Please try again.\n", "Red");
+            TextColor("Invalid Input\n", "Red");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
