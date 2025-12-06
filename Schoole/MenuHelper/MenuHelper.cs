@@ -78,9 +78,9 @@
         public void ControlInput()
         {
             LineUi();
-            TextColor("Invalid Input\n", "Red");
+            TextColor("Invalid Input!\n", "Red");
 
-            Console.Write("Press any key to try again");
+            Console.Write("Press any key to retry.");
             Console.ReadKey();
         }
 

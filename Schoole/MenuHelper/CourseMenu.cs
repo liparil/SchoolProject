@@ -52,8 +52,8 @@ namespace Schoole.MenuHelper
                             while (true)
                             {
                                 LineUi();
-                                Console.WriteLine("If you want to add a new course, press 1.");
-                                Console.WriteLine("To go back press 0");
+                                Console.WriteLine("Press 1 to add a new Course.");
+                                Console.WriteLine("Press 0 to return to the previous menu.");
                                 int close = Convert.ToInt16(Console.ReadLine());
                                 if (close == 1)
                                 {
@@ -199,7 +199,7 @@ namespace Schoole.MenuHelper
                             await LoadingSpinner();
                             await _updateCourse.Execute(updatedTitleCourse);
                             LineUi();
-                            TextColor("The course successfully changed\n", "Green");
+                            TextColor("The course successfully changed :)\n", "Green");
                             Console.WriteLine("Press Any Key To Go Back.");
                             Console.ReadKey();
                             break;
@@ -226,7 +226,7 @@ namespace Schoole.MenuHelper
                             await LoadingSpinner();
                             await _updateCourse.Execute(selectedCourse);
                             LineUi();
-                            TextColor("The course successfully changed\n", "Green");
+                            TextColor("The course successfully changed :)\n", "Green");
                             Console.WriteLine("Press Any Key To Go Back.");
                             Console.ReadKey();
                             break;
@@ -258,7 +258,7 @@ namespace Schoole.MenuHelper
                             await LoadingSpinner();
                             await _updateCourse.Execute(Mycourse);
                             LineUi();
-                            TextColor("The course successfully changed\n", "Green");
+                            TextColor("The course successfully changed :)\n", "Green");
                             Console.WriteLine("Press Any Key To Go Back.");
                             Console.ReadKey();
                             break;
@@ -405,7 +405,7 @@ namespace Schoole.MenuHelper
         private void ControlInput()
         {
             TextColor("Invalid Input\n", "Red");
-            Console.WriteLine("Press any key to continue...");
+            Console.WriteLine("Press any key to retry.");
             Console.ReadKey();
         }
 

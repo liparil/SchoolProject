@@ -19,7 +19,7 @@ namespace Schoole.Services.ClassroomsService
             if (student == null)
             {
                 output.Success = false;
-                output.Message = "Student Does Not Exist";
+                output.Message = "Student Does Not Exist!";
                 return output;
             }
 
@@ -27,7 +27,7 @@ namespace Schoole.Services.ClassroomsService
             if (classroom == null)
             {
                 output.Success = false;
-                output.Message = "Classroom Does Not Exist";
+                output.Message = "Classroom Does Not Exist!";
                 return output;
             }
 
@@ -36,7 +36,7 @@ namespace Schoole.Services.ClassroomsService
             if (student.ClassroomId == classroomId)
             {
                 output.Success = false;
-                output.Message = "Student already in this classroom";
+                output.Message = "Student already in this classroom!";
                 return output;
             }
 
@@ -52,7 +52,7 @@ namespace Schoole.Services.ClassroomsService
             else
             {
                 output.Success = false;
-                output.Message = "Student added in classroom";
+                output.Message = "Student added in classroom!";
                 return output;
             }
         }

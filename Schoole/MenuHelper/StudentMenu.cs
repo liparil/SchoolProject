@@ -55,8 +55,8 @@ namespace Schoole.MenuHelper
                         while (true)
                         {
                             LineUi();
-                            Console.WriteLine("If you want to add a new classroom, press 1.");
-                            Console.WriteLine("To go back press 0");
+                            Console.WriteLine("Press 1 to add a new Student.");
+                            Console.WriteLine("Press 0 to return to the previous menu.");
                             int close = Convert.ToInt16(Console.ReadLine());
                             if (close == 1)
                             {
@@ -254,7 +254,7 @@ namespace Schoole.MenuHelper
                         await LoadingSpinner();
                         await _deleteStudent.Execute(stdDeleteId);
                         LineUi();
-                        TextColor("Student deleted successfully!\n", "Green");
+                        TextColor("Student deleted successfully :)\n", "Green");
                         break;
                     }
                     else if (makeSure == 2)
@@ -342,7 +342,7 @@ namespace Schoole.MenuHelper
                             await _updateStudent.Execute(updatedStudent);
                             LineUi();
                             Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("The student successfully changed");
+                            Console.WriteLine("The student successfully changed :)");
                             Console.ResetColor();
                             Console.WriteLine("Press Any Key To Go Back.");
                             Console.ReadKey();
@@ -383,7 +383,7 @@ namespace Schoole.MenuHelper
                                 await LoadingSpinner();
                                 await _updateStudent.Execute(updatedNCodeStudent);
                                 LineUi();
-                                TextColor("The student successfully changed\n", "Green");
+                                TextColor("The student successfully changed :)\n", "Green");
                                 Console.WriteLine("Press Any Key To Go Back.");
                                 Console.ReadKey();
                                 break;
@@ -408,7 +408,7 @@ namespace Schoole.MenuHelper
                             await LoadingSpinner();
                             await _updateStudent.Execute(updatedBDateStudent);
                             LineUi();
-                            TextColor("The student successfully changed\n", "Green");
+                            TextColor("The student successfully changed :)\n", "Green");
                             Console.WriteLine("Press Any Key To Go Back.");
                             Console.ReadKey();
                             break;
@@ -459,7 +459,7 @@ namespace Schoole.MenuHelper
                                 await LoadingSpinner();
                                 await _updateStudent.Execute(updatedAllStudent);
                                 LineUi();
-                                TextColor("The student successfully changed\n", "Green");
+                                TextColor("The student successfully changed :)\n", "Green");
                                 Console.WriteLine("Press Any Key To Go Back.");
                                 Console.ReadKey();
                                 break;
@@ -506,7 +506,7 @@ namespace Schoole.MenuHelper
         private void ControlInput()
         {
             TextColor("Invalid Input\n", "Red");
-            Console.WriteLine("Press any key to continue...");
+            Console.WriteLine("Press any key to retry.");
             Console.ReadKey();
         }
 

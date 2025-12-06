@@ -50,8 +50,8 @@ namespace Schoole.MenuHelper
                         while (true)
                         {
                             LineUi();
-                            Console.WriteLine("If you want to add a new classroom, press 1.");
-                            Console.WriteLine("To go back press 0");
+                            Console.WriteLine("Press 1 to add a new Teacher.");
+                            Console.WriteLine("Press 0 to return to the previous menu.");
                             int close = Convert.ToInt16(Console.ReadLine());
                             if (close == 1)
                             {
@@ -128,8 +128,7 @@ namespace Schoole.MenuHelper
             {
                 TextColor($"{result.Message}\n", "Red");
             }
-            //Console.WriteLine("Press any key to go back.");
-            //Console.ReadKey(true);
+         
         }
 
         public async Task UpdateTeachers()
@@ -202,7 +201,7 @@ namespace Schoole.MenuHelper
                             await LoadingSpinner();
                             await _UpdateTeacher.Execute(updatedNameTeacher);
                             LineUi();
-                            TextColor("The teacher successfully changed\n", "Green");
+                            TextColor("The teacher successfully changed :)\n", "Green");
                             Console.WriteLine("Press Any Key To Go Back.");
                             Console.ReadKey();
                             break;
@@ -242,7 +241,7 @@ namespace Schoole.MenuHelper
                                 await LoadingSpinner();
                                 await _UpdateTeacher.Execute(updatedNCodetTeacher);
                                 LineUi();
-                                TextColor("The Teacher successfully changed\n", "Green");
+                                TextColor("The Teacher successfully changed :)\n", "Green");
                                 Console.WriteLine("Press Any Key To Go Back.");
                                 Console.ReadKey();
                                 break;
@@ -264,7 +263,7 @@ namespace Schoole.MenuHelper
                             await LoadingSpinner();
                             await _UpdateTeacher.Execute(updatedExpertiseTeacher);
                             LineUi();
-                            TextColor("The teacher successfully changed\n", "Green");
+                            TextColor("The teacher successfully changed :)\n", "Green");
                             Console.WriteLine("Press Any Key To Go Back.");
                             Console.ReadKey();
                             break;
@@ -312,7 +311,7 @@ namespace Schoole.MenuHelper
                             await LoadingSpinner();
                             await _UpdateTeacher.Execute(updatedTeacher);
                             LineUi();
-                            TextColor("The teacher successfully changed\n", "Green");
+                            TextColor("The teacher successfully changed :)\n", "Green");
                             Console.WriteLine("Press Any Key To Go Back.");
                             Console.ReadKey();
                             break;
@@ -481,7 +480,7 @@ namespace Schoole.MenuHelper
         private void ControlInput()
         {
             TextColor("Invalid Input\n", "Red");
-            Console.WriteLine("Press any key to continue...");
+            Console.WriteLine("Press any key to retry.");
             Console.ReadKey();
         }
 
