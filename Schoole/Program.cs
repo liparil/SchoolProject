@@ -18,6 +18,7 @@ class Program
 
         var serviceProvider = new ServiceCollection()
 
+            //context
             .AddScoped<AppDbContext>()
 
             //dbRepositories

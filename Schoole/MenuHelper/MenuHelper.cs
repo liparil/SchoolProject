@@ -102,7 +102,18 @@
                 Console.Write("/");
                 TextColor("2", "Green");
                 Console.Write("): ");
-                exit = Convert.ToInt32(Console.ReadLine());
+                var input = Console.ReadLine();
+                //int exit;
+
+                if (!int.TryParse(input, out exit) || (exit != 0 && exit != 1))
+                {
+                    LineUi();
+                    TextColor("Invalid Input!\n", "Red");
+                    
+                    TextColor("We Won't Let You to Go :)", "Cyan");
+                    Console.ReadKey();
+                    return;
+                }
                 if (exit == 1)
                     Environment.Exit(0);
                 else
