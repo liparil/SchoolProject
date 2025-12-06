@@ -40,7 +40,7 @@ namespace Schoole.Services.ClassroomsService
                 return output;
             }
 
-            if (student.ClassroomId != null)
+            if (student.ClassroomId == null)
             {
                 student.ClassroomId = classroomId;
                 studentRepository.Update(student);
