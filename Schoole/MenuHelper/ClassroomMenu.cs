@@ -59,7 +59,7 @@ namespace Schoole.MenuHelper
                 switch (choice)
                 {
                     case "1":
-                       await AddClassroom();
+                        await AddClassroom();
                         while (true)
                         {
                             LineUi();
@@ -68,7 +68,7 @@ namespace Schoole.MenuHelper
                             int close = Convert.ToInt16(Console.ReadLine());
                             if (close == 1)
                             {
-                               await AddClassroom();
+                                await AddClassroom();
                             }
                             else if (close == 0)
                             {
@@ -333,11 +333,15 @@ namespace Schoole.MenuHelper
                 TextColor($"Total students: {students.Count}\n", "Yellow");
                 foreach (Student student in students)
                 {
-                    LineUi();
-                    Console.WriteLine($"Id: {student.ID}");
-                    Console.WriteLine($"Name: {student.FullName}");
-                    Console.WriteLine($"National code: {student.NCode}");
-                    Console.WriteLine($"Expertise: {student.BirthDate.ToShortDateString()}");
+                    if (student.ClassroomId == null)
+                    {
+                        LineUi();
+                        Console.WriteLine($"Id: {student.ID}");
+                        Console.WriteLine($"Name: {student.FullName}");
+                        Console.WriteLine($"National code: {student.NCode}");
+                        Console.WriteLine($"Expertise: {student.BirthDate.ToShortDateString()}");
+                    }
+
 
                 }
                 LineUi();

@@ -103,9 +103,7 @@
                 TextColor("2", "Green");
                 Console.Write("): ");
                 var input = Console.ReadLine();
-                //int exit;
-
-                if (!int.TryParse(input, out exit) || (exit != 0 && exit != 1))
+                if (!int.TryParse(input, out exit) || (exit != 2 && exit != 1))
                 {
                     LineUi();
                     TextColor("Invalid Input!\n", "Red");
