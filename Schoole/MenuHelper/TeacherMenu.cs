@@ -54,13 +54,9 @@ namespace Schoole.MenuHelper
                             Console.WriteLine("Press 0 to return to the previous menu.");
                             int close = Convert.ToInt16(Console.ReadLine());
                             if (close == 1)
-                            {
                                 await AddTeachers();
-                            }
                             else if (close == 0)
-                            {
                                 break;
-                            }
                         }
                         break;
 
@@ -359,9 +355,7 @@ namespace Schoole.MenuHelper
                     if (input == "0") return;
                     isValidInput = int.TryParse(input, out teachDeleteId) && teachDeleteId > 0;
                     if (!isValidInput)
-                    {
                         TextColor("Invalid ID. Please enter a positive number.\n", "Red");
-                    }
                 } while (!isValidInput);
 
                 var teachDeleteResult = _getTeacherById.Execute(teachDeleteId);
@@ -420,9 +414,7 @@ namespace Schoole.MenuHelper
             List<Teacher> teachers = await _getAllTeachers.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (teachers.Count == 0)
-            {
                 Console.WriteLine("No teachers have been added.");
-            }
             else
             {
                 Console.WriteLine($"Total teachers: {teachers.Count}");
@@ -461,18 +453,12 @@ namespace Schoole.MenuHelper
                 var teacher = _showTeacher.Execute(Code);
                 LineUi();
                 if (teacher.Success)
-                {
                     TextColor($"{teacher.Message}\n", "Green");
                     
-                }
                 else
-                {
                     TextColor($"{teacher.Message}\n", "Red");
-                }
                 LineUi();
             }
-
-
             Console.WriteLine("Press Any Key To Go Back.");
             Console.ReadKey();
         }
@@ -501,13 +487,9 @@ namespace Schoole.MenuHelper
         private void TextColor(string text, string color)
         {
             if (Enum.TryParse(typeof(ConsoleColor), color, true, out var parsedColor))
-            {
                 Console.ForegroundColor = (ConsoleColor)parsedColor;
-            }
             else
-            {
                 Console.ForegroundColor = ConsoleColor.White;
-            }
             Console.Write(text);
             Console.ResetColor();
         }
@@ -528,8 +510,6 @@ namespace Schoole.MenuHelper
             }
 
             Console.Write("\r" + new string(' ', Console.BufferWidth) + "\r");
-
-
         }
     }
 }

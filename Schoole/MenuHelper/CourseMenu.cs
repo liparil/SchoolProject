@@ -56,13 +56,9 @@ namespace Schoole.MenuHelper
                                 Console.WriteLine("Press 0 to return to the previous menu.");
                                 int close = Convert.ToInt16(Console.ReadLine());
                                 if (close == 1)
-                                {
                                     await AddCourse();
-                                }
                                 else if (close == 0)
-                                {
                                     break;
-                                }
                             }
                         }
 
@@ -119,14 +115,9 @@ namespace Schoole.MenuHelper
                 LineUi();
 
                 if (result.Success)
-                {
                     TextColor($"{result.Message}\n", "Green");
-
-                }
                 else
-                {
                     TextColor($"{result.Message}\n", "Red");
-                }
                 return true;
             }
         }
@@ -313,9 +304,7 @@ namespace Schoole.MenuHelper
                     isValidInput = int.TryParse(input, out courseDeleteId) && courseDeleteId > 0;
 
                     if (!isValidInput)
-                    {
                         TextColor("Invalid ID. Please enter a positive number.\n", "Red");
-                    }
 
                 } while (!isValidInput);
 
@@ -426,13 +415,9 @@ namespace Schoole.MenuHelper
         private void TextColor(string text, string color)
         {
             if (Enum.TryParse(typeof(ConsoleColor), color, true, out var parsedColor))
-            {
                 Console.ForegroundColor = (ConsoleColor)parsedColor;
-            }
             else
-            {
                 Console.ForegroundColor = ConsoleColor.White;
-            }
             Console.Write(text);
             Console.ResetColor();
         }

@@ -50,13 +50,9 @@ namespace Schoole.MenuHelper
                                 Console.WriteLine("Press 0 to return to the previous menu.");
                                 int close = Convert.ToInt16(Console.ReadLine());
                                 if (close == 1)
-                                {
                                     await AddGrade();
-                                }
                                 else if (close == 0)
-                                {
                                     break;
-                                }
                             }
                         }
 
@@ -121,14 +117,10 @@ namespace Schoole.MenuHelper
                 LineUi();
 
                 if (result.Success)
-                {
                     TextColor($"{result.Message}\n", "Green");
                     
-                }
                 else
-                {
                     TextColor($"{result.Message}\n", "Red");
-                }
                 return true;
             }
 
@@ -170,16 +162,11 @@ namespace Schoole.MenuHelper
                     TextColor($"{result1.Message}\n", "Green");
                 }
                 else
-                {
                     TextColor($"{result1.Message}\n", "Red");
-                }
                 LineUi();
                 Console.WriteLine("Press Any Key To Go Back.");
-
                 Console.ReadKey();
-
             }
-
         }
 
         private void ControlInput()
@@ -207,13 +194,9 @@ namespace Schoole.MenuHelper
         private void TextColor(string text, string color)
         {
             if (Enum.TryParse(typeof(ConsoleColor), color, true, out var parsedColor))
-            {
                 Console.ForegroundColor = (ConsoleColor)parsedColor;
-            }
             else
-            {
                 Console.ForegroundColor = ConsoleColor.White;
-            }
             Console.Write(text);
             Console.ResetColor();
         }

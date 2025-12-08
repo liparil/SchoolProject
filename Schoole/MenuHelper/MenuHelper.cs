@@ -138,13 +138,9 @@
         private void TextColor(string text, string color)
         {
             if (Enum.TryParse(typeof(ConsoleColor), color, true, out var parsedColor))
-            {
                 Console.ForegroundColor = (ConsoleColor)parsedColor;
-            }
             else
-            {
                 Console.ForegroundColor = ConsoleColor.White;
-            }
             Console.Write(text);
             Console.ResetColor();
         }

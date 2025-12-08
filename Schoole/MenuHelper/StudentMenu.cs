@@ -59,13 +59,9 @@ namespace Schoole.MenuHelper
                             Console.WriteLine("Press 0 to return to the previous menu.");
                             int close = Convert.ToInt16(Console.ReadLine());
                             if (close == 1)
-                            {
                                 await AddingStudent();
-                            }
                             else if (close == 0)
-                            {
                                 break;
-                            }
                         }
                         break;
 
@@ -151,9 +147,7 @@ namespace Schoole.MenuHelper
             List<Student> students = await _getAllStudents.Execute();
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (students.Count == 0)
-            {
                 Console.WriteLine("No students have been added.");
-            }
             else
             {
                 Console.WriteLine($"Total Students: {students.Count}");
@@ -214,9 +208,7 @@ namespace Schoole.MenuHelper
                 isValidInput = int.TryParse(input, out stdDeleteId) && stdDeleteId > 0;
 
                 if (!isValidInput)
-                {
                     TextColor("Invalid ID. Please enter a positive number.\n", "Red");
-                }
 
             } while (!isValidInput);
 
@@ -489,14 +481,10 @@ namespace Schoole.MenuHelper
                 await LoadingSpinner();
                 var std = _showStudent.Execute(Code);
                 LineUi();
-                if (std.Success)
-                {
+                if (std.Success)    
                     TextColor($"{std.Message}\n", "Green");
-                }
                 else
-                {
                     TextColor($"{std.Message}\n", "Red");
-                }
                 LineUi();
             }
             Console.WriteLine("Press Any Key To Go Back.");
@@ -528,13 +516,9 @@ namespace Schoole.MenuHelper
         private void TextColor(string text, string color)
         {
             if (Enum.TryParse(typeof(ConsoleColor), color, true, out var parsedColor))
-            {
                 Console.ForegroundColor = (ConsoleColor)parsedColor;
-            }
             else
-            {
                 Console.ForegroundColor = ConsoleColor.White;
-            }
             Console.Write(text);
             Console.ResetColor();
         }
